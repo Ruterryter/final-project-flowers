@@ -2,69 +2,14 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import mongoose from 'mongoose'
-import crypto from 'crypto'
 import bcrypt from 'bcrypt-nodejs'
+import User from './models/user'
+import Bouquet from './models/bouquet'
 
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/finalProject"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.Promise = Promise
-
-
-const Bouquet = mongoose.model('Bouquet', {
-  name: {
-    type: String,
-    required: false
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  }
-})
-
-const User = mongoose.model('User', {
-  firstName: {
-    type: String,
-    required: false
-  },
-  lastName: {
-    type: String,
-    required: false
-  },
-  email: {
-    type: String,
-    unique: true,
-    required: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  accessToken: {
-    type: String,
-    default: () => crypto.randomBytes(128).toString('hex')
-  },
-  address: {
-    type: String,
-    required: false
-  },
-  zipCode: {
-    type: Number,
-    required: false
-  },
-  city: {
-    type: String,
-    required: false
-  },
-  phoneNumber: {
-    type: Number,
-    required: false
-  }
-})
 
 
 // Defines the port the app will run on. Defaults to 8080, but can be 
@@ -73,6 +18,7 @@ const User = mongoose.model('User', {
 //   PORT=9000 npm start
 const port = process.env.PORT || 8082
 const app = express()
+const listEndpoints = require("express-list-endpoints");
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors())
@@ -93,8 +39,28 @@ const authenticateUser = async (req, res, next) => {
 }
 
 // Start defining your routes here
-app.get('/', (req, res) => {
-  res.send('Hello world')
+app.get("/", (req, res) => {
+  res.send(listEndpoints(app));
+});
+
+// Show bouquets in database
+app.get('/bouquets', (req, res) => {
+  const bouquets = Bouquet.find()
+    .sort({ price: 1 })
+  res.json(bouquets);
+});
+
+// Add bouquets to webshop // add admin log in for this endpoint //
+
+app.post('/bouquets', async (req, res) => {
+  try {
+    const { name, price, description, imageUrl } = req.body;
+    const bouquet = new Bouquet({ name, price, description, imageUrl })
+    const saved = await bouquet.save();
+    res.status(201).json({ id: bouquet._id });
+  } catch (err) {
+    res.status(400).json({ message: 'Could not create bouquet', errors: err.errors });
+  }
 })
 
 
