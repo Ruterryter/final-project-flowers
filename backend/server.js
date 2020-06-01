@@ -8,7 +8,10 @@ import Bouquet from './models/bouquet'
 
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/finalProject"
-mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(mongoUrl, {
+  useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true,
+  useFindAndModify: false,
+})
 mongoose.Promise = Promise
 
 
@@ -38,30 +41,42 @@ const authenticateUser = async (req, res, next) => {
   }
 }
 
+
+
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send(listEndpoints(app));
 });
 
-// Show bouquets in database
+// Add bouquets to webshop // add admin log in for this endpoint //
+app.post('/bouquets', async (req, res) => {
+  try {
+    const { name, price, description, imageUrl } = req.body;
+    const bouquet = new Bouquet({ name, price, description, imageUrl })
+    const savedBouquet = await bouquet.save();
+    res.status(201).json({ id: bouquet._id });
+  } catch (err) {
+    res.status(400).json({ message: 'Could not create bouquet', errors: err.errors });
+  }
+})
+
+// Show all bouquets in database
 app.get('/bouquets', (req, res) => {
   const bouquets = Bouquet.find()
     .sort({ price: 1 })
   res.json(bouquets);
 });
 
-// Add bouquets to webshop // add admin log in for this endpoint //
+// Show single bouquets in database
+app.get('/bouquets/:id', (req, res) => {
+  const bouquets = Bouquet.findOne()
 
-app.post('/bouquets', async (req, res) => {
-  try {
-    const { name, price, description, imageUrl } = req.body;
-    const bouquet = new Bouquet({ name, price, description, imageUrl })
-    const saved = await bouquet.save();
-    res.status(201).json({ id: bouquet._id });
-  } catch (err) {
-    res.status(400).json({ message: 'Could not create bouquet', errors: err.errors });
-  }
-})
+  res.json(bouquets);
+});
+
+
+
+
 
 
 //sign upp
