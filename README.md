@@ -1,4 +1,4 @@
-# Project Auth
+# Final Project
 
 Replace this readme with your own information about your project.
 
