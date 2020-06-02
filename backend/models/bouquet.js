@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const bouquetSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: false
+    required: true,
   },
   price: {
     type: Number,

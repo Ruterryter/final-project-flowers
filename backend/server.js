@@ -42,7 +42,6 @@ const authenticateUser = async (req, res, next) => {
 }
 
 
-
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send(listEndpoints(app));
@@ -53,7 +52,7 @@ app.post('/bouquets', async (req, res) => {
   try {
     const { name, price, description, imageUrl } = req.body;
     const bouquet = new Bouquet({ name, price, description, imageUrl })
-    const savedBouquet = await bouquet.save();
+    const saved = await bouquet.save();
     res.status(201).json({ id: bouquet._id });
   } catch (err) {
     res.status(400).json({ message: 'Could not create bouquet', errors: err.errors });
@@ -61,23 +60,17 @@ app.post('/bouquets', async (req, res) => {
 })
 
 // Show all bouquets in database
-app.get('/bouquets', (req, res) => {
-  const bouquets = Bouquet.find()
-    .sort({ price: 1 })
+app.get("/bouquets", async (req, res) => {
+  const bouquets = await Bouquet.find().sort({ price: 1 }).exec();
   res.json(bouquets);
 });
+
 
 // Show single bouquets in database
-app.get('/bouquets/:id', (req, res) => {
-  const bouquets = Bouquet.findOne()
-
+app.get('/bouquets/:id', async (req, res) => {
+  const bouquets = await Bouquet.findOne().exec()
   res.json(bouquets);
 });
-
-
-
-
-
 
 //sign upp
 app.post('/users', async (req, res) => {
@@ -112,7 +105,6 @@ app.post('/sessions', async (req, res) => {
     res.status(404).json({ notFound: true });
   }
 })
-
 
 // Start the server
 app.listen(port, () => {
