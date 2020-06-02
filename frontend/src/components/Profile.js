@@ -7,21 +7,21 @@ import { useDispatch, useSelector } from 'react-redux'
 const URL = "https://signinprojecttechnigo.herokuapp.com/users/"
 
 const ProfileWrapper = styled.div`
-background-color: #FDE7EA;
-padding: 20px;
-margin-bottom: 20px;
-width: 45%;
+  background-color: #FDE7EA;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 45%;
 `
 
 const Button = styled.button`
-background-color: #FF7C98;
-color: #FFFF;
-font-family: 'Poppins', sans-serif;
-font-weight: 700;
-text-transform: uppercase; 
-outline: none;
-border: none;
-margin: 20px;
+  background-color: #FF7C98;
+  color: #FFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase; 
+  outline: none;
+  border: none;
+  margin: 20px;
 `
 
 export const Profile = ({ accsessToken }) => {
