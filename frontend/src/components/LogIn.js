@@ -4,7 +4,7 @@ import { Profile } from "./Profile"
 import { useDispatch, useSelector } from 'react-redux';
 import { user, login, logout } from "../reducers/user";
 
-const LOGIN_URL = "https://signinprojecttechnigo.herokuapp.com/sessions"
+const LOGIN_URL = "https://bouquetdb.herokuapp.com/sessions"
 
 const Form = styled.form`
 display: flex;

@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 import { useDispatch, useSelector } from 'react-redux';
 import { user } from "../reducers/user";
 
-const SIGNUP_URL = "https://signinprojecttechnigo.herokuapp.com/users"
+const SIGNUP_URL = "https://bouquetdb.herokuapp.com/users"
 
 const Form = styled.form`
 display: flex;

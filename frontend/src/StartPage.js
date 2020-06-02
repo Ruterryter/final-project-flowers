@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { user } from "./reducers/user";
 
-const URL = "https://signinprojecttechnigo.herokuapp.com/users";
+const URL = "https://bouquetdb.herokuapp.com/users";
 
 const reducer = combineReducers({ user: user.reducer });
 
