@@ -47,7 +47,7 @@ export const user = createSlice({
 
 // Thunks
 export const login = (email, password) => {
-  const LOGIN_URL = 'https://signinprojecttechnigo.herokuapp.com/sessions';
+  const LOGIN_URL = 'https://bouquetdb.herokuapp.com/sessions';
   return (dispatch) => {
     fetch(LOGIN_URL, {
       method: 'POST',
@@ -79,7 +79,7 @@ export const login = (email, password) => {
 };
 
 export const getSecretMessage = () => {
-  const USERS_URL = 'https://signinprojecttechnigo.herokuapp.com/users';
+  const USERS_URL = 'https://bouquetdb.herokuapp.com/users';
   return (dispatch, getState) => {
     const accessToken = getState().user.login.accessToken;
     const userId = getState().user.login.userId;
@@ -101,7 +101,6 @@ export const getSecretMessage = () => {
       .then((json) => {
         dispatch(
           user.actions.setSecretMessage({ secretMessage: JSON.stringify(json) }),
-          // user.actions.setFirstName({ firstName: JSON.stringify(json) })
         );
       })
       .catch((err) => {
@@ -115,7 +114,6 @@ export const logout = () => {
   return (dispatch) => {
     dispatch(user.actions.setSecretMessage({ secretMessage: null }));
     dispatch(user.actions.setErrorMessage({ errorMessage: null }));
-    //ska vi ta bort denna alltså?
     dispatch(user.actions.setAccessToken({ accessToken: null }));
     dispatch(user.actions.setUserId({ userId: 0 }));
   };
