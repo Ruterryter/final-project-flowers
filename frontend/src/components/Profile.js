@@ -33,7 +33,7 @@ export const Profile = ({ accsessToken }) => {
 
   return (
     <ProfileWrapper>
-      {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
+
       {secretMessage && <h4>Secret Message : {`${secretMessage}`}</h4>}
       <h1>Inloggad</h1>
       <h4> Välkommen att beställa blommor </h4>

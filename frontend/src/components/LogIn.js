@@ -73,6 +73,7 @@ export const LogIn = () => {
   if (!accessToken) {
     return (
       <>
+        {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
         <LoginContainer>
           <Form>
             <Header>Logga in</Header>
