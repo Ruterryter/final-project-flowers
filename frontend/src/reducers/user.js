@@ -115,7 +115,6 @@ export const logout = () => {
   return (dispatch) => {
     dispatch(user.actions.setSecretMessage({ secretMessage: null }));
     dispatch(user.actions.setErrorMessage({ errorMessage: null }));
-    //ska vi ta bort denna alltså?
     dispatch(user.actions.setAccessToken({ accessToken: null }));
     dispatch(user.actions.setUserId({ userId: 0 }));
   };

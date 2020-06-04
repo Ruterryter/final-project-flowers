@@ -1,11 +1,7 @@
-import React from "react"
+import React from 'react'
 import styled from "styled-components/macro"
-import { useDispatch } from "react-redux"
-import { cart } from "reducers/cart"
-import { ProductPage } from "components/ProductPage"
-import { Link } from 'react-router-dom'
-
-// const bouquetURL = ``
+import { useDispatch } from 'react-redux'
+import { cart } from 'reducers/cart'
 
 const Button = styled.button`
   background-color: #FF7C98;
@@ -32,27 +28,29 @@ font-weight: 500;
 font-size: 28px;
 `
 
-export const Product = ({ product }) => {
-  fetch(`https://bouquetdb.herokuapp.com/${product._id}`).then((res) => {
-    return res.json()
-    console.log(res.json)
-  })
+const ProductInfoText = styled.p`
+color: #FF7C98;
+font-family: 'Poppins', sans-serif;
+font-weight: 500;
+font-size: 16px;
+`
 
+export const ProductPage = ({ product }) => {
+  const dispatch = useDispatch()
 
   return (
     <>
       {/* //lägg till bild */}
       <ProductTitle>{product.name}</ProductTitle>
       <PriceTag>{product.price} kr</PriceTag>
+      <ProductInfoText>Denna tjusiga bukett passar både till vardag och fest</ProductInfoText>
 
-      <Link to={`bouquets/${product._id}`}>
-        <Button
-          type="button"
-          onClick={() => <ProductPage />}
-        >
-          Mer info
+      <Button
+        type="button"
+        disabled={product.inventory === 0}
+        onClick={() => dispatch(cart.actions.addItem(product))}>
+        Beställ
       </Button>
-      </Link>
     </>
   )
 }

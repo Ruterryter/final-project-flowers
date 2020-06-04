@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { LogIn } from "./components/LogIn"
 import { SignUp } from "./components/SignUp"
 import { Cart } from "./components/Cart"
+import { ProductPage } from "./components/ProductPage"
 import { Products } from "./components/Products"
 import styled from "styled-components/macro"
 import { Provider } from "react-redux";
@@ -42,6 +43,7 @@ export const StartPage = () => {
         <SignUp />
         <Cart />
         <Products />
+        <ProductPage />
       </StyledContainer>
     </Provider>
   )
