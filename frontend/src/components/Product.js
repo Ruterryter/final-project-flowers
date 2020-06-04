@@ -36,22 +36,29 @@ font-size: 28px;
 export const Product = ({ product }) => {
   const dispatch = useDispatch()
 
+  //  const clickedProduct = ({id}) => {
+  //   gå till ProductPage plocka med id för buketten
+  //  }
 
   return (
     <>
-      {/* //lägg till bild */}
+
       <ProductTitle>{product.name}</ProductTitle>
       <PriceTag>{product.price} kr</PriceTag>
 
       {/* //Hur ska man göra så att man kommer till ProductPage onclick eller länk?  */}
       <Link to={`bouquets/${id}`}>
-        <Button
-          type="button"
-
-        >
-          Mer info
-      </Button>
+        {/* //lägg till bild */}
       </Link>
+      <Button
+        type="button"
+      //  onClick={ clickedProduct}>
+
+      >
+
+        Mer info
+      </Button>
+
     </>
   )
 }
