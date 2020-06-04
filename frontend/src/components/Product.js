@@ -4,8 +4,9 @@ import { useDispatch } from "react-redux"
 import { cart } from "reducers/cart"
 import { ProductPage } from "components/ProductPage"
 import { Link } from 'react-router-dom'
+import { products } from "reducers/products"
 
-// const bouquetURL = ``
+const id = products._id
 
 const Button = styled.button`
   background-color: #FF7C98;
@@ -33,10 +34,7 @@ font-size: 28px;
 `
 
 export const Product = ({ product }) => {
-  fetch(`https://bouquetdb.herokuapp.com/${product._id}`).then((res) => {
-    return res.json()
-    console.log(res.json)
-  })
+  const dispatch = useDispatch()
 
 
   return (
@@ -45,10 +43,11 @@ export const Product = ({ product }) => {
       <ProductTitle>{product.name}</ProductTitle>
       <PriceTag>{product.price} kr</PriceTag>
 
-      <Link to={`bouquets/${product._id}`}>
+      {/* //Hur ska man göra så att man kommer till ProductPage onclick eller länk?  */}
+      <Link to={`bouquets/${id}`}>
         <Button
           type="button"
-          onClick={() => <ProductPage />}
+
         >
           Mer info
       </Button>

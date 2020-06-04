@@ -43,7 +43,7 @@ export const StartPage = () => {
         <SignUp />
         <Cart />
         <Products />
-        <ProductPage />
+        {/* <ProductPage /> */}
       </StyledContainer>
     </Provider>
   )
