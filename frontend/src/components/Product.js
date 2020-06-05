@@ -52,9 +52,6 @@ export const Product = ({ product }) => {
         <PriceTag>{product.price} kr</PriceTag>
 
         {/* //Hur ska man göra så att man kommer till ProductPage onclick och länk på hela rutan?  */}
-
-
-
         <Button type="button">
           Mer info
       </Button>

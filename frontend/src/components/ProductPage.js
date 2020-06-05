@@ -39,6 +39,7 @@ font-size: 16px;
 const BouquetImageMedium = styled.img`
 height: 250px;
 `
+//use selector to fecth info 
 
 export const ProductPage = ({ product }) => {
   const dispatch = useDispatch()
