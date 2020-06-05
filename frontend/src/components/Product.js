@@ -44,25 +44,21 @@ export const Product = ({ product }) => {
   //  }
 
 
-
   return (
     <>
-      <BouquetImage src={`${product.imageUrl}`} alt={product.name} />
-      <ProductTitle>{product.name}</ProductTitle>
-      <PriceTag>{product.price} kr</PriceTag>
+      <Link key={product.id} to={`/bouquets/${id}`}>
+        <BouquetImage src={`${product.imageUrl}`} alt={product.name} />
+        <ProductTitle>{product.name}</ProductTitle>
+        <PriceTag>{product.price} kr</PriceTag>
 
-      {/* //Hur ska man göra så att man kommer till ProductPage onclick eller länk?  */}
-      <Link to={`bouquets/${id}`}>
-        {/* //lägg till bild */}
-      </Link>
-      <Button
-        type="button"
-      //  onClick={ clickedProduct}>
-      >
+        {/* //Hur ska man göra så att man kommer till ProductPage onclick och länk på hela rutan?  */}
 
-        Mer info
+
+
+        <Button type="button">
+          Mer info
       </Button>
-
+      </Link>
     </>
   )
 }

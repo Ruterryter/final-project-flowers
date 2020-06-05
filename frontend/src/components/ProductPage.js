@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components/macro"
 import { useDispatch } from 'react-redux'
 import { cart } from 'reducers/cart'
+import { products } from "reducers/products"
 
 const Button = styled.button`
   background-color: #FF7C98;

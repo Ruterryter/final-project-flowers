@@ -1,25 +1,9 @@
 import React, { useState } from "react"
 import { LogIn } from "./components/LogIn"
 import { SignUp } from "./components/SignUp"
-import { Cart } from "./components/Cart"
-import { ProductPage } from "./components/ProductPage"
-import { Products } from "./components/Products"
 import styled from "styled-components/macro"
-import { Provider } from "react-redux";
-import { configureStore, combineReducers } from "@reduxjs/toolkit"
-import { user } from "./reducers/user"
-import { cart } from "./reducers/cart"
-import { products } from "./reducers/products"
-
-const URL = "https://bouquetdb.herokuapp.com/users";
-
-const reducer = combineReducers({
-  user: user.reducer,
-  cart: cart.reducer,
-  products: products.reducer
-});
-
-const store = configureStore({ reducer });
+import { Cart } from "./components/Cart"
+import { Products } from "./components/Products"
 
 
 const StyledContainer = styled.div`
@@ -37,15 +21,13 @@ const StyledContainer = styled.div`
 export const StartPage = () => {
 
   return (
-    <Provider store={store}>
-      <StyledContainer>
-        <LogIn />
-        <SignUp />
-        <Cart />
-        <Products />
-        {/* <ProductPage /> */}
-      </StyledContainer>
-    </Provider>
+
+    <StyledContainer>
+      <LogIn />
+      <SignUp />
+      <Cart />
+      <Products />
+    </StyledContainer>
   )
 }
 
