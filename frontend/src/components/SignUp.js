@@ -81,7 +81,7 @@ export const SignUp = () => {
         console.log("parsing")
         if (!res.ok) {
 
-          throw 'Could not create account.  Try a different username.';
+          throw 'Could not create account.  Try a different email address.';
         }
         return res.json();
       })
