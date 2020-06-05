@@ -18,6 +18,9 @@ const Button = styled.button`
   border: none;
   margin: 20px;
 `
+const BouquetImage = styled.img`
+height: 200px;
+`
 
 const PriceTag = styled.h4`
 color: #FF7C98;
@@ -40,9 +43,11 @@ export const Product = ({ product }) => {
   //   gå till ProductPage plocka med id för buketten
   //  }
 
+
+
   return (
     <>
-
+      <BouquetImage src={`${product.imageUrl}`} alt={product.name} />
       <ProductTitle>{product.name}</ProductTitle>
       <PriceTag>{product.price} kr</PriceTag>
 
@@ -53,7 +58,6 @@ export const Product = ({ product }) => {
       <Button
         type="button"
       //  onClick={ clickedProduct}>
-
       >
 
         Mer info
