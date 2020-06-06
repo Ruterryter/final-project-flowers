@@ -11,8 +11,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const products = createSlice({
   name: "products",
-  initialState: [],
+  initialState: {
+    _id: "",
+    name: "",
+    price: "",
+    description: "",
+    image_URL: ""
+  },
   reducers: {
+    ///hur får man in all data här? Och sedan skickar vidare den.. 
     setProduct: (state, action) => {
       const { productData } = action.payload;
       state.products.productData = productData;
