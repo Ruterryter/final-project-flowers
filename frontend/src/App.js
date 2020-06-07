@@ -1,12 +1,9 @@
 import React, { useState } from "react";
+import thunk from 'redux-thunk'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { LogIn } from "components/LogIn";
-import { SignUp } from "components/SignUp";
-import { Profile } from "components/Profile";
-import { StartPage } from "StartPage";
 import { LandingPage } from "LandingPage";
 import { ProductPage } from "components/ProductPage";
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore, createStore, combineReducers, applyMiddleware, compose } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { user } from "./reducers/user";
 import { cart } from "./reducers/cart";
@@ -18,6 +15,8 @@ const reducer = combineReducers({
   products: products.reducer,
 });
 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const store = createStore(reducer, persistedState, composeEnhancer(applyMiddleware(thunk)))
 const store = configureStore({ reducer });
 
 export const App = () => {
