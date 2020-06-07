@@ -27,6 +27,10 @@ const Title = styled.h1`
   text-transform: uppercase;
   text-align: center;
   color: #ff7c98;
+
+  @media (max-width: 840px) {
+    font-size: 32px;
+  }
 `;
 
 export const NavBar = () => {
