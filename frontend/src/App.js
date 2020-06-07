@@ -4,6 +4,7 @@ import { LogIn } from "components/LogIn";
 import { SignUp } from "components/SignUp";
 import { Profile } from "components/Profile";
 import { StartPage } from "StartPage";
+import { LandingPage } from "LandingPage";
 import { ProductPage } from "components/ProductPage";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";

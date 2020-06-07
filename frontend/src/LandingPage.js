@@ -3,6 +3,9 @@ import styled from "styled-components/macro";
 import { NavBar } from "./components/Navbar";
 import { HeaderImg } from "./components/HeaderImg";
 import { EyecatcherContainer } from "./components/EyecatcherContainer";
+import { HighlightCard } from "./components/HighlightCard";
+import { Banner } from "./components/Banner";
+import { Footer } from "./components/Footer";
 
 const AppWrapper = styled.div`
   width: 100%;
@@ -17,65 +20,7 @@ const CategoryImgsWrapper = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const CategoryImgs = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: orange;
-`;
-const CategoryCard = styled.div`
-  margin: 0;
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-`;
-const MidHeader = styled.h3`
-  font-family: "Poppins";
-  font-size: 24px;
-  text-align: center;
-  color: #4d4d4d;
-  text-transform: uppercase;
-`;
-const Banner = styled.div`
-  width: 100%;
-  height: 50px;
-  padding: 15px 0 0 0;
-  background-color: #7db77d;
-`;
-const BannerText = styled.h4`
-  margin-right: 20px;
-  display: inline;
-  font-family: "Poppins";
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
-  color: white;
-`;
-const BannerHashtags = styled.h4`
-  margin-right: 20px;
-  display: inline;
-  font-family: "Poppins";
-  font-size: 24px;
-  font-weight: 400;
-  text-transform: uppercase;
-  text-align: center;
-  color: white;
-`;
-const Footer = styled.div`
-  margin: 0;
-  width: 100%;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  background-color: #ff7c98;
-`;
+
 // Dekonstruera så alla delar är egna komponenter, plocka in komponenterna i Startpage
 export const LandingPage = () => {
   return (
@@ -84,29 +29,13 @@ export const LandingPage = () => {
       <HeaderImg />
       <EyecatcherContainer />
       <CategoryImgsWrapper>
-        <CategoryCard>
-          <CategoryImgs />
-          <MidHeader>Hej</MidHeader>
-        </CategoryCard>
-        <CategoryCard>
-          <CategoryImgs />
-          <MidHeader>Hej</MidHeader>
-        </CategoryCard>
-        <CategoryCard>
-          <CategoryImgs />
-          <MidHeader>Hej</MidHeader>
-        </CategoryCard>
-        <CategoryCard>
-          <CategoryImgs />
-          <MidHeader>Hej</MidHeader>
-        </CategoryCard>
+        <HighlightCard />
+        <HighlightCard />
+        <HighlightCard />
+        <HighlightCard />
       </CategoryImgsWrapper>
-      <Banner>
-        <BannerText>Buketter för hemleverans i skåne </BannerText>
-        <BannerHashtags>#MinBukett #Buketter</BannerHashtags>
-        <BannerText>Buketter för hemleverans i skåne </BannerText>
-      </Banner>
-      <Footer></Footer>
+      <Banner />
+      <Footer />
     </AppWrapper>
   );
 };

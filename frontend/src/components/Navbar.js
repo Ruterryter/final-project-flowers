@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { Burger } from "./Burger";
 
 const Nav = styled.div`
+  padding: 0 20px;
   background-color: #fde7ea;
   width: 100%;
   height: 100px;
@@ -11,8 +13,27 @@ const Nav = styled.div`
   text-transform: uppercase;
   text-align: center;
   color: #ff7c98;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+`;
+
+const Title = styled.h1`
+  font-family: "Poppins";
+  font-size: 42px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ff7c98;
 `;
 
 export const NavBar = () => {
-  return <Nav>Hej</Nav>;
+  return (
+    <Nav>
+      <Title>Friday Flowers</Title>
+      <Burger />
+    </Nav>
+  );
 };
