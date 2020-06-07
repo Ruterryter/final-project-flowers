@@ -13,12 +13,11 @@ const AppWrapper = styled.div`
 `;
 
 const CategoryImgsWrapper = styled.div`
-  padding: 100px 0;
+  padding: 100px 20px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 `;
 
 // Dekonstruera så alla delar är egna komponenter, plocka in komponenterna i Startpage

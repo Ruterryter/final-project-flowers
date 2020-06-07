@@ -8,13 +8,17 @@ const HighlightImg = styled.div`
   background-color: orange;
 `;
 const HighlightCardDiv = styled.div`
-  margin: 0;
-  width: 20%;
+  width: 200px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 850px) {
+    margin: 20px 0;
+    width: 35vh;
+  }
 `;
 
 const MidHeader = styled.h3`
