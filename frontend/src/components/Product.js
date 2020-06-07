@@ -36,6 +36,8 @@ font-weight: 500;
 font-size: 28px;
 `
 
+//send links with info ? Next step 
+
 export const Product = ({ product }) => {
   const dispatch = useDispatch()
 
@@ -46,12 +48,10 @@ export const Product = ({ product }) => {
 
   return (
     <>
-      <Link key={product.id} to={`/bouquets/${id}`}>
-        <BouquetImage src={`${product.imageUrl}`} alt={product.name} />
+      <Link key={product.id} to={`https://bouquetdb.herokuapp.com/bouquets/${id}`}>
+        <BouquetImage src={`${product.imageUrl} `} alt={product.name} />
         <ProductTitle>{product.name}</ProductTitle>
         <PriceTag>{product.price} kr</PriceTag>
-
-        {/* //Hur ska man göra så att man kommer till ProductPage onclick och länk på hela rutan?  */}
         <Button type="button">
           Mer info
       </Button>
