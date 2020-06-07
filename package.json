@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "react-router-dom": "^5.2.0",
+    "react-scroll-text": "^1.0.1",
     "styled-components": "^5.1.0"
   }
 }
