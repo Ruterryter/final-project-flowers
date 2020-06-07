@@ -15,9 +15,9 @@ const HighlightCardDiv = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 850px) {
+  @media (max-width: 872px) {
     margin: 20px 0;
-    width: 35vh;
+    width: 45vh;
   }
 `;
 

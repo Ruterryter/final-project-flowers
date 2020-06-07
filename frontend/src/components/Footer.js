@@ -24,13 +24,17 @@ const Title = styled.h1`
   text-transform: uppercase;
   text-align: center;
   color: #fde7ea;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
 const Link = styled.a`
   margin-right: 10px;
   font-family: "Poppins";
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 700;
   text-transform: uppercase;
   text-align: center;
   color: #fde7ea;
