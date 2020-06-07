@@ -9,20 +9,33 @@ import { createSlice } from "@reduxjs/toolkit";
 //https://bouquetdb.herokuapp.com/bouquets
 //(osäker på om denna är rätt, behöver jag skicka in något mer? så att den får tillgång till all data.  )
 
+// const initialState = {
+//   productData: {
+//     _id: "",
+//     name: "",
+//     price: "",
+//     description: "",
+//     image_URL: ""
+//   }
+// }
+
+const initialState = {
+  productData: {
+    _id: null,
+    name: null,
+    price: 0,
+    description: null,
+    image_URL: null,
+  }
+}
+
 export const products = createSlice({
   name: "products",
-  initialState: {
-    _id: "",
-    name: "",
-    price: "",
-    description: "",
-    image_URL: ""
-  },
+  initialState: initialState,
   reducers: {
-    ///hur får man in all data här? Och sedan skickar vidare den.. 
     setProduct: (state, action) => {
-      const { productData } = action.payload;
-      state.products.productData = productData;
+      const { product } = action.payload;
+      state.productdata.product = product;
     }
   },
   setErrorMessage: (state, action) => {
@@ -31,28 +44,44 @@ export const products = createSlice({
   }
 })
 
-//Thunk (osäker på om denna är rätt, behöver jag skicka in något mer? )
-export const bouquets = (name, price) => {
-  const FLOWER_URL = "https://bouquetdb.herokuapp.com/bouquets"
-  return (dispatch) => {
-    fetch(FLOWER_URL, {
-      method: "GET",
-    })
-      .then((res) => {
-        if (res.ok /* if 200, 201, 204 */) {
-          return res.json();
-        }
-        throw 'Could not show any products, please refresh page.';
-      })
-      .then((json) => {
-        dispatch(
-          products.actions.setProduct({ setProduct: JSON.stringify(json) }));
-      })
-      .catch((err) => {
+export const bouquets = createSlice({
+  name: "bouquets",
+  initialState: initialState,
+  reducers: {
+    setBouquet: (state, action) => {
+      const { bouquet } = action.payload;
+      state.productdata.bouquet = bouquet;
+    }
+  },
+  setErrorMessage: (state, action) => {
+    const { errorMessage } = action.payload;
+    state.products.errorMessage = errorMessage;
+  }
+})
 
-        dispatch(products.actions.setErrorMessage({ errorMessage: err }));
-      }); //401
-  };
-};
+
+// //Thunk (osäker på om denna är rätt, behöver jag skicka in något mer? )
+// export const allBouquets = (name, price) => {
+//   const FLOWER_URL = "https://bouquetdb.herokuapp.com/bouquets"
+//   return (dispatch) => {
+//     fetch(FLOWER_URL, {
+//       method: "GET",
+//     })
+//       .then((res) => {
+//         if (res.ok /* if 200, 201, 204 */) {
+//           return res.json();
+//         }
+//         throw 'Could not show any products, please refresh page.';
+//       })
+//       .then((json) => {
+//         dispatch(
+//           products.actions.setBouquet({ setBouquet: JSON.stringify(json) }));
+//       })
+//       .catch((err) => {
+
+//         dispatch(products.actions.setErrorMessage({ errorMessage: err }));
+//       }); //401
+//   };
+// };
 
 
