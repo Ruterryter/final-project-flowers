@@ -15,6 +15,10 @@ const ImgCard = styled.div`
   width: 50%;
   height: 500px;
   background-color: grey;
+
+  @media (max-width: 768px) {
+    height: 350px;
+  }
 `;
 
 const TextCard = styled.div`
@@ -22,6 +26,10 @@ const TextCard = styled.div`
   width: 50%;
   height: 500px;
   background-color: #ff7c98;
+
+  @media (max-width: 768px) {
+    height: 350px;
+  }
 `;
 
 export const EyecatcherContainer = () => {
