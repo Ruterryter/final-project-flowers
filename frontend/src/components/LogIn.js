@@ -62,10 +62,6 @@ export const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const errorMessage = useSelector((store) => store.user.login.errorMessage);
-<<<<<<< HEAD
-
-=======
->>>>>>> hanna_dev
 
   // To sign in a user.
   const handleLogin = (event) => {
