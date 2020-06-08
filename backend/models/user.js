@@ -4,11 +4,11 @@ import crypto from 'crypto'
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: false
+    required: true
   },
   lastName: {
     type: String,
-    required: false
+    required: true
   },
   email: {
     type: String,
@@ -25,19 +25,19 @@ const userSchema = new mongoose.Schema({
   },
   address: {
     type: String,
-    required: false
+    required: true
   },
   zipCode: {
     type: Number,
-    required: false
+    required: true
   },
   city: {
     type: String,
-    required: false
+    required: true
   },
   phoneNumber: {
     type: Number,
-    required: false
+    required: true
   }
 })
 
