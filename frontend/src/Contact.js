@@ -2,13 +2,12 @@ import React from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 
-export const About = () => {
+export const Contact = () => {
 
   return (
     <>
-      <p>Vi gillar blommor, smultron och hallonsaft! </p>
+      <p>Ring eller maila för kontakt </p>
       <Link className="back-link" to={'/'} >Tillbaks</Link>
     </>
   )
 }
-

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { useDispatch, useSelector } from "react-redux";
 import { cart } from "reducers/cart";
-import { products } from "reducers/products";
+import { products, singleProduct } from "reducers/products";
 
 const Button = styled.button`
   background-color: #ff7c98;
@@ -14,28 +14,24 @@ const Button = styled.button`
   border: none;
   margin: 20px;
 `;
-
 const PriceTag = styled.h4`
   color: #ff7c98;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 24px;
 `;
-
 const ProductTitle = styled.h3`
   color: #ff7c98;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 28px;
 `;
-
 const ProductInfoText = styled.p`
   color: #ff7c98;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 16px;
 `;
-
 const BouquetImageMedium = styled.img`
   height: 250px;
 `;
@@ -45,6 +41,8 @@ export const ProductPage = ({ product }) => {
   const dispatch = useDispatch();
   // const productDetials = useSelector((store) => store.products.id)
 
+  const productDetials = useSelector((store) => store.products.id);
+
   return (
     <>
       <BouquetImageMedium src={`${product.imageUrl}`} alt={product.name} />
@@ -53,7 +51,6 @@ export const ProductPage = ({ product }) => {
       <ProductInfoText>
         Denna tjusiga bukett passar både till vardag och fest
       </ProductInfoText>
-
       <Button
         type="button"
         disabled={product.inventory === 0}
