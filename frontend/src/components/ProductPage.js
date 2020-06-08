@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 import { useDispatch, useSelector } from "react-redux";
 import { cart } from "reducers/cart";
 import { products, singleProduct } from "reducers/products";
+import { useParams } from "react-router-dom";
 
 const Button = styled.button`
   background-color: #ff7c98;
@@ -36,15 +37,20 @@ const BouquetImageMedium = styled.img`
   height: 250px;
 `;
 //use selector to fecth info
+//send a backend fetch to grab from backend
 
-export const ProductPage = ({ product }) => {
+export const ProductPage = () => {
   const dispatch = useDispatch();
-  // const productDetials = useSelector((store) => store.products.id)
-
-  const productDetials = useSelector((store) => store.products.id);
-
+  const { id } = useParams();
+  const product = useSelector((store) =>
+    store.products.allProducts.find((product) => {
+      return product._id === id;
+    })
+  );
+  console.log(id);
   return (
     <>
+      {/* Ska man använda singleProduct här istället? */}
       <BouquetImageMedium src={`${product.imageUrl}`} alt={product.name} />
       <ProductTitle>{product.name}</ProductTitle>
       <PriceTag>{product.price} kr</PriceTag>
