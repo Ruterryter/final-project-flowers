@@ -3,15 +3,26 @@ import styled from "styled-components/macro";
 import { Profile } from "./Profile";
 import { useDispatch, useSelector } from "react-redux";
 import { user, login, logout } from "../reducers/user";
+import { Link } from "react-router-dom";
 
 const LOGIN_URL = "https://bouquetdb.herokuapp.com/sessions";
 
+const Wrapper = styled.div`
+  margin-top: 100px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Form = styled.form`
+  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
+
 const Label = styled.label`
   text-align: center;
   color: #ff7c90;
@@ -32,21 +43,10 @@ const Header = styled.header`
   font-family: "Poppins";
   font-size: 24px;
   font-weight: 700;
-  ext-transform: uppercase;
+  text-transform: uppercase;
   text-align: center;
   color: #ff7c98;
   margin-bottom: 20px;
-`;
-
-const Button = styled.button`
-  background-color: #ff7c98;
-  color: #ffff;
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  outline: none;
-  border: none;
-  margin: 20px;
 `;
 
 const LoginContainer = styled.div`
@@ -71,7 +71,7 @@ export const LogIn = () => {
 
   if (!accessToken) {
     return (
-      <>
+      <Wrapper>
         {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
         <LoginContainer>
           <Form>
@@ -92,12 +92,35 @@ export const LogIn = () => {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-            <Button type="submit" onClick={handleLogin}>
+            <Link
+              to={"/"}
+              style={{
+                backgroundColor: "#ff7c98",
+                color: "#ffffff",
+                fontFamily: "Poppins",
+                fontWeight: "700",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                margin: "20px 0 5px 0",
+                padding: "5px 10px",
+              }}
+            >
               Logga in
-            </Button>
+            </Link>
+            <Link
+              to={"/signup/"}
+              style={{
+                fontFamily: "Poppins",
+                fontSize: "12px",
+                color: "#ff7c98",
+                textDecoration: "none",
+              }}
+            >
+              Registrera dig
+            </Link>
           </Form>
         </LoginContainer>
-      </>
+      </Wrapper>
     );
   } else {
     // If user is logged in, show profile

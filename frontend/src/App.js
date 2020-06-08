@@ -14,8 +14,9 @@ import { Provider } from "react-redux";
 import { user } from "./reducers/user";
 import { cart } from "./reducers/cart";
 import { products } from "./reducers/products";
-import { About } from "About"
+import { About } from "About";
 import { LogIn } from "components/LogIn";
+import { SignUp } from "components/SignUp";
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -41,6 +42,9 @@ export const App = () => {
           </Route>
           <Route path="/login/" exact>
             <LogIn />
+          </Route>
+          <Route path="/signup/" exact>
+            <SignUp />
           </Route>
           <Route path="/bouquets/:id" exact>
             <ProductPage />
