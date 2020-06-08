@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { cart } from "reducers/cart";
 import { products, singleProduct } from "reducers/products";
 import { useParams } from "react-router-dom";
+import { Cart } from "components/Cart"
+import { LogIn } from "components/LogIn"
 
 const Button = styled.button`
   background-color: #ff7c98;

@@ -18,6 +18,7 @@ import { About } from "About";
 import { LogIn } from "components/LogIn";
 import { SignUp } from "components/SignUp";
 import { Contact } from "Contact";
+import { Checkout } from "components/Checkout"
 
 const reducer = combineReducers({
   user: user.reducer,
