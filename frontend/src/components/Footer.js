@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom"
 
 const FooterDiv = styled.div`
   margin: 0;
@@ -30,28 +31,25 @@ const Title = styled.h1`
   }
 `;
 
-const Link = styled.a`
-  margin-right: 10px;
-  font-family: "Poppins";
-  font-size: 18px;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
-  color: #fde7ea;
-
-  :hover {
-    color: orange;
-  }
-`;
-
 export const Footer = () => {
   return (
     <FooterDiv>
       <Title>Friday flowers</Title>
       <div>
-        <Link>About Us</Link>
+        <Link className="aboutlink" to={"/about/"} style={{
+          marginRight: "10px",
+          fontFamily: "Poppins",
+          fontSize: "18px",
+          fontWeight: "700",
+          textTransform: "uppercase",
+          textAlign: "center",
+          color: "#fde7ea",
+          textDecoration: "none"
+        }}
+        // lägg till hover orange
+        >About Us</Link>
         <Link>Contact Us</Link>
-        <Link>Log In</Link>
+        <Link to={"/login/"}>Log In</Link>
       </div>
     </FooterDiv>
   );
