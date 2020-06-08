@@ -1,61 +1,69 @@
-import React from "react"
-import styled from "styled-components/macro"
-import { useDispatch } from "react-redux"
-import { cart } from "reducers/cart"
-import { ProductPage } from "components/ProductPage"
-import { Link } from 'react-router-dom'
-import { products } from "reducers/products"
+import React from "react";
+import styled from "styled-components/macro";
+import { useDispatch } from "react-redux";
+import { cart } from "reducers/cart";
+import { ProductPage } from "components/ProductPage";
+import { Link } from "react-router-dom";
+import { products, singleProduct } from "reducers/products";
 
-const id = products._id
+const ProductCard = styled.div`
+  background-color: #fff;
+  margin: 10px;
+  box-shadow: 3px 3px #a6a6a6;
+`;
 
-const Button = styled.button`
-  background-color: #FF7C98;
-  color: #FFFF;
-  font-family: 'Poppins', sans-serif;
+const InfoSqaure = styled.h5`
+  width: 100%;
+  background-color: #ff7c98;
+  color: #ffff;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
-  text-transform: uppercase; 
+  text-align: center;
+  text-transform: uppercase;
   outline: none;
   border: none;
-  margin: 20px;
-`
+  margin: 0;
+  padding: 10px 0;
+`;
+
 const BouquetImage = styled.img`
-height: 200px;
-`
+  height: 200px;
+`;
 
 const PriceTag = styled.h4`
-color: #FF7C98;
-font-family: 'Poppins', sans-serif;
-font-weight: 700;
-font-size: 24px;
-`
+  padding: 5px 10px 10px 10px;
+  color: #ff7c98;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+`;
 
 const ProductTitle = styled.h3`
-color: #FF7C98;
-font-family: 'Poppins', sans-serif;
-font-weight: 500;
-font-size: 28px;
-`
+  padding: 5px 10px;
+  color: #ff7c98;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+`;
+
+//send links with info ? Next step
 
 export const Product = ({ product }) => {
-  const dispatch = useDispatch()
-
-  //  const clickedProduct = ({id}) => {
-  //   gå till ProductPage plocka med id för buketten
-  //  }
-
+  const dispatch = useDispatch();
+  dispatch(singleProduct(product._id));
 
   return (
     <>
-      <Link key={product.id} to={`/bouquets/${id}`}>
-        <BouquetImage src={`${product.imageUrl}`} alt={product.name} />
-        <ProductTitle>{product.name}</ProductTitle>
-        <PriceTag>{product.price} kr</PriceTag>
+      {/*länk till detalihjerad infosida med beställknapp*/}
 
-        {/* //Hur ska man göra så att man kommer till ProductPage onclick och länk på hela rutan?  */}
-        <Button type="button">
-          Mer info
-      </Button>
+      <Link>
+        <ProductCard>
+          <BouquetImage src={`${product.imageUrl} `} alt={product.name} />
+          <ProductTitle>{product.name}</ProductTitle>
+          <PriceTag>{product.price} kr</PriceTag>
+          <InfoSqaure>Mer info</InfoSqaure>
+        </ProductCard>
       </Link>
     </>
-  )
-}
+  );
+};

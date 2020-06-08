@@ -17,7 +17,7 @@ const HighlightCardDiv = styled.div`
 
   @media (max-width: 872px) {
     margin: 20px 0;
-    width: 45vh;
+    width: 35vh;
   }
 `;
 

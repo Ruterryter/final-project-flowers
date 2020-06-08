@@ -37,9 +37,9 @@ const Menu = styled.ul`
 export const RightNav = ({ open }) => {
   return (
     <Menu open={open}>
-      <li>Home</li>
-      <li>About Us</li>
-      <li>Contact Us</li>
+      <li>Hem</li>
+      <li>Om oss</li>
+      <li>Kontakta oss</li>
       <li>Login</li>
     </Menu>
   );

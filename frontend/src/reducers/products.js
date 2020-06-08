@@ -1,15 +1,89 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { StartPage } from "StartPage";
 
-//detta ska bli en fetch från databasen
-const productData = [
-  { "_id": { "$oid": "5ed611a410b33c002372376b" }, "name": "finaste2", "price": 550, "description": "fina blommor", "imageUrl": "https://www.interflora.se/siteassets/produkter/1201585-2.jpg", "__v": 0 },
-  { "_id": { "$oid": "5ed63b8f4ff4e40023fbf1d9" }, "name": "studentblomma", "price": 750, "description": "fina sommarblommor", "imageUrl": "https://www.interflora.se/siteassets/produkter/1201709.jpg", "__v": 0 },
-  { "_id": { "$oid": "5ed63c824ff4e40023fbf1da" }, "name": "Pioner", "price": 450, "description": "fina rosa pioneer", "imageUrl": "https://www.interflora.se/siteassets/produkter/1201224.jpg", "__v": 0 }
-]
 
-//fetch from database? here?
+
+const initialState = {
+  currentProduct: {
+    _id: "",
+    name: "",
+    price: "",
+    description: "",
+    image_URL: ""
+  },
+  allProducts: [],
+  errorHandling: {
+    errorMessage: ""
+  }
+}
+
 
 export const products = createSlice({
   name: "products",
-  initialState: productData
+  initialState: initialState,
+  reducers: {
+    setProduct: (state, action) => {
+      const { product } = action.payload;
+      state.currentProduct = product;
+    },
+    setAllProducts: (state, action) => {
+      const { allProducts } = action.payload;
+      state.allProducts = allProducts;
+
+    },
+    setErrorMessage: (state, action) => {
+      const { errorMessage } = action.payload;
+      state.errorHandling.errorMessage = errorMessage;
+    }
+  },
 })
+
+// //Thunk (osäker på om denna är rätt, behöver jag skicka in något mer? )
+// HÄMTAR ALLA PRODUKTER FRÅN DB
+export const allProducts = () => {
+  const FLOWER_URL = "https://bouquetdb.herokuapp.com/bouquets"
+  return (dispatch) => {
+    fetch(FLOWER_URL, {
+      method: "GET",
+    })
+      .then((res) => {
+        if (res.ok /* if 200, 201, 204 */) {
+          return res.json();
+        }
+        throw 'Could not show any products, please refresh page.';
+      })
+      .then((json) => {
+        dispatch(
+          products.actions.setAllProducts({ allProducts: json }));
+      })
+      .catch((err) => {
+
+        dispatch(products.actions.setErrorMessage({ errorMessage: err }));
+      }); //401
+  };
+};
+
+// HÄMTAR EN PRODUKT BASERAD PÅ ID FRÅN DB
+export const singleProduct = (id) => {
+  const FLOWER_URL = `https://bouquetdb.herokuapp.com/bouquets/${id}`
+  return (dispatch, getState) => {
+    fetch(FLOWER_URL, {
+      method: "GET",
+    })
+      .then((res) => {
+        if (res.ok /* if 200, 201, 204 */) {
+          return res.json();
+        }
+        throw 'Could not show any product, please refresh page.';
+      })
+      .then((json) => {
+        dispatch(
+          products.actions.setProduct({ currentProduct: json }));
+      })
+      .catch((err) => {
+
+        dispatch(products.actions.setErrorMessage({ errorMessage: err }));
+      }); //401
+  };
+};
+

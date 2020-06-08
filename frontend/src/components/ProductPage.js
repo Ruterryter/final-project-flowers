@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components/macro"
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { cart } from 'reducers/cart'
 import { products } from "reducers/products"
 
@@ -43,6 +43,8 @@ height: 250px;
 
 export const ProductPage = ({ product }) => {
   const dispatch = useDispatch()
+  // const productDetials = useSelector((store) => store.products.id)
+
 
   return (
     <>
