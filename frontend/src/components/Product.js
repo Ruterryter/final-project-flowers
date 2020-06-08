@@ -56,7 +56,7 @@ export const Product = ({ product }) => {
     <>
       {/*länk till detalihjerad infosida med beställknapp*/}
 
-      <Link>
+      <Link style={{ textDecoration: "none" }}>
         <ProductCard>
           <BouquetImage src={`${product.imageUrl} `} alt={product.name} />
           <ProductTitle>{product.name}</ProductTitle>
