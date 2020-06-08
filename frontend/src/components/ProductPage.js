@@ -1,74 +1,70 @@
-import React from 'react'
-import styled from "styled-components/macro"
-import { useDispatch, useSelector } from 'react-redux'
-import { cart } from 'reducers/cart'
+import React from "react";
+import styled from "styled-components/macro";
+import { useDispatch, useSelector } from "react-redux";
+import { cart } from "reducers/cart";
 import { products, singleProduct } from "reducers/products";
-import { useParams } from 'react-router-dom';
-import { Cart } from "components/Cart"
-import { LogIn } from "components/LogIn"
+import { useParams } from "react-router-dom";
 
 const Button = styled.button`
-  background-color: #FF7C98;
-  color: #FFFF;
-  font-family: 'Poppins', sans-serif;
+  background-color: #ff7c98;
+  color: #ffff;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
-  text-transform: uppercase; 
+  text-transform: uppercase;
   outline: none;
   border: none;
   margin: 20px;
-`
-
+`;
 const PriceTag = styled.h4`
-color: #FF7C98;
-font-family: 'Poppins', sans-serif;
-font-weight: 700;
-font-size: 24px;
-`
-
+  color: #ff7c98;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+`;
 const ProductTitle = styled.h3`
-color: #FF7C98;
-font-family: 'Poppins', sans-serif;
-font-weight: 500;
-font-size: 28px;
-`
-
+  color: #ff7c98;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+`;
 const ProductInfoText = styled.p`
-color: #FF7C98;
-font-family: 'Poppins', sans-serif;
-font-weight: 500;
-font-size: 16px;
-`
-
+  color: #ff7c98;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+`;
 const BouquetImageMedium = styled.img`
-height: 250px;
-`
-//use selector to fecth info 
+  height: 250px;
+`;
+//use selector to fecth info
 //send a backend fetch to grab from backend
 
 export const ProductPage = () => {
-  const dispatch = useDispatch()
-  const { id } = useParams()
-  const product = useSelector((store) => store.products.allProducts.find((product) => {
-    return product._id === id
-
-  })
-  )
-  console.log(id)
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const product = useSelector((store) =>
+    store.products.allProducts.find((product) => {
+      return product._id === id;
+    })
+  );
+  console.log(id);
   return (
     <>
       {/* Ska man använda singleProduct här istället? */}
       <BouquetImageMedium src={`${product.imageUrl}`} alt={product.name} />
       <ProductTitle>{product.name}</ProductTitle>
       <PriceTag>{product.price} kr</PriceTag>
-      <ProductInfoText>Denna tjusiga bukett passar både till vardag och fest</ProductInfoText>
-
+      <ProductInfoText>
+        Denna tjusiga bukett passar både till vardag och fest
+      </ProductInfoText>
       <Button
         type="button"
         disabled={product.inventory === 0}
-        onClick={() => dispatch(cart.actions.addItem(product))} >
+        onClick={() => dispatch(cart.actions.addItem(product))}
+      >
         Beställ
       </Button>
       <Cart />
     </>
-  )
-}
+  );
+};

@@ -14,10 +14,10 @@ import { Provider } from "react-redux";
 import { user } from "./reducers/user";
 import { cart } from "./reducers/cart";
 import { products } from "./reducers/products";
-import { About } from "About"
+import { About } from "About";
 import { LogIn } from "components/LogIn";
-import { Contact } from "Contact"
-import { Checkout } from "components/Checkout";
+import { SignUp } from "components/SignUp";
+import { Contact } from "Contact";
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -43,6 +43,9 @@ export const App = () => {
           </Route>
           <Route path="/login/" exact>
             <LogIn />
+          </Route>
+          <Route path="/signup/" exact>
+            <SignUp />
           </Route>
           <Route path="/contact/" exact>
             <Contact />
