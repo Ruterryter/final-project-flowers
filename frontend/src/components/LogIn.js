@@ -63,13 +63,15 @@ export const LogIn = () => {
   const [password, setPassword] = useState("");
   const errorMessage = useSelector((store) => store.user.login.errorMessage);
 
-  // To sign in a user.
+
   const handleLogin = (event) => {
     event.preventDefault();
     dispatch(login(email, password));
   };
 
   if (!accessToken) {
+
+    /* //Lägg till signin länk */
     return (
       <>
         {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
@@ -100,7 +102,6 @@ export const LogIn = () => {
       </>
     );
   } else {
-    // If user is logged in, show profile
     return <Profile />;
   }
 };

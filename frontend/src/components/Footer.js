@@ -47,7 +47,7 @@ export const Footer = () => {
           textDecoration: "none"
         }}
         // lägg till hover orange
-        >About Us</Link>
+        >Om oss</Link>
         <Link to={"/contact/"} style={{
           marginRight: "10px",
           fontFamily: "Poppins",
@@ -57,7 +57,7 @@ export const Footer = () => {
           textAlign: "center",
           color: "#fde7ea",
           textDecoration: "none"
-        }}>Contact Us</Link>
+        }}>Kontakta oss</Link>
 
         <Link to={"/login/"}
           style={{
@@ -69,7 +69,7 @@ export const Footer = () => {
             textAlign: "center",
             color: "#fde7ea",
             textDecoration: "none"
-          }}>Log In</Link>
+          }}>Login</Link>
       </div>
     </FooterDiv>
   );

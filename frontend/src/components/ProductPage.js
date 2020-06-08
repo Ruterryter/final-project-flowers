@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { cart } from 'reducers/cart'
 import { products, singleProduct } from "reducers/products";
 import { useParams } from 'react-router-dom';
+import { Cart } from "components/Cart"
+import { LogIn } from "components/LogIn"
 
 const Button = styled.button`
   background-color: #FF7C98;
@@ -63,9 +65,10 @@ export const ProductPage = () => {
       <Button
         type="button"
         disabled={product.inventory === 0}
-        onClick={() => dispatch(cart.actions.addItem(product))}>
+        onClick={() => dispatch(cart.actions.addItem(product))} >
         Beställ
       </Button>
+      <Cart />
     </>
   )
 }
