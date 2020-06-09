@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 import { Profile } from "./Profile";
 import { useDispatch, useSelector } from "react-redux";
 import { user, login, logout } from "../reducers/user";
+import { ConfirmationPage } from "components/ConfirmationPage"
 
 const LOGIN_URL = "https://bouquetdb.herokuapp.com/sessions";
 
@@ -102,6 +103,7 @@ export const LogIn = () => {
       </>
     );
   } else {
-    return <Profile />;
+    // return <Profile />; 
+    return <ConfirmationPage />;
   }
 };
