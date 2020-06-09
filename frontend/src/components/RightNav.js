@@ -41,7 +41,6 @@ export const RightNav = ({ open }) => {
       <li>Hem</li>
       <li>Om oss</li>
       <li>Kontakta oss</li>
-      <li>Login</li>
     </Menu>
   );
 };

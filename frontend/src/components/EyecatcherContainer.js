@@ -32,6 +32,8 @@ const TextCard = styled.div`
   height: 500px;
   background-color: #ff7c98;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-items: center;
   align-items: center;
   @media (max-width: 768px) {
@@ -51,14 +53,30 @@ const Title = styled.h2`
   @media (max-width: 768px) {
     font-size: 24px;
   }
-`;
+`
+
+const InfoText = styled.h5`
+  margin: auto 30px;
+  font-family: "Poppins";
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+  color: #fde7ea;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+`
 
 export const EyecatcherContainer = () => {
   return (
     <CardWrapper>
       <ImgCard></ImgCard>
       <TextCard>
-        <Title>Floristens val</Title>
+        <Title>En bukett till helgen?!</Title>
+        <InfoText>Vi leverar vackra blombuketter varje fredag direkt till din dörr.
+        Välj bara storleken på buketten så fixar vi resten. Alltid färska fräscha blommor i säsong och så närodlade så möjligt.
+        </InfoText>
       </TextCard>
     </CardWrapper>
   );

@@ -69,7 +69,7 @@ export const Footer = () => {
             textAlign: "center",
             color: "#fde7ea",
             textDecoration: "none"
-          }}>Login</Link>
+          }}>Admin login</Link>
       </div>
     </FooterDiv>
   );
