@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { user, login, logout } from "../reducers/user";
 import { Link } from "react-router-dom";
 import { ConfirmationPage } from "components/ConfirmationPage"
+import { Checkout } from "./Checkout";
 
 const LOGIN_URL = "https://bouquetdb.herokuapp.com/sessions";
 

@@ -19,6 +19,7 @@ import { LogIn } from "components/LogIn";
 import { SignUp } from "components/SignUp";
 import { Contact } from "Contact";
 import { Checkout } from "components/Checkout"
+import { ConfirmationPage } from "components/ConfirmationPage";
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -54,8 +55,11 @@ export const App = () => {
           <Route path="/bouquets/:id" exact>
             <ProductPage />
           </Route>
-          <Route path="/checkout" exact>
+          <Route path="/checkout/" exact>
             <Checkout />
+          </Route>
+          <Route path="/confirmation/" exact>
+            <ConfirmationPage />
           </Route>
         </Switch>
       </BrowserRouter>
