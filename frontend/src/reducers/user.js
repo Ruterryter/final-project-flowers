@@ -60,7 +60,7 @@ export const login = (email, password) => {
         }
 
         // Not OK
-        throw 'Unable to sign in. Please check thath your email and password are correct';
+        throw 'Unable to sign in. Please check that your email and password are correct';
       })
       .then((json) => {
         // Save the login info
