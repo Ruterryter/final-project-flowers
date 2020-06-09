@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components/macro"
+import { Link } from "react-router-dom"
 
 
 const CardWrapper = styled.div`
@@ -63,6 +64,16 @@ export const ConfirmationPage = () => {
           Vi leverar sedan blommorna hem till dig mellan klockan 15-17 på fredagar. Skulle ni inte vara hemma ställer
           vi blommorna utanför i en liten hink med vatten så att de håller sig fräscha. Info om hur du bäst tar hand om din bukett
 medföljer. </InfoText>
+          <Link className="back-link" to={'/'} style={{
+            margin: "auto",
+            fontFamily: "Poppins",
+            fontSize: "18px",
+            fontWeight: "700",
+            textTransform: "uppercase",
+            textAlign: "center",
+            color: "#ff7c98",
+            textDecoration: "none"
+          }}>Tillbaks</Link>
         </TextCard>
       </CardWrapper>
 
