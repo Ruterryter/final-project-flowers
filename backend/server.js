@@ -86,12 +86,34 @@ app.post('/users', async (req, res) => {
   }
 });
 
-//autenticate user 
-app.get('/users/:id', authenticateUser)
-app.get('/users/:id', (req, res) => {
-  res.status(201).json({ email: req.user.email, userId: req.user._id })
-})
+//autenticate user profile page
+// app.get('/users/:id', authenticateUser)
+// app.get('/users/:id', (req, res) => {
+//   res.status(201).json({ email: req.user.email, userId: req.user._id })
+// })
+app.get('/users/:userId', authenticateUser)
+app.get('/users/:userId', async (req, res) => {
+  const { userId } = req.params
 
+  try {
+    const user = await User.findOne({ _id: userId })
+      .populate({
+        path: 'orderHistory',
+        select: 'items createdAt status',
+        populate: {
+          path: 'items',
+          select: 'name price'
+        }
+      })
+
+    res.status(200).json(user)
+  } catch (err) {
+    res.status(400).json({
+      message: 'Invalid request.',
+      errors: err.errors
+    })
+  }
+})
 
 //sign in 
 app.post('/sessions', async (req, res) => {
@@ -142,10 +164,6 @@ app.post('/orders', async (req, res) => {
     })
   }
 })
-
-
-
-
 
 
 // Start the server

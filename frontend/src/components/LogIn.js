@@ -6,6 +6,7 @@ import { user, login, logout } from "../reducers/user";
 import { Link } from "react-router-dom";
 import { ConfirmationPage } from "components/ConfirmationPage"
 import { Checkout } from "./Checkout";
+import { OrderSummary } from "components/OrderSummary"
 
 const LOGIN_URL = "https://bouquetdb.herokuapp.com/sessions";
 
@@ -82,6 +83,7 @@ export const LogIn = () => {
     dispatch(login(email, password));
   };
 
+
   if (!accessToken) {
 
     return (
@@ -129,6 +131,7 @@ export const LogIn = () => {
     );
   } else {
     // return <Profile />; 
-    return <ConfirmationPage />;
+    return <OrderSummary />;
+
   }
 };
