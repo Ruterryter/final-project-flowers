@@ -26,3 +26,41 @@ export const cart = createSlice({
     }
   }
 })
+
+export const submitOrder = (
+  items,
+  userId,
+  firstName,
+  lastName,
+  email,
+  address,
+  zipCode,
+  city,
+  phoneNumber,
+  accessToken
+) => {
+  const SUBMIT_ORDER_URL = 'https://bouquetdb.herokuapp.com/orders'
+  return (dispatch) => {
+    fetch(SUBMIT_ORDER_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        items,
+        userId,
+        firstName,
+        lastName,
+        email,
+        address,
+        zipCode,
+        city,
+        phoneNumber,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken
+      }
+    })
+      .then(() => {
+        dispatch(cart.actions.clearCart())
+      })
+  }
+}

@@ -56,9 +56,8 @@ export const ProductPage = () => {
       <BouquetImageMedium src={`${product.imageUrl}`} alt={product.name} />
       <ProductTitle>{product.name}</ProductTitle>
       <PriceTag>{product.price} kr</PriceTag>
-      <ProductInfoText>
-        Denna tjusiga bukett passar både till vardag och fest
-      </ProductInfoText>
+      <ProductInfoText>{product.description}</ProductInfoText>
+
       <Button
         type="button"
         disabled={product.inventory === 0}

@@ -18,35 +18,37 @@ const Button = styled.button`
 
 export const Cart = () => {
   const products = useSelector((store) => store.cart.items)
-
-
   const totalPrice = useSelector((store) => (
     store.cart.items.reduce((total, item) => (total + (item.price * item.quantity)), 0)
   ))
+  const clearAll = () => {
+    dispatch(cart.actions.clearCart())
 
-  return (
-    <div>
-      <>
-        <p>Total: {totalPrice} kr</p>
-      </>
+    return (
+      <div>
+        <>
+          <p>Total: {totalPrice} kr</p>
+        </>
 
-      <ul>
-        {products.map((product) => (
-          <CartItem key={product._id} product={product} />
-        ))}
-      </ul>
-      <Link className="aboutlink" to={"/checkout/"} style={{
-        backgroundColor: "#FF7C98",
-        color: "#FFFF",
-        fontFamily: "Poppins",
-        fontWeight: "700",
-        textTransform: "uppercase",
-        outline: "none",
-        border: "none",
-        margin: "20px"
-      }}
+        <ul>
+          {products.map((product) => (
+            <CartItem key={product._id} product={product} />
+          ))}
+        </ul>
+        <Button title="Ta bort" onClick={clearAll} />
+        <Link className="aboutlink" to={"/checkout/"} style={{
+          backgroundColor: "#FF7C98",
+          color: "#FFFF",
+          fontFamily: "Poppins",
+          fontWeight: "700",
+          textTransform: "uppercase",
+          outline: "none",
+          border: "none",
+          margin: "20px"
+        }}
 
-      >Gå till betalning</Link>
-    </div>
-  )
+        >Gå till betalning</Link>
+      </div>
+    )
+  }
 }

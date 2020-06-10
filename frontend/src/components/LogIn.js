@@ -4,6 +4,8 @@ import { Profile } from "./Profile";
 import { useDispatch, useSelector } from "react-redux";
 import { user, login, logout } from "../reducers/user";
 import { Link } from "react-router-dom";
+import { ConfirmationPage } from "components/ConfirmationPage"
+import { Checkout } from "./Checkout";
 
 const LOGIN_URL = "https://bouquetdb.herokuapp.com/sessions";
 
@@ -56,6 +58,17 @@ const LoginContainer = styled.div`
   width: 45%;
 `;
 
+const Button = styled.button`
+  background-color: #ff7c98;
+  color: #ffff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  margin: 20px;
+`;
+
 export const LogIn = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.login.accessToken);
@@ -71,7 +84,6 @@ export const LogIn = () => {
 
   if (!accessToken) {
 
-    /* //Lägg till signin länk */
     return (
       <Wrapper>
         {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
@@ -94,21 +106,12 @@ export const LogIn = () => {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-            <Link
-              to={"/"}
-              style={{
-                backgroundColor: "#ff7c98",
-                color: "#ffffff",
-                fontFamily: "Poppins",
-                fontWeight: "700",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                margin: "20px 0 5px 0",
-                padding: "5px 10px",
-              }}
-            >
+
+
+            <Button type="submit" onClick={handleLogin}>
               Logga in
-            </Link>
+            </Button>
+
             <Link
               to={"/signup/"}
               style={{
@@ -125,6 +128,7 @@ export const LogIn = () => {
       </Wrapper>
     );
   } else {
-    return <Profile />;
+    // return <Profile />; 
+    return <ConfirmationPage />;
   }
 };

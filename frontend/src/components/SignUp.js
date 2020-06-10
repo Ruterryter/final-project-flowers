@@ -65,6 +65,7 @@ export const SignUp = () => {
   const [city, setCity] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const errorMessage = useSelector((store) => store.user.login.errorMessage);
 
 
   // To sign up a user.
@@ -105,6 +106,7 @@ export const SignUp = () => {
       <>
         <SignUpContainer>
           <Form>
+            {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
             <Header>Skapa användare</Header>
             <Label>Förnamn </Label>
             <Input type="Text" placeholder="Förnamn" value={firstName} onChange={(event) => setFirstName(event.target.value)} />
