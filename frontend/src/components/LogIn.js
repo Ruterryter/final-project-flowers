@@ -106,21 +106,7 @@ export const LogIn = () => {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-            {/* <Link
-              to={"/"}
-              style={{
-                backgroundColor: "#ff7c98",
-                color: "#ffffff",
-                fontFamily: "Poppins",
-                fontWeight: "700",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                margin: "20px 0 5px 0",
-                padding: "5px 10px",
-              }}
-            >
-              Logga in
-            </Link> */}
+
 
             <Button type="submit" onClick={handleLogin}>
               Logga in
