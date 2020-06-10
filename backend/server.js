@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 import bcrypt from 'bcrypt-nodejs'
 import User from './models/user'
 import Bouquet from './models/bouquet'
+import Order from './models/order'
 
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/finalProject"
@@ -106,6 +107,46 @@ app.post('/sessions', async (req, res) => {
     res.status(404).json({ notFound: true });
   }
 })
+
+
+
+// Post order 
+app.post('/orders', authenticateUser)
+app.post('/orders', async (req, res) => {
+  const {
+    items,
+    userId,
+    firstName,
+    lastName,
+    email,
+    address,
+    zipCode,
+    city,
+    phoneNumber,
+  } = req.body
+
+  try {
+    const order = await new Order(req.body).save()
+
+    await User.findOneAndUpdate(
+      { _id: userId },
+      {
+        $push: { orderHistory: order._id }
+      }
+    )
+    res.status(201).json(order)
+  } catch (err) {
+    res.status(400).json({
+      message: 'Could not place order.',
+      errors: err.errors
+    })
+  }
+})
+
+
+
+
+
 
 // Start the server
 app.listen(port, () => {
