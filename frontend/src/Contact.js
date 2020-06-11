@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 import { NavBar } from "components/Navbar"
 import { Footer } from "components/Footer"
+import mellanBank from "assets/mellanBank.jpg"
 
 const CardWrapper = styled.div`
   width: 100%;
@@ -19,7 +20,7 @@ const ImgCard = styled.div`
   width: 50%;
   height: 500px;
   background-color: grey;
-  background-image: url("https://dl.dropboxusercontent.com/s/7chltsg2x0fzl8v/narbildKvadrat.jpg?dl=0");
+  background-image: url(${mellanBank});
   background-repeat: no-repeat;
   background-size: cover;
   background-color: pink;

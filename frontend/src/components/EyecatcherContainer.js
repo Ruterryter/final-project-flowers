@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import eyecatcherPic from "../assets/mediumBukett1.jpg";
+import eyecatcherPic from "../assets/mellanBank2.jpg";
 
 const CardWrapper = styled.div`
   width: 100%;
