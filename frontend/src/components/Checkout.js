@@ -8,7 +8,6 @@ import { LogIn } from "components/LogIn"
 import { OrderSummary } from "components/OrderSummary"
 import { accessToken } from "reducers/user"
 
-// när inloggad dölj cart och visa bara ordersummary
 
 export const Checkout = () => {
   const accessToken = useSelector((store) => store.user.login.accessToken)
@@ -16,9 +15,6 @@ export const Checkout = () => {
     <>
       <NavBar />
       <>
-        {/* <LogIn />
-      <OrderSummary /> */}
-
         {accessToken ? <OrderSummary /> : <LogIn />}
       </>
       <Footer />
