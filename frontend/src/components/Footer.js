@@ -34,7 +34,9 @@ const Title = styled.h1`
 export const Footer = () => {
   return (
     <FooterDiv>
-      <Title>Friday flowers</Title>
+      <Link to={'/'} style={{ textDecoration: "none" }}>
+        <Title>Friday flowers</Title>
+      </Link>
       <div>
         <Link className="aboutlink" to={"/about/"} style={{
           marginRight: "10px",
@@ -56,7 +58,8 @@ export const Footer = () => {
           textTransform: "uppercase",
           textAlign: "center",
           color: "#fde7ea",
-          textDecoration: "none"
+          textDecoration: "none",
+
         }}>Kontakta oss</Link>
 
         <Link to={"/login/"}
@@ -71,6 +74,6 @@ export const Footer = () => {
             textDecoration: "none"
           }}>Admin login</Link>
       </div>
-    </FooterDiv>
+    </FooterDiv >
   );
 };

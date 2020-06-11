@@ -66,7 +66,7 @@ const InfoText = styled.h5`
   font-size: 14px;
   font-weight: 500;
   text-align: center;
-  color: #ff7c98;
+  color: #4D4D4D;
 
   @media (max-width: 768px) {
     font-size: 24px;
@@ -85,7 +85,7 @@ export const About = () => {
           <InfoText>... och tycker att alla ska njuta av vackra blommor i säsong direkt hem till sin dörr. Våra florister älskar att skapa vackra och kreativa buketter med det där lilla extra
             Vi binder alla typer av buketter och arrangemang såväl till hemmet, som till den stora konferensen och självklart till både bröllop och begravningar. Hör av er till oss så hjälper vi dig med dina blommande önskemål!.</InfoText>
 
-          <Link className="back-link" to={'/contact'} style={{
+          <Link to={'/contact'} style={{
             margin: "auto",
             fontFamily: "Poppins",
             fontSize: "18px",
