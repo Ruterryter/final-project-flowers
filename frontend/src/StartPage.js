@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components/macro";
 import { useDispatch } from "react-redux";
 import { NavBar } from "./components/Navbar";
-import { HeaderImg } from "./components/HeaderImg";
 import { EyecatcherContainer } from "./components/EyecatcherContainer";
 import { HighlightCard } from "./components/HighlightCard";
 import { Banner } from "./components/Banner";
@@ -24,7 +23,6 @@ const CategoryImgsWrapper = styled.div`
   justify-content: space-around;
 `;
 
-// Dekonstruera så alla delar är egna komponenter, plocka in komponenterna i Startpage
 export const StartPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -34,7 +32,6 @@ export const StartPage = () => {
   return (
     <AppWrapper>
       <NavBar />
-      <HeaderImg />
       <EyecatcherContainer />
       <Products />
       <CategoryImgsWrapper>
