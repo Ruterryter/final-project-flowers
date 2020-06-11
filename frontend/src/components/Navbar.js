@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom"
 import { Burger } from "./Burger";
 
 const Nav = styled.div`
@@ -36,7 +37,9 @@ const Title = styled.h1`
 export const NavBar = () => {
   return (
     <Nav>
-      <Title>Friday Flowers</Title>
+      <Link to={'/'} style={{ textDecoration: "none" }}>
+        <Title>Friday Flowers</Title>
+      </Link>
       <Burger />
     </Nav>
   );

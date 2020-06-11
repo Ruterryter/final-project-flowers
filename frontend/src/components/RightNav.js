@@ -38,9 +38,15 @@ const Menu = styled.ul`
 export const RightNav = ({ open }) => {
   return (
     <Menu open={open}>
-      <li>Hem</li>
-      <li>Om oss</li>
-      <li>Kontakta oss</li>
+      <Link to={"/"} style={{ textDecoration: "none", color: "#FF7C98" }} >
+        <li>Hem</li>
+      </Link>
+      <Link to={"/about/"} style={{ textDecoration: "none", color: "#FF7C98" }} >
+        <li>Om oss</li>
+      </Link>
+      <Link to={"/contact/"} style={{ textDecoration: "none", color: "#FF7C98" }} >
+        <li>Kontakta oss</li>
+      </Link>
     </Menu>
   );
 };

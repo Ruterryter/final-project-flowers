@@ -1,11 +1,15 @@
-import React from "react";
-import styled from "styled-components/macro";
+import React from "react"
+import styled from "styled-components/macro"
+import { Link } from "react-router-dom"
+import mediumBukett2 from "assets/mediumBukett2.jpg"
+
 
 const HighlightImg = styled.div`
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-color: orange;
+  background-image: url(${mediumBukett2});
+  background-size: contain; 
 `;
 const HighlightCardDiv = styled.div`
   width: 200px;
@@ -31,9 +35,20 @@ const MidHeader = styled.h3`
 
 export const HighlightCard = () => {
   return (
-    <HighlightCardDiv>
-      <HighlightImg />
-      <MidHeader>Hej</MidHeader>
-    </HighlightCardDiv>
+    <Link to={"/contact/"} style={{
+      marginRight: "10px",
+      fontFamily: "Poppins",
+      fontSize: "18px",
+      fontWeight: "700",
+      textTransform: "uppercase",
+      textAlign: "center",
+      color: "#fde7ea",
+      textDecoration: "none"
+    }}>
+      <HighlightCardDiv>
+        <HighlightImg />
+        <MidHeader>Bröllop</MidHeader>
+      </HighlightCardDiv>
+    </Link>
   );
 };

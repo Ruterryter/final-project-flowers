@@ -40,13 +40,9 @@ export const OrderSummary = () => {
     history.push("/confirmation")
   }
 
-  // 
-
   return (
     <>
-
-      <h2>{`Din beställning ${cartItems[0].name}`} </h2>
-
+      <h2>{`Din beställning: ${cartItems[0].name} ${cartItems[0].price} kr.`} </h2>
       <h2> Dina uppgifter</h2>
       <p>{firstName} {lastName}</p>
       <p>{address}</p>
@@ -60,4 +56,3 @@ export const OrderSummary = () => {
   )
 }
 
-//when order saved - then redirect to confirmation 
