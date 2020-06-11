@@ -35,18 +35,28 @@ const Menu = styled.ul`
   }
 `;
 
+const StyledLink = styled(Link)`
+  margin-right: 10px;
+  font-family: "Poppins";
+  font-size: 18px;
+  font-weight: 700;
+  color:#ff7c98;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+
+    &:hover {
+        text-decoration: none;
+        color: orange;
+    }
+`;
+
 export const RightNav = ({ open }) => {
   return (
     <Menu open={open}>
-      <Link to={"/"} style={{ textDecoration: "none", color: "#FF7C98" }} >
-        <li>Hem</li>
-      </Link>
-      <Link to={"/about/"} style={{ textDecoration: "none", color: "#FF7C98" }} >
-        <li>Om oss</li>
-      </Link>
-      <Link to={"/contact/"} style={{ textDecoration: "none", color: "#FF7C98" }} >
-        <li>Kontakta oss</li>
-      </Link>
+      <StyledLink to={"/"}>Hem</StyledLink>
+      <StyledLink to={"/about/"}>Om oss</StyledLink>
+      <StyledLink to={"/contact/"}>Kontakta oss</StyledLink>
     </Menu>
   );
 };

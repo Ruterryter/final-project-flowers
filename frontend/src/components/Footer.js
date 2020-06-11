@@ -31,6 +31,22 @@ const Title = styled.h1`
   }
 `;
 
+const StyledLink = styled(Link)`
+  margin-right: 10px;
+  font-family: "Poppins";
+  font-size: 18px;
+  font-weight: 700;
+  color: #fde7ea;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+
+    &:hover {
+        text-decoration: none;
+        color: orange;
+    }
+`;
+
 export const Footer = () => {
   return (
     <FooterDiv>
@@ -38,41 +54,9 @@ export const Footer = () => {
         <Title>Friday flowers</Title>
       </Link>
       <div>
-        <Link className="aboutlink" to={"/about/"} style={{
-          marginRight: "10px",
-          fontFamily: "Poppins",
-          fontSize: "18px",
-          fontWeight: "700",
-          textTransform: "uppercase",
-          textAlign: "center",
-          color: "#fde7ea",
-          textDecoration: "none"
-        }}
-        // lägg till hover orange
-        >Om oss</Link>
-        <Link to={"/contact/"} style={{
-          marginRight: "10px",
-          fontFamily: "Poppins",
-          fontSize: "18px",
-          fontWeight: "700",
-          textTransform: "uppercase",
-          textAlign: "center",
-          color: "#fde7ea",
-          textDecoration: "none",
-
-        }}>Kontakta oss</Link>
-
-        <Link to={"/login/"}
-          style={{
-            marginRight: "10px",
-            fontFamily: "Poppins",
-            fontSize: "18px",
-            fontWeight: "700",
-            textTransform: "uppercase",
-            textAlign: "center",
-            color: "#fde7ea",
-            textDecoration: "none"
-          }}>Admin login</Link>
+        <StyledLink to={"/about/"}>Om oss</StyledLink>
+        <StyledLink to={"/contact/"}>Kontakta oss</StyledLink>
+        <StyledLink to={"/login/"}>Admin login</StyledLink>
       </div>
     </FooterDiv >
   );
