@@ -131,7 +131,6 @@ app.post('/sessions', async (req, res) => {
 })
 
 
-
 // Post order 
 app.post('/orders', authenticateUser)
 app.post('/orders', async (req, res) => {
