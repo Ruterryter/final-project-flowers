@@ -6,6 +6,8 @@ import { submitOrder } from "reducers/cart"
 import { CartItem } from "components/CartItem"
 import { Cart } from "components/Cart"
 import { user } from "reducers/user"
+import { Login } from "components/LogIn"
+import { cart } from "reducers/cart"
 
 const Button = styled.button`
   background-color: #FF7C98;
@@ -20,6 +22,7 @@ const Button = styled.button`
 
 export const OrderSummary = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const userId = useSelector((store) => store.user.login.userId)
   const cartItems = useSelector((store) => store.cart.items)
   const firstName = useSelector((store) => store.user.login.firstName)
@@ -34,21 +37,27 @@ export const OrderSummary = () => {
 
   const handleSubmit = () => {
     dispatch(submitOrder(items, userId, firstName, address, lastName, email, zipCode, city, phoneNumber, accessToken))
+    history.push("/confirmation")
   }
 
+  // 
+
   return (
-    //hittar inte firstName och inte items.name
     <>
 
-      <h2>{`Din beställning ${items.name}`} </h2>
+      <h2>{`Din beställning ${cartItems[0].name}`} </h2>
 
+      <h2> Dina uppgifter</h2>
       <p>{firstName} {lastName}</p>
       <p>{address}</p>
       <p>{zipCode}</p>
       <p>{city}</p>
+
       <p>{phoneNumber}</p>
       <p>{email}</p>
       <Button onClick={handleSubmit} > Skicka beställning </Button>
     </>
   )
 }
+
+//when order saved - then redirect to confirmation 

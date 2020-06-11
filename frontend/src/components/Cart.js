@@ -17,7 +17,7 @@ const Button = styled.button`
 `
 
 
-export const Cart = () => {
+export const Cart = ({ name, _id, price }) => {
   const dispatch = useDispatch()
   const products = useSelector((store) => store.cart.items)
   const totalPrice = useSelector((store) => (

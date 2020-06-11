@@ -15,6 +15,8 @@ const ShopWrapper = styled.div`
   justify-content: center;
 `;
 
+//lägg till loader
+
 export const Products = () => {
   const allProducts = useSelector((store) => store.products.allProducts);
 
