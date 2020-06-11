@@ -18,6 +18,11 @@ const HighlightCardDiv = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  transition: all 1s;
+
+  :hover{
+      transform: scale(1.2);    
+  }
 
   @media (max-width: 872px) {
     margin: 20px 0;
@@ -33,22 +38,17 @@ const MidHeader = styled.h3`
   text-transform: uppercase;
 `;
 
+const StyledLink = styled(Link)`
+text-decoration: none;
+  `
+
 export const HighlightCard = () => {
   return (
-    <Link to={"/contact/"} style={{
-      marginRight: "10px",
-      fontFamily: "Poppins",
-      fontSize: "18px",
-      fontWeight: "700",
-      textTransform: "uppercase",
-      textAlign: "center",
-      color: "#fde7ea",
-      textDecoration: "none"
-    }}>
+    <StyledLink to={"/contact/"}>
       <HighlightCardDiv>
         <HighlightImg />
         <MidHeader>Bröllop</MidHeader>
       </HighlightCardDiv>
-    </Link>
+    </StyledLink>
   );
 };

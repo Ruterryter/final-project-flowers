@@ -10,6 +10,7 @@ const ProductCard = styled.div`
   width: 250px;
   background-color: #fff;
   margin: 10px;
+  transition: all 1s;
   
   :hover{
       -webkit-animation: shadow-drop-2-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
