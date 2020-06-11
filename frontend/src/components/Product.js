@@ -7,9 +7,45 @@ import { Link } from "react-router-dom";
 import { products, singleProduct } from "reducers/products";
 
 const ProductCard = styled.div`
+  width: 250px;
   background-color: #fff;
   margin: 10px;
-  box-shadow: 3px 3px #a6a6a6;
+  
+  :hover{
+      -webkit-animation: shadow-drop-2-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+              animation: shadow-drop-2-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+
+    @-webkit-keyframes shadow-drop-2-bottom {
+      0% {
+        -webkit-transform: translateZ(0) translateY(0);
+                transform: translateZ(0) translateY(0);
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+      100% {
+        -webkit-transform: translateZ(50px) translateY(-12px);
+                transform: translateZ(50px) translateY(-12px);
+        -webkit-box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+                box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+      }
+    }
+    @keyframes shadow-drop-2-bottom {
+      0% {
+        -webkit-transform: translateZ(0) translateY(0);
+                transform: translateZ(0) translateY(0);
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+      100% {
+        -webkit-transform: translateZ(50px) translateY(-12px);
+                transform: translateZ(50px) translateY(-12px);
+        -webkit-box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+                box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+      }
+    }
+    
+  }
 `;
 
 const InfoSqaure = styled.h5`
@@ -27,7 +63,8 @@ const InfoSqaure = styled.h5`
 `;
 
 const BouquetImage = styled.img`
-  height: 200px;
+  width: 100%;
+  height: auto;
 `;
 
 const PriceTag = styled.h4`
