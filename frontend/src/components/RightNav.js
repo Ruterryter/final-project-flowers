@@ -44,6 +44,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
+  transition: all 0.3s;
 
     &:hover {
         text-decoration: none;

@@ -19,6 +19,7 @@ const Nav = styled.div`
   justify-content: space-between;
   justify-items: center;
   align-items: center;
+  border-bottom: 1px solid #ff7c98;
 `;
 
 const Title = styled.h1`

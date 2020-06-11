@@ -11,7 +11,7 @@ const FooterDiv = styled.div`
   align-items: center;
   justify-content: space-around;
   background-color: #ff7c98;
-
+  border-top: 2px solid #fde7ea;
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     justify-content: center;
@@ -40,6 +40,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
+  transition: all 0.3s;
 
     &:hover {
         text-decoration: none;

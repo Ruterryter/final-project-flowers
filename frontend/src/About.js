@@ -4,8 +4,6 @@ import { Link } from "react-router-dom"
 import { NavBar } from "components/Navbar"
 import { Footer } from "components/Footer"
 
-
-
 const CardWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -13,7 +11,6 @@ const CardWrapper = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  border-top: solid 20px #ff7c98;
 `;
 
 const ImgCard = styled.div`
@@ -35,12 +32,13 @@ const TextCard = styled.div`
   margin: 0;
   width: 50%;
   height: 500px;
-  background-color: #fde7ea;
+  background-color: pink;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-items: center;
   align-items: center;
+
   @media (max-width: 768px) {
     height: 350px;
   }
@@ -49,12 +47,13 @@ const TextCard = styled.div`
 const Title = styled.h2`
   margin: auto;
   font-family: "Poppins";
-  font-size: 22px;
+  font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
-  color: #ff7c98;
-
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  
   @media (max-width: 768px) {
     font-size: 24px;
   }
@@ -63,7 +62,7 @@ const Title = styled.h2`
 const InfoText = styled.h5`
   margin: auto 20px;
   font-family: "Poppins";
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   text-align: center;
   color: #4D4D4D;
@@ -73,6 +72,37 @@ const InfoText = styled.h5`
   }
 `
 
+const MidTitle = styled.h3`
+margin: auto 20px;
+font-family: 'Sacramento', cursive;
+font-size: 45px;
+font-weight: 500;
+text-align: center;
+color: #4D4D4D;
+line-height: 80%;
+
+@media (max-width: 768px) {
+  font-size: 24px;
+}
+`
+
+const StyledLink = styled(Link)`
+  margin: auto;
+  font-family: "Poppins";
+  font-size: 18px;
+  font-weight: 700;
+  color: #ff7c98;
+  text-align:center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+
+    &:hover {
+        text-decoration: none;
+        color: orange;
+    }
+`;
+
 export const About = () => {
 
   return (
@@ -81,20 +111,12 @@ export const About = () => {
       <CardWrapper>
         <ImgCard></ImgCard>
         <TextCard>
-          <Title>Vi gillar blommor, smultron och hallonsaft!</Title>
+          <Title>Vi gillar </Title>
+          <MidTitle>blommor, smultron och hallonsaft!</MidTitle>
           <InfoText>... och tycker att alla ska njuta av vackra blommor i säsong direkt hem till sin dörr. Våra florister älskar att skapa vackra och kreativa buketter med det där lilla extra
             Vi binder alla typer av buketter och arrangemang såväl till hemmet, som till den stora konferensen och självklart till både bröllop och begravningar. Hör av er till oss så hjälper vi dig med dina blommande önskemål!.</InfoText>
 
-          <Link to={'/contact'} style={{
-            margin: "auto",
-            fontFamily: "Poppins",
-            fontSize: "18px",
-            fontWeight: "700",
-            textTransform: "uppercase",
-            textAlign: "center",
-            color: "#ff7c98",
-            textDecoration: "none"
-          }}>Kontakta oss!</Link>
+          <StyledLink to={'/contact'}>Kontakta oss!</StyledLink>
         </TextCard>
       </CardWrapper>
 
