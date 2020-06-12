@@ -65,6 +65,7 @@ export const SignUp = () => {
   const [city, setCity] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const errorMessage = useSelector((store) => store.user.login.errorMessage);
 
 
@@ -72,7 +73,7 @@ export const SignUp = () => {
   const handleSignup = (event) => {
     event.preventDefault();
 
-    const userSignedUp = { email, password, firstName, lastName, address, city, zipCode }
+    const userSignedUp = { email, password, firstName, lastName, address, city, zipCode, phoneNumber }
     fetch(SIGNUP_URL, {
       method: 'POST',
       body: JSON.stringify(userSignedUp),
@@ -122,6 +123,9 @@ export const SignUp = () => {
 
             <Label>Ort</Label>
             <Input type="Text" placeholder="Malmö" value={city} onChange={(event) => setCity(event.target.value)} />
+
+            <Label>Telefonnummer</Label>
+            <Input type="Number" placeholder="0701-100 10 10" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} />
 
             <Label>Email</Label>
             <Input type="text" required placeholder="dittnamn@gmail.com" value={email} onChange={(event) => setEmail(event.target.value)} />

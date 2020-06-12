@@ -80,17 +80,13 @@ app.post('/users', async (req, res) => {
     const user = new User({ firstName, lastName, email, address, zipCode, city, phoneNumber, password: bcrypt.hashSync(password) });
     const saved = await user.save();
     delete saved.password
-    res.status(201).json({ id: user._id, accessToken: user.accessToken });
+    res.status(201).json({ id: user._id, accessToken: user.accessToken, firstName: user.firstName, lastName: user.lastName, email: user.email, address: user.address, phoneNumber: user.phoneNumber, city: user.city, zipCode: user.Zipcode });
   } catch (err) {
     res.status(400).json({ message: 'Could not create user', errors: err.errors });
   }
 });
 
-//autenticate user profile page
-// app.get('/users/:id', authenticateUser)
-// app.get('/users/:id', (req, res) => {
-//   res.status(201).json({ email: req.user.email, userId: req.user._id })
-// })
+
 app.get('/users/:userId', authenticateUser)
 app.get('/users/:userId', async (req, res) => {
   const { userId } = req.params
@@ -121,7 +117,7 @@ app.post('/sessions', async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (user && bcrypt.compareSync(password, user.password)) {
-      res.status(201).json({ userId: user._id, accessToken: user.accessToken });
+      res.status(201).json({ id: user._id, accessToken: user.accessToken, firstName: user.firstName, lastName: user.lastName, email: user.email, address: user.address, phoneNumber: user.phoneNumber, city: user.city, zipCode: user.Zipcode });
     } else {
       res.status(404).json({ notFound: true });
     }

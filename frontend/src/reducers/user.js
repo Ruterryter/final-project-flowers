@@ -4,6 +4,13 @@ const initialState = {
   login: {
     accessToken: null,
     userId: 0,
+    email: null,
+    firstName: null,
+    lastName: null,
+    address: null,
+    phoneNumber: null,
+    zipCode: null,
+    city: null,
     secretMessage: null,
     errorMessage: null,
   },
@@ -33,6 +40,31 @@ export const user = createSlice({
       state.login.lastName = lastName;
     },
 
+    setPhoneNumber: (state, action) => {
+      const { phoneNumber } = action.payload;
+      state.login.phoneNumber = phoneNumber;
+    },
+
+    setEmail: (state, action) => {
+      const { email } = action.payload;
+      state.login.email = email;
+    },
+
+    setAddress: (state, action) => {
+      const { address } = action.payload;
+      state.login.address = address;
+    },
+
+    setZipcode: (state, action) => {
+      const { zipCode } = action.payload;
+      state.login.zipCode = zipCode;
+    },
+
+    setCity: (state, action) => {
+      const { city } = action.payload;
+      state.login.city = city;
+    },
+
     setSecretMessage: (state, action) => {
       const { secretMessage } = action.payload;
       state.login.secretMessage = secretMessage;
@@ -46,12 +78,12 @@ export const user = createSlice({
 });
 
 // Thunks
-export const login = (email, password) => {
+export const login = (email, password, firstName, lastName, phoneNumber, address, city, zipCode) => {
   const LOGIN_URL = 'https://bouquetdb.herokuapp.com/sessions';
   return (dispatch) => {
     fetch(LOGIN_URL, {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, firstName, lastName, phoneNumber, address, city, zipCode }),
       headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => {
@@ -64,13 +96,19 @@ export const login = (email, password) => {
       })
       .then((json) => {
         // Save the login info
-        dispatch(
-          user.actions.setAccessToken({
-            accessToken: json.accessToken,
-          })
-        );
+        dispatch(user.actions.setAccessToken({ accessToken: json.accessToken, }));
         dispatch(user.actions.setUserId({ userId: json.userId }));
+
+
+        dispatch(user.actions.setFirstName({ firstName: json.firstName }))
+        dispatch(user.actions.setLastName({ lastName: json.lastName }))
+        dispatch(user.actions.setEmail({ email: json.email }))
+        dispatch(user.actions.setAddress({ address: json.address }))
+        dispatch(user.actions.setZipcode({ zipCode: json.zipCode }))
+        dispatch(user.actions.setCity({ city: json.city }))
+        dispatch(user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber }))
       })
+
       .catch((err) => {
         dispatch(logout());
         dispatch(user.actions.setErrorMessage({ errorMessage: err }));
