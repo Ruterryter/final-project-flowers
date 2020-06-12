@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components/macro"
 import { useDispatch, useSelector } from 'react-redux';
 import { user, login, signup } from "../reducers/user";
+import { useHistory } from 'react-router-dom'
 
 const SIGNUP_URL = "https://bouquetdb.herokuapp.com/users"
 
@@ -57,6 +58,7 @@ const SignUpContainer = styled.div`
 
 export const SignUp = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const accessToken = useSelector((store) => store.user.login.accessToken);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -69,9 +71,10 @@ export const SignUp = () => {
   const errorMessage = useSelector((store) => store.user.login.errorMessage);
 
 
-  // To sign up a user.
+  // To sign up a user. 
   const handleSignup = (event) => {
     event.preventDefault();
+    history.push("/checkout")
 
     const userSignedUp = { email, password, firstName, lastName, address, city, zipCode, phoneNumber }
     fetch(SIGNUP_URL, {
@@ -151,6 +154,7 @@ export const SignUp = () => {
   } else {
     return (
       <>
+
       </>
     )
   }

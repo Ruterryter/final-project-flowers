@@ -27,9 +27,19 @@ const reducer = combineReducers({
   products: products.reducer,
 });
 
+// // Retrieve the existing state from localstorage if it exists
+const persistedState = localStorage.getItem("reduxState")
+  ? JSON.parse(localStorage.getItem("reduxState"))
+  : {};
+
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// const store = createStore(reducer, persistedState, composeEnhancer(applyMiddleware(thunk)))
-const store = configureStore({ reducer });
+const store = createStore(reducer, persistedState, composeEnhancer(applyMiddleware(thunk)))
+// const store = configureStore({ reducer });
+
+// Tell the store to persist the state in localstorage after every action
+store.subscribe(() => {
+  localStorage.setItem("reduxState", JSON.stringify(store.getState()));
+});
 
 export const App = () => {
   const [accessToken, setAccessToken] = useState();
