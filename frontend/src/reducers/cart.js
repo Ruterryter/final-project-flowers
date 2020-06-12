@@ -22,9 +22,9 @@ export const cart = createSlice({
 
       if (existingProduct && existingProduct.quantity === 1) {
         state.items = state.items.filter((item) => item.id !== action.payload.id)
-        // } else if (existingProduct) {
-        //   existingProduct.quantity -= 1
-        // }
+      } else if (existingProduct) {
+        existingProduct.quantity -= 1
+
       }
     },
     clearCart: () => {
