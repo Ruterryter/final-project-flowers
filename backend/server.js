@@ -117,7 +117,7 @@ app.post('/sessions', async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (user && bcrypt.compareSync(password, user.password)) {
-      res.status(201).json({ id: user._id, accessToken: user.accessToken, firstName: user.firstName, lastName: user.lastName, email: user.email, address: user.address, phoneNumber: user.phoneNumber, city: user.city, zipCode: user.Zipcode });
+      res.status(201).json({ id: user._id, accessToken: user.accessToken, firstName: user.firstName, lastName: user.lastName, email: user.email, address: user.address, phoneNumber: user.phoneNumber, city: user.city, zipCode: user.zipCode });
     } else {
       res.status(404).json({ notFound: true });
     }
@@ -143,7 +143,7 @@ app.post('/orders', async (req, res) => {
   } = req.body
 
   try {
-    const order = await new Order(req.body).save()
+    const order = await new Order({ items: items, userId: userId, firstName: firstName, lastName: lastName, email: email, address: address, zipCode: zipCode, city: city, phoneNumber: phoneNumber }).save()
 
     await User.findOneAndUpdate(
       { _id: userId },

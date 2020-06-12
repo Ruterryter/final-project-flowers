@@ -96,6 +96,7 @@ export const login = (email, password, firstName, lastName, phoneNumber, address
       })
       .then((json) => {
         // Save the login info
+        console.log(json)
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken, }));
         dispatch(user.actions.setUserId({ userId: json.userId }));
 

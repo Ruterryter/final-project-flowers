@@ -30,7 +30,7 @@ export const OrderSummary = () => {
   const address = useSelector((store) => store.user.login.address)
   const zipCode = useSelector((store) => store.user.login.zipCode)
   const city = useSelector((store) => store.user.login.city)
-  const phoneNumber = useSelector((store) => store.user.login.telephone)
+  const phoneNumber = useSelector((store) => store.user.login.phoneNumber)
   const email = useSelector((store) => store.user.login.email)
   const items = cartItems.map((item) => item._id)
   const accessToken = useSelector((store) => store.user.login.accessToken)
