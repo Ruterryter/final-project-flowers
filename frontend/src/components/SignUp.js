@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components/macro"
 import { useDispatch, useSelector } from 'react-redux';
-import { user } from "../reducers/user";
+import { user, login, signup } from "../reducers/user";
 
 const SIGNUP_URL = "https://bouquetdb.herokuapp.com/users"
 
@@ -96,9 +96,18 @@ export const SignUp = () => {
           })
         );
         dispatch(user.actions.setUserId({ userId: json.userId }));
+        dispatch(userSignedUp(firstName, lastName, email, password, address, zipCode, city, phoneNumber))
+        setFirstName('')
+        setLastName('')
+        setEmail('')
+        setPassword('')
+        setAddress('')
+        setZipCode('')
+        setCity('')
+        setPhoneNumber('')
       })
+
       .catch((err) => {
-        console.log("onsuccssful reg")
         dispatch(user.actions.setErrorMessage({ errorMessage: err }));
       });
   };
@@ -110,19 +119,19 @@ export const SignUp = () => {
             {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
             <Header>Skapa användare</Header>
             <Label>Förnamn </Label>
-            <Input type="Text" placeholder="Förnamn" value={firstName} onChange={(event) => setFirstName(event.target.value)} />
+            <Input type="Text" required placeholder="Förnamn" value={firstName} onChange={(event) => setFirstName(event.target.value)} />
 
             <Label>Efternamn</Label>
-            <Input type="Text" placeholder="Efternamn" value={lastName} onChange={(event) => setLastName(event.target.value)} />
+            <Input type="Text" required placeholder="Efternamn" value={lastName} onChange={(event) => setLastName(event.target.value)} />
 
             <Label>Adress</Label>
-            <Input type="Text" placeholder="Din gata" value={address} onChange={(event) => setAddress(event.target.value)} />
+            <Input type="Text" required placeholder="Din gata" value={address} onChange={(event) => setAddress(event.target.value)} />
 
             <Label>Postnummer</Label>
-            <Input type="Number" placeholder="123 45" value={zipCode} onChange={(event) => setZipCode(event.target.value)} />
+            <Input type="Number" required placeholder="123 45" value={zipCode} onChange={(event) => setZipCode(event.target.value)} />
 
             <Label>Ort</Label>
-            <Input type="Text" placeholder="Malmö" value={city} onChange={(event) => setCity(event.target.value)} />
+            <Input type="Text" required placeholder="Malmö" value={city} onChange={(event) => setCity(event.target.value)} />
 
             <Label>Telefonnummer</Label>
             <Input type="Number" placeholder="0701-100 10 10" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} />

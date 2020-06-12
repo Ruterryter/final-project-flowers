@@ -55,7 +55,7 @@ export const user = createSlice({
       state.login.address = address;
     },
 
-    setZipcode: (state, action) => {
+    setZipCode: (state, action) => {
       const { zipCode } = action.payload;
       state.login.zipCode = zipCode;
     },
@@ -104,7 +104,7 @@ export const login = (email, password, firstName, lastName, phoneNumber, address
         dispatch(user.actions.setLastName({ lastName: json.lastName }))
         dispatch(user.actions.setEmail({ email: json.email }))
         dispatch(user.actions.setAddress({ address: json.address }))
-        dispatch(user.actions.setZipcode({ zipCode: json.zipCode }))
+        dispatch(user.actions.setZipCode({ zipCode: json.zipCode }))
         dispatch(user.actions.setCity({ city: json.city }))
         dispatch(user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber }))
       })
