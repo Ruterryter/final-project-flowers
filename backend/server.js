@@ -111,6 +111,26 @@ app.get('/users/:userId', async (req, res) => {
   }
 })
 
+// Delete user
+app.delete('/users/:userId', authenticateUser)
+app.delete('/users/:userId', async (req, res) => {
+  const { userId } = req.params
+  try {
+    await User.findByIdandRemove(userId)
+      .then(user => {
+        if (!user) {
+          res.status(404).json({ message: `Could not delete user ${userId}.` })
+        }
+        res.status(204).json({ message: `User ${userId} deleted.` })
+      })
+  } catch (err) {
+    res.status(400).json({
+      message: 'Invalid request.',
+      errors: err.errors
+    })
+  }
+})
+
 //sign in 
 app.post('/sessions', async (req, res) => {
   try {
