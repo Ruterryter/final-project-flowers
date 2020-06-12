@@ -74,7 +74,7 @@ export const SignUp = () => {
   // To sign up a user. 
   const handleSignup = (event) => {
     event.preventDefault();
-    history.goBack()
+    history.push()
 
     const userSignedUp = { email, password, firstName, lastName, address, city, zipCode, phoneNumber }
     fetch(SIGNUP_URL, {

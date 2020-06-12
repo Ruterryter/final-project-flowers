@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from "styled-components/macro"
 import { Link } from "react-router-dom"
+import { logout } from "../reducers/user"
+import { useDispatch, useSelector } from 'react-redux'
+import { StartPage } from 'StartPage'
 
 
 const CardWrapper = styled.div`
@@ -54,29 +57,55 @@ color: #ff7c98;
   font-size: 24px;
 }
 `
-export const ConfirmationPage = () => {
-  return (
-    <>
-      <CardWrapper>
-        <TextCard>
-          <Title>Tack för din beställning!</Title>
-          <InfoText>Swisha summan för för buketten till swishnummer (123-xxx xxxx) senast onsdag kl 17:00 för att bekräfta din beställning.
-          Vi leverar sedan blommorna hem till dig mellan klockan 15-17 på fredagar. Skulle ni inte vara hemma ställer
-          vi blommorna utanför i en liten hink med vatten så att de håller sig fräscha. Info om hur du bäst tar hand om din bukett
-medföljer. </InfoText>
-          <Link className="back-link" to={'/'} style={{
-            margin: "auto",
-            fontFamily: "Poppins",
-            fontSize: "18px",
-            fontWeight: "700",
-            textTransform: "uppercase",
-            textAlign: "center",
-            color: "#ff7c98",
-            textDecoration: "none"
-          }}>Tillbaks</Link>
-        </TextCard>
-      </CardWrapper>
 
-    </>
-  )
+const Button = styled.button`
+  background-color: #FF7C98;
+  color: #FFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase; 
+  outline: none;
+  border: none;
+  margin: 20px;
+`
+
+
+export const ConfirmationPage = () => {
+  const dispatch = useDispatch()
+  const accessToken = useSelector((store) => store.user.login.accessToken);
+
+  if (!accessToken) {
+    return (
+      <>
+        <StartPage />
+      </>
+
+    )
+  } else {
+    return (
+      <>
+        <CardWrapper>
+          <TextCard>
+            <Title>Tack för din beställning!</Title>
+            <InfoText>Swisha summan för för buketten till swishnummer (123-xxx xxxx) senast onsdag kl 17:00 för att bekräfta din beställning.
+            Vi leverar sedan blommorna hem till dig mellan klockan 15-17 på fredagar. Skulle ni inte vara hemma ställer
+            vi blommorna utanför i en liten hink med vatten så att de håller sig fräscha. Info om hur du bäst tar hand om din bukett
+medföljer. </InfoText>
+            <Link className="back-link" to={'/'} style={{
+              margin: "auto",
+              fontFamily: "Poppins",
+              fontSize: "18px",
+              fontWeight: "700",
+              textTransform: "uppercase",
+              textAlign: "center",
+              color: "#ff7c98",
+              textDecoration: "none"
+            }}>Tillbaks</Link>
+            <Button type="submit" onClick={(e) => dispatch(logout())} value="Logga ut">Logga ut</Button>
+          </TextCard>
+        </CardWrapper>
+      </>
+    )
+
+  }
 }

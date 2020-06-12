@@ -136,8 +136,6 @@ export const LogIn = () => {
       </Wrapper>
     );
   } else {
-    // return <Profile />; 
     return <OrderSummary />;
-
   }
 };
