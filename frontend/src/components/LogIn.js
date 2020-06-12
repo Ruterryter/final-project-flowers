@@ -75,6 +75,12 @@ export const LogIn = () => {
   const accessToken = useSelector((store) => store.user.login.accessToken);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [address, setAddress] = useState('');
+  const [zipCode, setZipCode] = useState('');
+  const [city, setCity] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const errorMessage = useSelector((store) => store.user.login.errorMessage);
 
 

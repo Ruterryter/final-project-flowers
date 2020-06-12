@@ -123,6 +123,8 @@ export const getSecretMessage = () => {
     const userId = getState().user.login.userId;
     const firstName = getState().user.login.firstName;
     const lastName = getState().user.login.lastName;
+    const address = getState().user.login.address;
+
     // Include userId in the path
     fetch(`${USERS_URL}/${userId}/users`, {
       method: 'GET',

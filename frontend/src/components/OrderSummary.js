@@ -43,8 +43,8 @@ export const OrderSummary = () => {
   return (
     <>
       <h2>{`Din beställning: ${cartItems[0].name} ${cartItems[0].price} kr.`} </h2>
-      <h2> Dina uppgifter</h2>
-      <p>{user.firstName} {lastName}</p>
+      <h2> Dina leveransuppgifter:</h2>
+      <p>{firstName} {lastName}</p>
       <p>{address}</p>
       <p>{zipCode}</p>
       <p>{city}</p>
