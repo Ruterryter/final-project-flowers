@@ -40,16 +40,20 @@ const StyledLink = styled(Link)`
   font-family: "Poppins";
   font-size: 18px;
   font-weight: 700;
-  color:#ff7c98;
+  color: #ff7c98;
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
   transition: all 0.3s;
 
-    &:hover {
-        text-decoration: none;
-        color: orange;
-    }
+  &:hover {
+    text-decoration: none;
+    color: orange;
+  }
+
+  @media (max-width: 768px) {
+    color: #fff;
+  }
 `;
 
 export const RightNav = ({ open }) => {

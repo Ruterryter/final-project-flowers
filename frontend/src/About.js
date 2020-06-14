@@ -35,6 +35,7 @@ const ImgCard = styled.div`
 
 const TextCard = styled.div`
   margin: 0;
+  padding: 20px;
   width: 50%;
   height: 500px;
   background-color: pink;
@@ -65,7 +66,7 @@ const Title = styled.h2`
 const InfoText = styled.h5`
   margin: auto 20px;
   font-family: "Poppins";
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   text-align: center;
   color: #4d4d4d;
@@ -76,9 +77,10 @@ const InfoText = styled.h5`
 `;
 
 const MidTitle = styled.h3`
-  margin: auto 20px;
+  margin: auto;
+  margin-bottom: 20px;
   font-family: "Sacramento", cursive;
-  font-size: 45px;
+  font-size: 32px;
   font-weight: 500;
   text-align: center;
   color: #4d4d4d;
@@ -119,7 +121,7 @@ export const About = () => {
         <ImgCard></ImgCard>
         <TextCard>
           <Title>Vi gillar </Title>
-          <MidTitle>blommor, smultron och hallonsaft!</MidTitle>
+          <MidTitle>Blommor, smultron och hallonsaft!</MidTitle>
           <InfoText>
             ... och tycker att alla ska njuta av vackra blommor i säsong direkt
             hem till sin dörr. Våra florister älskar att skapa vackra och

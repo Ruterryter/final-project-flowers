@@ -36,6 +36,7 @@ const ImgCard = styled.div`
 
 const TextCard = styled.div`
   margin: 0;
+  padding: 20px;
   width: 50%;
   height: 500px;
   background-color: #7db77d;
@@ -64,9 +65,10 @@ const Title = styled.h2`
 `;
 
 const MidTitle = styled.h3`
-  margin: auto 20px;
+  margin: auto;
+  margin-bottom: 20px;
   font-family: "Sacramento", cursive;
-  font-size: 45px;
+  font-size: 32px;
   font-weight: 500;
   text-align: center;
   color: #fff;
@@ -74,14 +76,13 @@ const MidTitle = styled.h3`
 
   @media (max-width: 768px) {
     font-size: 24px;
-    margin-bottom: 20px;
   }
 `;
 
 const InfoText = styled.h5`
   margin: auto 20px;
   font-family: "Poppins";
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   text-align: center;
   color: #fff;
