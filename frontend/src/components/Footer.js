@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const FooterDiv = styled.div`
   margin: 0;
@@ -41,24 +47,55 @@ const StyledLink = styled(Link)`
   text-transform: uppercase;
   text-align: center;
   transition: all 0.3s;
+  cursor: pointer;
 
-    &:hover {
-        text-decoration: none;
-        color: orange;
-    }
+  &:hover {
+    text-decoration: none;
+    color: orange;
+  }
 `;
+
+const SocialMediaLink = styled.a`
+  margin-right: 10px;
+  font-family: "Poppins";
+  font-size: 35px;
+  font-weight: 700;
+  color: #fde7ea;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    color: orange;
+  }
+`;
+
+const SocialMedia = styled.div``;
 
 export const Footer = () => {
   return (
     <FooterDiv>
-      <Link to={'/'} style={{ textDecoration: "none" }}>
+      <Link to={"/"} style={{ textDecoration: "none" }}>
         <Title>Friday flowers</Title>
       </Link>
       <div>
         <StyledLink to={"/about/"}>Om oss</StyledLink>
         <StyledLink to={"/contact/"}>Kontakta oss</StyledLink>
         <StyledLink to={"/login/"}>Admin login</StyledLink>
+        <SocialMedia>
+          <SocialMediaLink>
+            <FontAwesomeIcon icon={faInstagram} />
+          </SocialMediaLink>
+          <SocialMediaLink>
+            <FontAwesomeIcon icon={faFacebook} />
+          </SocialMediaLink>
+          <SocialMediaLink>
+            <FontAwesomeIcon icon={faTwitter} />
+          </SocialMediaLink>
+        </SocialMedia>
       </div>
-    </FooterDiv >
+    </FooterDiv>
   );
 };

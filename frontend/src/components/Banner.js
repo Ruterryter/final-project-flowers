@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components/macro";
 import ScrollText from "react-scroll-text";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const BannerDiv = styled.div`
   padding-top: 8px;
@@ -32,6 +34,9 @@ export const Banner = () => {
     <BannerDiv>
       <ScrollText>
         <BannerText>Buketter för hemleverans i skåne </BannerText>
+        <BannerText>
+          <FontAwesomeIcon icon={faInstagram} />
+        </BannerText>
         <BannerHashtags>#MinBukett #Buketter</BannerHashtags>
         <BannerText>Buketter för hemleverans i skåne </BannerText>
       </ScrollText>
