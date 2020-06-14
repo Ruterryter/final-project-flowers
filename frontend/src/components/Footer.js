@@ -85,13 +85,25 @@ export const Footer = () => {
         <StyledLink to={"/contact/"}>Kontakta oss</StyledLink>
         <StyledLink to={"/login/"}>Admin login</StyledLink>
         <SocialMedia>
-          <SocialMediaLink>
+          <SocialMediaLink
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FontAwesomeIcon icon={faInstagram} />
           </SocialMediaLink>
-          <SocialMediaLink>
+          <SocialMediaLink
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FontAwesomeIcon icon={faFacebook} />
           </SocialMediaLink>
-          <SocialMediaLink>
+          <SocialMediaLink
+            href="https://www.twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FontAwesomeIcon icon={faTwitter} />
           </SocialMediaLink>
         </SocialMedia>
