@@ -60,7 +60,6 @@ const Title = styled.h2`
   text-transform: uppercase;
   text-align: center;
   color: #fff;
-  border-bottom: 1px solid #fff;
 `;
 
 const InfoText = styled.h5`

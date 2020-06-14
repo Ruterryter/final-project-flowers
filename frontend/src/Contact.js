@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
-import { NavBar } from "components/Navbar"
-import { Footer } from "components/Footer"
-import mellanBank from "assets/mellanBank.jpg"
+import { NavBar } from "components/Navbar";
+import { Footer } from "components/Footer";
+import mellanBank from "assets/mellanBank.jpg";
 
 const CardWrapper = styled.div`
   width: 100%;
@@ -12,6 +12,10 @@ const CardWrapper = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-flow: column wrap;
+  }
 `;
 
 const ImgCard = styled.div`
@@ -23,8 +27,9 @@ const ImgCard = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-color: pink;
-  
+
   @media (max-width: 768px) {
+    width: 100%;
     height: 350px;
   }
 `;
@@ -39,8 +44,12 @@ const TextCard = styled.div`
   flex-wrap: wrap;
   justify-items: center;
   align-items: center;
+
   @media (max-width: 768px) {
-    height: 350px;
+    height: auto;
+    width: 100%;
+    flex-flow: column nowrap;
+    padding: 50px 20px;
   }
 `;
 
@@ -52,10 +61,20 @@ const Title = styled.h2`
   text-transform: uppercase;
   text-align: center;
   color: #fff;
-  border-bottom: 1px solid #fff;
+`;
+
+const MidTitle = styled.h3`
+  margin: auto 20px;
+  font-family: "Sacramento", cursive;
+  font-size: 45px;
+  font-weight: 500;
+  text-align: center;
+  color: #fff;
+  line-height: 80%;
 
   @media (max-width: 768px) {
     font-size: 24px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -65,12 +84,12 @@ const InfoText = styled.h5`
   font-size: 18px;
   font-weight: 500;
   text-align: center;
-  color: #4D4D4D;
+  color: #fff;
 
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 14px;
   }
-`
+`;
 
 const StyledLink = styled(Link)`
   margin: auto;
@@ -83,32 +102,41 @@ const StyledLink = styled(Link)`
   text-align: center;
   transition: all 0.3s;
 
-    &:hover {
-        text-decoration: none;
-        color: #4d4d4d;
-    }
+  &:hover {
+    text-decoration: none;
+    color: #4d4d4d;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    margin-top: 20px;
+  }
 `;
 
 export const Contact = () => {
-
   return (
     <>
-
       <NavBar />
       <CardWrapper>
         <ImgCard></ImgCard>
         <TextCard>
           <Title>Ta kontakt</Title>
-          <InfoText>Skriv ett mail eller slå en singnal så hjälper vi dig med det perfekta blommorna.
-          Våra florister älskar att skapa vackra och kreativa buketter med det där lilla extra Vi binder alla typer av buketter och arrangemang såväl till hemmet, som till den stora konferensen och självklart till både bröllop och begravningar.
-          Hör av er till oss så hjälper vi dig med dina blommande önskemål!.
-            </InfoText>
+          <MidTitle>Så gör vi något fint ihop...</MidTitle>
+          <InfoText>
+            Skriv ett mail eller slå en singnal så hjälper vi dig med det
+            perfekta blommorna. Våra florister älskar att skapa vackra och
+            kreativa buketter med det där lilla extra Vi binder alla typer av
+            buketter och arrangemang såväl till hemmet, som till den stora
+            konferensen och självklart till både bröllop och begravningar. Hör
+            av er till oss så hjälper vi dig med dina blommande önskemål!.
+          </InfoText>
 
-
-          <StyledLink className="back-link" to={'/'}>Tillbaks</StyledLink>
+          <StyledLink className="back-link" to={"/"}>
+            Tillbaks
+          </StyledLink>
         </TextCard>
       </CardWrapper>
       <Footer />
     </>
-  )
-}
+  );
+};
