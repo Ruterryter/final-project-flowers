@@ -13,11 +13,9 @@ export const Checkout = () => {
   const accessToken = useSelector((store) => store.user.login.accessToken)
   return (
     <>
-      <NavBar />
       <>
         {accessToken ? <OrderSummary /> : <LogIn />}
       </>
-      <Footer />
     </>
   )
 }
