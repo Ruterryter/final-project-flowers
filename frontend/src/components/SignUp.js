@@ -134,7 +134,7 @@ export const SignUp = () => {
             address,
             zipCode,
             city,
-            phoneNumber
+            phoneNumber,
           )
         );
         setFirstName("");

@@ -9,6 +9,8 @@ import { Footer } from "../components/Footer";
 import { Products } from "../components/Products";
 import { allProducts } from "reducers/products";
 import { useEffect } from "react";
+import mediumBukett2 from "assets/mediumBukett2.jpg"
+
 
 const AppWrapper = styled.div`
   width: 100%;
@@ -35,10 +37,10 @@ export const StartPage = () => {
       <EyecatcherContainer />
       <Products />
       <CategoryImgsWrapper>
-        <HighlightCard />
-        <HighlightCard />
-        <HighlightCard />
-        <HighlightCard />
+        <HighlightCard title="Bröllop" imgURL={mediumBukett2} />
+        <HighlightCard title="Begravning" />
+        <HighlightCard title="Fest" />
+        <HighlightCard title="Konferens" />
       </CategoryImgsWrapper>
       <Banner />
       <Footer />
