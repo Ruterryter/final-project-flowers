@@ -1,16 +1,11 @@
 import React from "react"
 import styled from "styled-components/macro"
 import { Link } from "react-router-dom"
-import mediumBukett2 from "assets/mediumBukett2.jpg"
 
-
-
-const HighlightImg = styled.div`
+const HighlightImg = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-image:url($);
-  background-size: contain; 
 `;
 const HighlightCardDiv = styled.div`
   width: 200px;
@@ -43,11 +38,11 @@ const StyledLink = styled(Link)`
 text-decoration: none;
   `
 
-export const HighlightCard = ({ title, imgURL }) => {
+export const HighlightCard = ({ title, roundImg }) => {
   return (
     <StyledLink to={"/contact/"}>
       <HighlightCardDiv>
-        <HighlightImg role="img">{imgURL}</HighlightImg>
+        <HighlightImg src={roundImg} />
         <MidHeader>{title}</MidHeader>
       </HighlightCardDiv>
     </StyledLink>

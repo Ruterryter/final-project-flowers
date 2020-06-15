@@ -10,7 +10,9 @@ import { Products } from "../components/Products";
 import { allProducts } from "reducers/products";
 import { useEffect } from "react";
 import mediumBukett2 from "assets/mediumBukett2.jpg"
-
+import vitaRosor from "assets/vita_rosor.jpg"
+import begravning2 from "assets/begravning2.jpg"
+import mellanStol from "assets/mellanStol.jpg"
 
 const AppWrapper = styled.div`
   width: 100%;
@@ -37,10 +39,18 @@ export const StartPage = () => {
       <EyecatcherContainer />
       <Products />
       <CategoryImgsWrapper>
-        <HighlightCard title="Bröllop" imgURL={mediumBukett2} />
-        <HighlightCard title="Begravning" />
-        <HighlightCard title="Fest" />
-        <HighlightCard title="Konferens" />
+        <HighlightCard
+          roundImg={mediumBukett2}
+          title="Bröllop" />
+        <HighlightCard
+          roundImg={begravning2}
+          title="Begravning" />
+        <HighlightCard
+          roundImg={vitaRosor}
+          title="Fest" />
+        <HighlightCard
+          roundImg={mellanStol}
+          title="Konferens" />
       </CategoryImgsWrapper>
       <Banner />
       <Footer />

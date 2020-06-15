@@ -4,12 +4,16 @@ import { Link } from "react-router-dom";
 import { NavBar } from "components/Navbar";
 import { Footer } from "components/Footer";
 import mellanBank from "assets/mellanBank.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEnvelope,
+  faMobile,
+} from "@fortawesome/free-solid-svg-icons";
 
 const CardWrapper = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
 
@@ -25,7 +29,8 @@ const ImgCard = styled.div`
   background-color: grey;
   background-image: url(${mellanBank});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: center;
+  background-size: contain;
   background-color: pink;
 
   @media (max-width: 768px) {
@@ -41,8 +46,7 @@ const TextCard = styled.div`
   height: 500px;
   background-color: #7db77d;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: column nowrap;
   justify-items: center;
   align-items: center;
 
@@ -52,6 +56,14 @@ const TextCard = styled.div`
     flex-flow: column nowrap;
     padding: 50px 20px;
   }
+`;
+
+const ContactInfo = styled.div`
+  width: 100px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 const Title = styled.h2`
@@ -114,6 +126,28 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const ContactLink = styled.a`
+  margin: auto;
+  font-family: "Poppins";
+  font-size: 32px;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.3s;
+
+  &:hover {
+    text-decoration: none;
+    color: #4d4d4d;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+`;
+
 export const Contact = () => {
   return (
     <>
@@ -131,7 +165,11 @@ export const Contact = () => {
             konferensen och självklart till både bröllop och begravningar. Hör
             av er till oss så hjälper vi dig med dina blommande önskemål!.
           </InfoText>
-
+          <ContactInfo>
+            <ContactLink href="mailto:elinaarenstrup@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"><FontAwesomeIcon icon={faEnvelope} /></ContactLink>
+            <ContactLink href="tel:5551234567"><FontAwesomeIcon icon={faMobile} /></ContactLink></ContactInfo>
           <StyledLink className="back-link" to={"/"}>
             Tillbaks
           </StyledLink>
