@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { useDispatch } from "react-redux";
 import { cart } from "reducers/cart";
-import { ProductPage } from "components/ProductPage";
+import { ProductPage } from "Pages/ProductPage";
 import { Link } from "react-router-dom";
 import { products, singleProduct } from "reducers/products";
 
@@ -45,7 +45,6 @@ const ProductCard = styled.div`
                 box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
       }
     }
-    
   }
 `;
 

@@ -92,7 +92,7 @@ export const SignUp = () => {
   // To sign up a user.
   const handleSignup = (event) => {
     event.preventDefault();
-    history.push();
+    history.push("/checkout");
 
     const userSignedUp = {
       email,

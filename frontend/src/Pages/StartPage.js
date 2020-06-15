@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { useDispatch } from "react-redux";
-import { NavBar } from "./components/Navbar";
-import { EyecatcherContainer } from "./components/EyecatcherContainer";
-import { HighlightCard } from "./components/HighlightCard";
-import { Banner } from "./components/Banner";
-import { Footer } from "./components/Footer";
-import { Products } from "./components/Products";
+import { NavBar } from "../components/Navbar";
+import { EyecatcherContainer } from "../components/EyecatcherContainer";
+import { HighlightCard } from "../components/HighlightCard";
+import { Banner } from "../components/Banner";
+import { Footer } from "../components/Footer";
+import { Products } from "../components/Products";
 import { allProducts } from "reducers/products";
 import { useEffect } from "react";
 

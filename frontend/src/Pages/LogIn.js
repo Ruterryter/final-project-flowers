@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components/macro";
-import { Profile } from "./Profile";
+import { Profile } from "../components/Profile";
 import { useDispatch, useSelector } from "react-redux";
 import { user, login, logout } from "../reducers/user";
 import { Link } from "react-router-dom";
-import { ConfirmationPage } from "components/ConfirmationPage";
+import { ConfirmationPage } from "Pages/ConfirmationPage";
 import { Checkout } from "./Checkout";
 import { OrderSummary } from "components/OrderSummary";
 import { NavBar } from "components/Navbar";

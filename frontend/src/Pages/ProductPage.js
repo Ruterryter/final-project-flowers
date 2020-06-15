@@ -5,9 +5,9 @@ import { cart } from "reducers/cart";
 import { products, singleProduct } from "reducers/products";
 import { useParams } from "react-router-dom";
 import { Cart } from "components/Cart";
-import { LogIn } from "components/LogIn";
-import { NavBar } from "./Navbar";
-import { Footer } from "./Footer";
+import { LogIn } from "Pages/LogIn";
+import { NavBar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
 
 const Button = styled.button`
   background-color: #ff7c98;

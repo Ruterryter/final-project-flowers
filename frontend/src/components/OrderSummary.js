@@ -6,7 +6,7 @@ import { submitOrder } from "reducers/cart"
 import { CartItem } from "components/CartItem"
 import { Cart } from "components/Cart"
 import { user } from "reducers/user"
-import { Login } from "components/LogIn"
+import { Login } from "Pages/LogIn"
 import { cart } from "reducers/cart"
 
 const Button = styled.button`

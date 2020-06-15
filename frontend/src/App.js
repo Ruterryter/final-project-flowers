@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import thunk from "redux-thunk";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { StartPage } from "StartPage";
-import { ProductPage } from "components/ProductPage";
+import { StartPage } from "Pages/StartPage";
+import { ProductPage } from "Pages/ProductPage.js";
 import {
   configureStore,
   createStore,
@@ -14,12 +14,12 @@ import { Provider } from "react-redux";
 import { user } from "./reducers/user";
 import { cart } from "./reducers/cart";
 import { products } from "./reducers/products";
-import { About } from "About";
-import { LogIn } from "components/LogIn";
+import { About } from "Pages/About";
+import { LogIn } from "Pages/LogIn";
 import { SignUp } from "components/SignUp";
 import { Contact } from "Contact";
-import { Checkout } from "components/Checkout"
-import { ConfirmationPage } from "components/ConfirmationPage";
+import { Checkout } from "Pages/Checkout"
+import { ConfirmationPage } from "Pages/ConfirmationPage";
 
 const reducer = combineReducers({
   user: user.reducer,

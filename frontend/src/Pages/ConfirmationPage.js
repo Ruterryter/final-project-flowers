@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 import { Link } from "react-router-dom"
 import { logout } from "../reducers/user"
 import { useDispatch, useSelector } from 'react-redux'
-import { StartPage } from 'StartPage'
+import { StartPage } from 'Pages/StartPage.js'
 
 
 const CardWrapper = styled.div`

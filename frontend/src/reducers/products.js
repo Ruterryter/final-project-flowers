@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { StartPage } from "StartPage";
+import { StartPage } from "Pages/StartPage";
 
 
 
