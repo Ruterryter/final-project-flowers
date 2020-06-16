@@ -2,19 +2,10 @@ import React from "react"
 import styled from "styled-components/macro"
 import { Link } from "react-router-dom"
 
-<<<<<<< HEAD
-
-const HighlightImg = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-size: contain; 
-=======
 const HighlightImg = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 50%;
->>>>>>> d7e1f3e375028ec879c49264e73b3166f4db2e80
 `;
 const HighlightCardDiv = styled.div`
   width: 200px;
@@ -47,19 +38,11 @@ const StyledLink = styled(Link)`
 text-decoration: none;
   `
 
-<<<<<<< HEAD
-export const HighlightCard = ({ title, backgroundImage }) => {
-  return (
-    <StyledLink to={"/contact/"}>
-      <HighlightCardDiv>
-        <HighlightImg> {backgroundImage}</HighlightImg>
-=======
 export const HighlightCard = ({ title, roundImg }) => {
   return (
     <StyledLink to={"/contact/"}>
       <HighlightCardDiv>
         <HighlightImg src={roundImg} />
->>>>>>> d7e1f3e375028ec879c49264e73b3166f4db2e80
         <MidHeader>{title}</MidHeader>
       </HighlightCardDiv>
     </StyledLink>
