@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components/macro";
 import { useDispatch, useSelector } from "react-redux";
-import { user, login, signup } from "../reducers/user";
+import { user, login, signup, signUp } from "../reducers/user";
 import { useHistory } from "react-router-dom";
 import { NavBar } from "components/Navbar";
 import { Footer } from "components/Footer";
 import headerPic from "../assets/Headerpic.jpeg";
+import { Checkout } from "Pages/Checkout";
 
 const SIGNUP_URL = "https://bouquetdb.herokuapp.com/users";
 
@@ -92,7 +93,6 @@ export const SignUp = () => {
   // To sign up a user.
   const handleSignup = (event) => {
     event.preventDefault();
-    history.push("/checkout");
 
     const userSignedUp = {
       email,
@@ -117,6 +117,7 @@ export const SignUp = () => {
         return res.json();
       })
       .then((json) => {
+        console.log("Detta är json respons i signup: ", json);
         // Save the login info
         console.log("successful reg");
         dispatch(
@@ -124,19 +125,32 @@ export const SignUp = () => {
             accessToken: json.accessToken,
           })
         );
-        dispatch(user.actions.setUserId({ userId: json.userId }));
+        dispatch(user.actions.setUserId({ userId: json.id }));
+
         dispatch(
-          userSignedUp(
-            firstName,
-            lastName,
-            email,
-            password,
-            address,
-            zipCode,
-            city,
-            phoneNumber,
+          signUp(
+            json.firstName,
+            json.lastName,
+            json.email,
+            json.address,
+            json.zipCode,
+            json.city,
+            json.phoneNumber
           )
         );
+
+        // dispatch(
+        //   userSignedUp(
+        //     firstName,
+        //     lastName,
+        //     email,
+        //     password,
+        //     address,
+        //     zipCode,
+        //     city,
+        //     phoneNumber
+        //   )
+        // );
         setFirstName("");
         setLastName("");
         setEmail("");
@@ -151,7 +165,9 @@ export const SignUp = () => {
         dispatch(user.actions.setErrorMessage({ errorMessage: err }));
       });
   };
-  if (!accessToken) {
+  if (accessToken) {
+    return <Checkout />;
+  } else {
     return (
       <>
         <NavBar />
@@ -240,7 +256,5 @@ export const SignUp = () => {
         <Footer />
       </>
     );
-  } else {
-    return <></>;
   }
 };
