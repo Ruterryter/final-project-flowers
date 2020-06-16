@@ -138,19 +138,6 @@ export const SignUp = () => {
             json.phoneNumber
           )
         );
-
-        // dispatch(
-        //   userSignedUp(
-        //     firstName,
-        //     lastName,
-        //     email,
-        //     password,
-        //     address,
-        //     zipCode,
-        //     city,
-        //     phoneNumber
-        //   )
-        // );
         setFirstName("");
         setLastName("");
         setEmail("");
