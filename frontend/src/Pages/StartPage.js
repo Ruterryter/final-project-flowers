@@ -9,7 +9,7 @@ import { Footer } from "../components/Footer";
 import { Products } from "../components/Products";
 import { allProducts } from "reducers/products";
 import { useEffect } from "react";
-import mediumBukett2 from "assets/mediumBukett2.jpg"
+import { mediumBukett2 } from "assets/mediumBukett2.jpg"
 
 
 const AppWrapper = styled.div`
@@ -37,7 +37,7 @@ export const StartPage = () => {
       <EyecatcherContainer />
       <Products />
       <CategoryImgsWrapper>
-        <HighlightCard title="Bröllop" imgURL={mediumBukett2} />
+        <HighlightCard title="Bröllop" style={{ backgroundImage: `src(${mediumBukett2})` }} />
         <HighlightCard title="Begravning" />
         <HighlightCard title="Fest" />
         <HighlightCard title="Konferens" />
