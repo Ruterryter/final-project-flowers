@@ -1,6 +1,7 @@
 import React from "react";
-import styled from "styled-components/macro";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import styled from "styled-components/macro";
 import { NavBar } from "../components/Navbar";
 import { EyecatcherContainer } from "../components/EyecatcherContainer";
 import { HighlightCard } from "../components/HighlightCard";
@@ -8,7 +9,6 @@ import { Banner } from "../components/Banner";
 import { Footer } from "../components/Footer";
 import { Products } from "../components/Products";
 import { allProducts } from "reducers/products";
-import { useEffect } from "react";
 import mediumBukett2 from "assets/mediumBukett2.jpg";
 import vitaRosor from "assets/vita_rosor.jpg";
 import begravning2 from "assets/begravning2.jpg";

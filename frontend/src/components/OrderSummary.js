@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { submitOrder } from "reducers/cart";
-import { CartItem } from "components/CartItem";
-import { Cart } from "components/Cart";
-import { user } from "reducers/user";
-import { Login } from "Pages/LogIn";
-import { cart } from "reducers/cart";
 
 const Button = styled.button`
   background-color: #ff7c98;
@@ -36,45 +31,7 @@ export const OrderSummary = () => {
   const items = cartItems.map((item) => item._id);
   const accessToken = useSelector((store) => store.user.login.accessToken);
 
-  //test skicka vidare info om användare men tycker man ska kunna använda use selector och hämta detta från reducerns istället?
-  // const USERS_URL = `https://bouquetdb.herokuapp.com/users${userId}`
-
-  // useEffect(() => {
-  //   fetch(USERS_URL, {
-  //     method: 'GET',
-  //     headers: {
-  //       Authorization: accessToken,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       setOrders(json.orderHistory)
-  //     })
-  // }, [accessToken, USERS_URL])
-
   const handleSubmit = () => {
-    console.log(
-      "items: ",
-      items,
-      "userID: ",
-      userId,
-      "FN: ",
-      firstName,
-      "addresss:",
-      address,
-      "LN: ",
-      lastName,
-      "mail: ",
-      email,
-      "zC: ",
-      zipCode,
-      "city",
-      city,
-      "nbr: ",
-      phoneNumber,
-      "aT: ",
-      accessToken
-    );
     dispatch(
       submitOrder(
         items,
@@ -91,7 +48,7 @@ export const OrderSummary = () => {
     );
     history.push("/confirmation");
   };
-  // behöver man skicka med en key för din order här? och är det rätt key i så fall?
+
   return (
     <>
       <h2 key={orders._id}>

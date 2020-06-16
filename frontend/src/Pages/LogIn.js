@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import styled from "styled-components/macro";
-import { Profile } from "../components/Profile";
 import { useDispatch, useSelector } from "react-redux";
-import { user, login, logout } from "../reducers/user";
+import { login } from "../reducers/user";
 import { Link } from "react-router-dom";
-import { ConfirmationPage } from "Pages/ConfirmationPage";
-import { Checkout } from "./Checkout";
+import styled from "styled-components/macro";
 import { OrderSummary } from "components/OrderSummary";
 import { NavBar } from "components/Navbar";
 import { Footer } from "components/Footer";
@@ -86,12 +83,6 @@ export const LogIn = () => {
   const accessToken = useSelector((store) => store.user.login.accessToken);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [address, setAddress] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [city, setCity] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   const errorMessage = useSelector((store) => store.user.login.errorMessage);
 
   const handleLogin = (event) => {

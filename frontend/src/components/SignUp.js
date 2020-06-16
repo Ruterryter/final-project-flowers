@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styled from "styled-components/macro";
 import { useDispatch, useSelector } from "react-redux";
-import { user, login, signup, signUp } from "../reducers/user";
+import { user, signUp } from "../reducers/user";
 import { useHistory } from "react-router-dom";
+import styled from "styled-components/macro";
 import { NavBar } from "components/Navbar";
 import { Footer } from "components/Footer";
 import headerPic from "../assets/Headerpic.jpeg";
@@ -78,7 +78,6 @@ const SignUpContainer = styled.div`
 
 export const SignUp = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const accessToken = useSelector((store) => store.user.login.accessToken);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -110,16 +109,13 @@ export const SignUp = () => {
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => {
-        console.log("parsing");
         if (!res.ok) {
           throw "Could not create account.  Try a different email address.";
         }
         return res.json();
       })
       .then((json) => {
-        console.log("Detta är json respons i signup: ", json);
         // Save the login info
-        console.log("successful reg");
         dispatch(
           user.actions.setAccessToken({
             accessToken: json.accessToken,

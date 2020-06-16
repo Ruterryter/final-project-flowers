@@ -1,25 +1,26 @@
 import React, { useState } from "react";
+import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { StartPage } from "Pages/StartPage";
-import { ProductPage } from "Pages/ProductPage.js";
 import {
-  configureStore,
   createStore,
   combineReducers,
   applyMiddleware,
   compose,
 } from "@reduxjs/toolkit";
-import { Provider } from "react-redux";
+
 import { user } from "./reducers/user";
 import { cart } from "./reducers/cart";
 import { products } from "./reducers/products";
+
 import { About } from "Pages/About";
 import { LogIn } from "Pages/LogIn";
 import { SignUp } from "components/SignUp";
-import { Contact } from "Contact";
-import { Checkout } from "Pages/Checkout"
+import { Contact } from "Pages/Contact";
+import { Checkout } from "Pages/Checkout";
 import { ConfirmationPage } from "Pages/ConfirmationPage";
+import { StartPage } from "Pages/StartPage";
+import { ProductPage } from "Pages/ProductPage.js";
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -33,8 +34,11 @@ const persistedState = localStorage.getItem("reduxState")
   : {};
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, persistedState, composeEnhancer(applyMiddleware(thunk)))
-// const store = configureStore({ reducer });
+const store = createStore(
+  reducer,
+  persistedState,
+  composeEnhancer(applyMiddleware(thunk))
+);
 
 // Tell the store to persist the state in localstorage after every action
 store.subscribe(() => {

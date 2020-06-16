@@ -91,7 +91,6 @@ export const Footer = () => {
       <div>
         <StyledLink to={"/about/"}>Om oss</StyledLink>
         <StyledLink to={"/contact/"}>Kontakta oss</StyledLink>
-        <StyledLink to={"/login/"}>Admin login</StyledLink>
         <SocialMedia>
           <SocialMediaLink
             href="https://www.instagram.com"

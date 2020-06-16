@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { CartItem } from "./CartItem";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
-import { cart } from "reducers/cart";
 
 const Paragraph = styled.p`
   color: #ff7c98;

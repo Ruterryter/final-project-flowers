@@ -5,10 +5,7 @@ import { NavBar } from "components/Navbar";
 import { Footer } from "components/Footer";
 import mellanBank from "assets/mellanBank.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faMobile,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faMobile } from "@fortawesome/free-solid-svg-icons";
 
 const CardWrapper = styled.div`
   width: 100%;
@@ -166,10 +163,17 @@ export const Contact = () => {
             av er till oss så hjälper vi dig med dina blommande önskemål!.
           </InfoText>
           <ContactInfo>
-            <ContactLink href="mailto:elinaarenstrup@gmail.com"
+            <ContactLink
+              href="mailto:elinaarenstrup@gmail.com"
               target="_blank"
-              rel="noopener noreferrer"><FontAwesomeIcon icon={faEnvelope} /></ContactLink>
-            <ContactLink href="tel:5551234567"><FontAwesomeIcon icon={faMobile} /></ContactLink></ContactInfo>
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faEnvelope} />
+            </ContactLink>
+            <ContactLink href="tel:5551234567">
+              <FontAwesomeIcon icon={faMobile} />
+            </ContactLink>
+          </ContactInfo>
           <StyledLink className="back-link" to={"/"}>
             Tillbaks
           </StyledLink>

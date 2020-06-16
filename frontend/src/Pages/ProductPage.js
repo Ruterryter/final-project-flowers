@@ -2,10 +2,8 @@ import React from "react";
 import styled from "styled-components/macro";
 import { useDispatch, useSelector } from "react-redux";
 import { cart } from "reducers/cart";
-import { products, singleProduct } from "reducers/products";
 import { useParams } from "react-router-dom";
 import { Cart } from "components/Cart";
-import { LogIn } from "Pages/LogIn";
 import { NavBar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 
@@ -50,8 +48,6 @@ const BouquetImageMedium = styled.img`
     height: 350px;
   }
 `;
-//use selector to fecth info
-//send a backend fetch to grab from backend
 
 const DescriptionContainer = styled.div`
   margin: 0;
@@ -89,7 +85,7 @@ export const ProductPage = () => {
       return product._id === id;
     })
   );
-  console.log(id);
+
   return (
     <>
       <NavBar />
@@ -118,7 +114,7 @@ export const ProductPage = () => {
           <Cart />
         </DescriptionContainer>
       </ProductWrapper>
-      <Footer />{" "}
+      <Footer />
     </>
   );
 };
