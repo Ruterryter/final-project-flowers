@@ -95,7 +95,7 @@ export const login = (email, password, firstName, lastName, phoneNumber, address
         throw 'Unable to sign in. Please check that your email and password are correct';
       })
       .then((json) => {
-        // Save the login info
+        // Save the login info?
         console.log(json)
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken, }));
         dispatch(user.actions.setUserId({ userId: json.userId }));
