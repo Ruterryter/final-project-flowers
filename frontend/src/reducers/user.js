@@ -73,18 +73,36 @@ export const user = createSlice({
     setErrorMessage: (state, action) => {
       const { errorMessage } = action.payload;
       state.login.errorMessage = errorMessage;
-    }
+    },
   },
 });
 
 // Thunks
-export const login = (email, password, firstName, lastName, phoneNumber, address, city, zipCode) => {
-  const LOGIN_URL = 'https://bouquetdb.herokuapp.com/sessions';
+export const login = (
+  email,
+  password,
+  firstName,
+  lastName,
+  phoneNumber,
+  address,
+  city,
+  zipCode
+) => {
+  const LOGIN_URL = "https://bouquetdb.herokuapp.com/sessions";
   return (dispatch) => {
     fetch(LOGIN_URL, {
-      method: 'POST',
-      body: JSON.stringify({ email, password, firstName, lastName, phoneNumber, address, city, zipCode }),
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      body: JSON.stringify({
+        email,
+        password,
+        firstName,
+        lastName,
+        phoneNumber,
+        address,
+        city,
+        zipCode,
+      }),
+      headers: { "Content-Type": "application/json" },
     })
       .then((res) => {
         if (res.ok /* if 200, 201, 204 */) {
@@ -92,22 +110,31 @@ export const login = (email, password, firstName, lastName, phoneNumber, address
         }
 
         // Not OK
-        throw 'Unable to sign in. Please check that your email and password are correct';
+        throw "Unable to sign in. Please check that your email and password are correct";
       })
       .then((json) => {
+<<<<<<< HEAD
         // Save the login info?
         console.log(json)
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken, }));
+=======
+        // Save the login info
+        console.log(json);
+        dispatch(
+          user.actions.setAccessToken({ accessToken: json.accessToken })
+        );
+>>>>>>> 525f2e5581e9e02d7f1abd4ad3485a7285af18a1
         dispatch(user.actions.setUserId({ userId: json.userId }));
 
-
-        dispatch(user.actions.setFirstName({ firstName: json.firstName }))
-        dispatch(user.actions.setLastName({ lastName: json.lastName }))
-        dispatch(user.actions.setEmail({ email: json.email }))
-        dispatch(user.actions.setAddress({ address: json.address }))
-        dispatch(user.actions.setZipCode({ zipCode: json.zipCode }))
-        dispatch(user.actions.setCity({ city: json.city }))
-        dispatch(user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber }))
+        dispatch(user.actions.setFirstName({ firstName: json.firstName }));
+        dispatch(user.actions.setLastName({ lastName: json.lastName }));
+        dispatch(user.actions.setEmail({ email: json.email }));
+        dispatch(user.actions.setAddress({ address: json.address }));
+        dispatch(user.actions.setZipCode({ zipCode: json.zipCode }));
+        dispatch(user.actions.setCity({ city: json.city }));
+        dispatch(
+          user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber })
+        );
       })
 
       .catch((err) => {
@@ -118,7 +145,7 @@ export const login = (email, password, firstName, lastName, phoneNumber, address
 };
 
 export const getSecretMessage = () => {
-  const USERS_URL = 'https://bouquetdb.herokuapp.com/users';
+  const USERS_URL = "https://bouquetdb.herokuapp.com/users";
   return (dispatch, getState) => {
     const accessToken = getState().user.login.accessToken;
     const userId = getState().user.login.userId;
@@ -128,7 +155,7 @@ export const getSecretMessage = () => {
 
     // Include userId in the path
     fetch(`${USERS_URL}/${userId}/users`, {
-      method: 'GET',
+      method: "GET",
       // Include the accessToken to get the protected endpoint
       headers: { Authorization: accessToken },
     })
@@ -136,18 +163,37 @@ export const getSecretMessage = () => {
         if (res.ok) {
           return res.json();
         }
-        throw 'Could not get information. Make sure you are logged in and try again.';
+        throw "Could not get information. Make sure you are logged in and try again.";
       })
       // SUCCESS: Do something with the information we got back
       .then((json) => {
         dispatch(
-          user.actions.setSecretMessage({ secretMessage: JSON.stringify(json) }),
+          user.actions.setSecretMessage({ secretMessage: JSON.stringify(json) })
         );
       })
       .catch((err) => {
-
         dispatch(user.actions.setErrorMessage({ errorMessage: err }));
       }); //401
+  };
+};
+
+export const signUp = (
+  firstName,
+  lastName,
+  email,
+  address,
+  zipCode,
+  city,
+  phoneNumber
+) => {
+  return (dispatch) => {
+    dispatch(user.actions.setFirstName({ firstName: firstName }));
+    dispatch(user.actions.setLastName({ lastName: lastName }));
+    dispatch(user.actions.setEmail({ email: email }));
+    dispatch(user.actions.setAddress({ address: address }));
+    dispatch(user.actions.setZipCode({ zipCode: zipCode }));
+    dispatch(user.actions.setCity({ city: city }));
+    dispatch(user.actions.setPhoneNumber({ phoneNumber: phoneNumber }));
   };
 };
 

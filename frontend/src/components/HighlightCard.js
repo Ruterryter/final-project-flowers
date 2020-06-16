@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "styled-components/macro"
-import { Link } from "react-router-dom"
+import React from "react";
+import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
 
 const HighlightImg = styled.img`
   width: 200px;
@@ -15,9 +15,9 @@ const HighlightCardDiv = styled.div`
   align-items: center;
   justify-content: center;
   transition: all 1s;
-  
-  :hover{
-      transform: scale(1.2);    
+
+  :hover {
+    transform: scale(1.2);
   }
 
   @media (max-width: 872px) {
@@ -35,8 +35,8 @@ const MidHeader = styled.h3`
 `;
 
 const StyledLink = styled(Link)`
-text-decoration: none;
-  `
+  text-decoration: none;
+`;
 
 export const HighlightCard = ({ title, roundImg }) => {
   return (
