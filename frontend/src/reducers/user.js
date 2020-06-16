@@ -113,17 +113,11 @@ export const login = (
         throw "Unable to sign in. Please check that your email and password are correct";
       })
       .then((json) => {
-<<<<<<< HEAD
         // Save the login info?
-        console.log(json)
-        dispatch(user.actions.setAccessToken({ accessToken: json.accessToken, }));
-=======
-        // Save the login info
         console.log(json);
         dispatch(
           user.actions.setAccessToken({ accessToken: json.accessToken })
         );
->>>>>>> 525f2e5581e9e02d7f1abd4ad3485a7285af18a1
         dispatch(user.actions.setUserId({ userId: json.userId }));
 
         dispatch(user.actions.setFirstName({ firstName: json.firstName }));
