@@ -22,6 +22,7 @@ const FooterDiv = styled.div`
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     justify-content: center;
+    position: relative;
   }
 `;
 

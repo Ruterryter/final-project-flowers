@@ -10,6 +10,7 @@ const BannerDiv = styled.div`
   height: 50px;
   background-color: #7db77d;
 `;
+
 const BannerText = styled.h4`
   padding-right: 20px;
   display: inline;
@@ -19,6 +20,7 @@ const BannerText = styled.h4`
   text-transform: uppercase;
   color: white;
 `;
+
 const BannerHashtags = styled.h4`
   padding-right: 20px;
   display: inline;

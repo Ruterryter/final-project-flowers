@@ -3,32 +3,35 @@ import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 import { NavBar } from "components/Navbar";
 import { Footer } from "components/Footer";
+import { Banner } from "components/Banner";
 import mellanBank from "assets/mellanBank.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faMobile } from "@fortawesome/free-solid-svg-icons";
 
 const CardWrapper = styled.div`
+  padding: 100px 0;
   width: 100%;
+  height: 100%;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
 
   @media (max-width: 768px) {
+    height: auto;
     flex-flow: column wrap;
   }
 `;
 
 const ImgCard = styled.div`
   margin: 0;
-  width: 50%;
-  height: 500px;
-  background-color: grey;
+  width: 40vh;
+  height: 40vh;
   background-image: url(${mellanBank});
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  background-color: pink;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -40,8 +43,8 @@ const TextCard = styled.div`
   margin: 0;
   padding: 20px;
   width: 50%;
-  height: 500px;
-  background-color: #7db77d;
+  height: 100%;
+  background-color: #fff;
   display: flex;
   flex-flow: column nowrap;
   justify-items: center;
@@ -70,7 +73,7 @@ const Title = styled.h2`
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
-  color: #fff;
+  color: #4d4d4d;
 `;
 
 const MidTitle = styled.h3`
@@ -80,7 +83,7 @@ const MidTitle = styled.h3`
   font-size: 32px;
   font-weight: 500;
   text-align: center;
-  color: #fff;
+  color: #4d4d4d;
   line-height: 80%;
 
   @media (max-width: 768px) {
@@ -94,7 +97,7 @@ const InfoText = styled.h5`
   font-size: 16px;
   font-weight: 500;
   text-align: center;
-  color: #fff;
+  color: #4d4d4d;
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -106,7 +109,7 @@ const StyledLink = styled(Link)`
   font-family: "Poppins";
   font-size: 18px;
   font-weight: 700;
-  color: #fff;
+  color: #4d4d4d;
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
@@ -114,7 +117,7 @@ const StyledLink = styled(Link)`
 
   &:hover {
     text-decoration: none;
-    color: #4d4d4d;
+    color: orange;
   }
 
   @media (max-width: 768px) {
@@ -128,7 +131,7 @@ const ContactLink = styled.a`
   font-family: "Poppins";
   font-size: 32px;
   font-weight: 400;
-  color: #fff;
+  color: #4d4d4d;
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
@@ -136,7 +139,7 @@ const ContactLink = styled.a`
 
   &:hover {
     text-decoration: none;
-    color: #4d4d4d;
+    color: orange;
   }
 
   @media (max-width: 768px) {
@@ -179,6 +182,7 @@ export const Contact = () => {
           </StyledLink>
         </TextCard>
       </CardWrapper>
+      <Banner />
       <Footer />
     </>
   );

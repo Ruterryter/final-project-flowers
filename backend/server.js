@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
   res.send(listEndpoints(app));
 });
 
-// Add bouquets to webshop // add admin log in for this endpoint //
+// Add bouquets to webshop //
 app.post("/bouquets", async (req, res) => {
   try {
     const { name, price, description, imageUrl } = req.body;
@@ -79,7 +79,7 @@ app.get("/bouquets/:id", async (req, res) => {
   res.json(bouquets);
 });
 
-//sign upp
+//Sign up
 app.post("/users", async (req, res) => {
   try {
     const {
@@ -104,19 +104,17 @@ app.post("/users", async (req, res) => {
     });
     const saved = await user.save();
     delete saved.password;
-    res
-      .status(201)
-      .json({
-        id: user._id,
-        accessToken: user.accessToken,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        address: user.address,
-        phoneNumber: user.phoneNumber,
-        city: user.city,
-        zipCode: user.zipCode,
-      });
+    res.status(201).json({
+      id: user._id,
+      accessToken: user.accessToken,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      address: user.address,
+      phoneNumber: user.phoneNumber,
+      city: user.city,
+      zipCode: user.zipCode,
+    });
   } catch (err) {
     res
       .status(400)
@@ -166,25 +164,23 @@ app.delete("/users/:userId", async (req, res) => {
   }
 });
 
-//sign in
+//Log in
 app.post("/sessions", async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (user && bcrypt.compareSync(password, user.password)) {
-      res
-        .status(201)
-        .json({
-          id: user._id,
-          accessToken: user.accessToken,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-          address: user.address,
-          phoneNumber: user.phoneNumber,
-          city: user.city,
-          zipCode: user.zipCode,
-        });
+      res.status(201).json({
+        id: user._id,
+        accessToken: user.accessToken,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        address: user.address,
+        phoneNumber: user.phoneNumber,
+        city: user.city,
+        zipCode: user.zipCode,
+      });
     } else {
       res.status(404).json({ notFound: true });
     }
