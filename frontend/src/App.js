@@ -8,11 +8,9 @@ import {
   applyMiddleware,
   compose,
 } from "@reduxjs/toolkit";
-
 import { user } from "./reducers/user";
 import { cart } from "./reducers/cart";
 import { products } from "./reducers/products";
-
 import { About } from "Pages/About";
 import { LogIn } from "Pages/LogIn";
 import { SignUp } from "components/SignUp";
