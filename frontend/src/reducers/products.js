@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { StartPage } from "Pages/StartPage";
 
 
-
 const initialState = {
   currentProduct: {
     _id: "",
@@ -38,7 +37,6 @@ export const products = createSlice({
   },
 })
 
-// //Thunk (osäker på om denna är rätt, behöver jag skicka in något mer? )
 // HÄMTAR ALLA PRODUKTER FRÅN DB
 export const allProducts = () => {
   const FLOWER_URL = "https://bouquetdb.herokuapp.com/bouquets"

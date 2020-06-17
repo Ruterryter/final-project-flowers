@@ -11,6 +11,7 @@ const initialState = {
     phoneNumber: null,
     zipCode: null,
     city: null,
+    secretMessage: null,
     errorMessage: null,
   },
 };
@@ -64,10 +65,22 @@ export const user = createSlice({
       state.login.city = city;
     },
 
+    setSecretMessage: (state, action) => {
+      const { secretMessage } = action.payload;
+      state.login.secretMessage = secretMessage;
+    },
+
     setErrorMessage: (state, action) => {
       const { errorMessage } = action.payload;
       state.login.errorMessage = errorMessage;
     },
+
+    //la till detta men vet ej om rätt
+    // setOrderHistory: (state, action) => {
+    //   const { orderHistory } = action.payload;
+    //   state.login.orderHistory = orderHistory;
+    // },
+
   },
 });
 
@@ -180,8 +193,44 @@ export const signUp = (
   };
 };
 
+export const getSecretMessage = () => {
+  const USERS_URL = "https://bouquetdb.herokuapp.com/users";
+  return (dispatch, getState) => {
+    const accessToken = getState().user.login.accessToken;
+    const userId = getState().user.login.userId;
+    const firstName = getState().user.login.firstName;
+    const lastName = getState().user.login.lastName;
+    const address = getState().user.login.address;
+
+    // Include userId in the path
+    fetch(`${USERS_URL}/${userId}`, {
+      method: "GET",
+      // Include the accessToken to get the protected endpoint
+      headers: { Authorization: accessToken },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw "Could not get information. Make sure you are logged in and try again.";
+      })
+      // SUCCESS: Do something with the information we got back
+      .then((json) => {
+        dispatch(
+          user.actions.setSecretMessage({ secretMessage: JSON.stringify(json) }));
+        // user.actions.setOrderHistory({ orderHistory: json.orders })
+
+      })
+      .catch((err) => {
+        dispatch(user.actions.setErrorMessage({ errorMessage: err }));
+      }); //401
+  };
+};
+
+
 export const logout = () => {
   return (dispatch) => {
+    dispatch(user.actions.setSecretMessage({ secretMessage: null }));
     dispatch(user.actions.setErrorMessage({ errorMessage: null }));
     dispatch(user.actions.setAccessToken({ accessToken: null }));
     dispatch(user.actions.setUserId({ userId: 0 }));

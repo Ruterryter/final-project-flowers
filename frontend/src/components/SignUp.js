@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { user, signUp } from "../reducers/user";
-import { useHistory } from "react-router-dom";
+import { signUp } from "../reducers/user";
 import styled from "styled-components/macro";
 import { NavBar } from "components/Navbar";
 import { Footer } from "components/Footer";
@@ -98,7 +97,7 @@ export const SignUp = () => {
       address,
       zipCode,
       city,
-      phoneNumber
+      phoneNumber,
     ));
   };
 
