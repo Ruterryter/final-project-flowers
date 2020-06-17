@@ -107,22 +107,16 @@ export const login = (
         throw "Unable to sign in. Please check that your email and password are correct";
       })
       .then((json) => {
-        // Save the login info?
-        console.log(json);
-        dispatch(
-          user.actions.setAccessToken({ accessToken: json.accessToken })
-        );
+        // Save the login info
+        dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }));
         dispatch(user.actions.setUserId({ userId: json.userId }));
-
         dispatch(user.actions.setFirstName({ firstName: json.firstName }));
         dispatch(user.actions.setLastName({ lastName: json.lastName }));
         dispatch(user.actions.setEmail({ email: json.email }));
         dispatch(user.actions.setAddress({ address: json.address }));
         dispatch(user.actions.setZipCode({ zipCode: json.zipCode }));
         dispatch(user.actions.setCity({ city: json.city }));
-        dispatch(
-          user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber })
-        );
+        dispatch(user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber }));
       })
 
       .catch((err) => {
@@ -136,19 +130,53 @@ export const signUp = (
   firstName,
   lastName,
   email,
+  password,
   address,
   zipCode,
   city,
   phoneNumber
 ) => {
+  const SIGNUP_URL = "https://bouquetdb.herokuapp.com/users";
   return (dispatch) => {
-    dispatch(user.actions.setFirstName({ firstName: firstName }));
-    dispatch(user.actions.setLastName({ lastName: lastName }));
-    dispatch(user.actions.setEmail({ email: email }));
-    dispatch(user.actions.setAddress({ address: address }));
-    dispatch(user.actions.setZipCode({ zipCode: zipCode }));
-    dispatch(user.actions.setCity({ city: city }));
-    dispatch(user.actions.setPhoneNumber({ phoneNumber: phoneNumber }));
+    fetch(SIGNUP_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+        password,
+        firstName,
+        lastName,
+        phoneNumber,
+        address,
+        city,
+        zipCode
+      }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => {
+        if (res.ok /* if 200, 201, 204 */) {
+          return res.json();
+        }
+
+        // Not OK
+        throw "Could not create account.  Try a different email address";
+      })
+      .then((json) => {
+        // Save the signUp info
+        dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }));
+        dispatch(user.actions.setUserId({ userId: json.userId }));
+        dispatch(user.actions.setFirstName({ firstName: json.firstName }));
+        dispatch(user.actions.setLastName({ lastName: json.lastName }));
+        dispatch(user.actions.setEmail({ email: json.email }));
+        dispatch(user.actions.setAddress({ address: json.address }));
+        dispatch(user.actions.setZipCode({ zipCode: json.zipCode }));
+        dispatch(user.actions.setCity({ city: json.city }));
+        dispatch(user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber }));
+      })
+
+      .catch((err) => {
+        dispatch(logout());
+        dispatch(user.actions.setErrorMessage({ errorMessage: err }));
+      });
   };
 };
 

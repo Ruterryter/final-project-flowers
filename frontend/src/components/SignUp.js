@@ -8,8 +8,6 @@ import { Footer } from "components/Footer";
 import headerPic from "../assets/Headerpic.jpeg";
 import { Checkout } from "Pages/Checkout";
 
-const SIGNUP_URL = "https://bouquetdb.herokuapp.com/users";
-
 const Wrapper = styled.div`
   display: flex;
   flex-flow: row nowrap;
@@ -92,62 +90,18 @@ export const SignUp = () => {
   // To sign up a user.
   const handleSignup = (event) => {
     event.preventDefault();
-
-    const userSignedUp = {
-      email,
-      password,
+    dispatch(signUp(
       firstName,
       lastName,
+      email,
+      password,
       address,
-      city,
       zipCode,
-      phoneNumber,
-    };
-    fetch(SIGNUP_URL, {
-      method: "POST",
-      body: JSON.stringify(userSignedUp),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw "Could not create account.  Try a different email address.";
-        }
-        return res.json();
-      })
-      .then((json) => {
-        // Save the login info
-        dispatch(
-          user.actions.setAccessToken({
-            accessToken: json.accessToken,
-          })
-        );
-        dispatch(user.actions.setUserId({ userId: json.id }));
-
-        dispatch(
-          signUp(
-            json.firstName,
-            json.lastName,
-            json.email,
-            json.address,
-            json.zipCode,
-            json.city,
-            json.phoneNumber
-          )
-        );
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-        setPassword("");
-        setAddress("");
-        setZipCode("");
-        setCity("");
-        setPhoneNumber("");
-      })
-
-      .catch((err) => {
-        dispatch(user.actions.setErrorMessage({ errorMessage: err }));
-      });
+      city,
+      phoneNumber
+    ));
   };
+
   if (accessToken) {
     return <Checkout />;
   } else {
