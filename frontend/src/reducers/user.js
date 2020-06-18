@@ -75,7 +75,6 @@ export const user = createSlice({
       state.login.errorMessage = errorMessage;
     },
 
-    // la till detta men vet ej om rätt
     setOrderHistory: (state, action) => {
       const { orderHistory } = action.payload;
       state.login.orderHistory = orderHistory;
