@@ -1,20 +1,11 @@
-import React from "react"
-import styled from "styled-components/macro"
-import { Link } from "react-router-dom"
+import React from "react";
+import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
 
-<<<<<<< HEAD
-
-const HighlightImg = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-size: contain; 
-=======
 const HighlightImg = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 50%;
->>>>>>> d7e1f3e375028ec879c49264e73b3166f4db2e80
 `;
 const HighlightCardDiv = styled.div`
   width: 200px;
@@ -24,9 +15,9 @@ const HighlightCardDiv = styled.div`
   align-items: center;
   justify-content: center;
   transition: all 1s;
-  
-  :hover{
-      transform: scale(1.2);    
+
+  :hover {
+    transform: scale(1.2);
   }
 
   @media (max-width: 872px) {
@@ -44,22 +35,14 @@ const MidHeader = styled.h3`
 `;
 
 const StyledLink = styled(Link)`
-text-decoration: none;
-  `
+  text-decoration: none;
+`;
 
-<<<<<<< HEAD
-export const HighlightCard = ({ title, backgroundImage }) => {
-  return (
-    <StyledLink to={"/contact/"}>
-      <HighlightCardDiv>
-        <HighlightImg> {backgroundImage}</HighlightImg>
-=======
 export const HighlightCard = ({ title, roundImg }) => {
   return (
     <StyledLink to={"/contact/"}>
       <HighlightCardDiv>
         <HighlightImg src={roundImg} />
->>>>>>> d7e1f3e375028ec879c49264e73b3166f4db2e80
         <MidHeader>{title}</MidHeader>
       </HighlightCardDiv>
     </StyledLink>
