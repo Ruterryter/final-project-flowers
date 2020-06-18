@@ -36,19 +36,11 @@ export const Cart = ({ name, _id, price }) => {
   );
 
   return (
-<<<<<<< HEAD
     <>
-      <ShoppingList>
+      <ShoppingList aria-label="kundkorg">
         <CartDiv>
           <FontAwesomeIcon icon={faShoppingCart} /> Din kundkorg
         </CartDiv>
-=======
-    <CartWrapper>
-      <>
-        <Paragraph aria-label="pris">Total: {totalPrice} kr</Paragraph>
-      </>
-      <ShoppingList aria-label="valda produkter">
->>>>>>> hanna_dev
         <Ul>
           {products.map((product) => (
             <CartItem key={product._id} product={product} />
