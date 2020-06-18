@@ -72,10 +72,6 @@ export const RightNav = ({ open }) => {
       <StyledLink to={"/"}>Hem</StyledLink>
       <StyledLink to={"/about/"}>Om oss</StyledLink>
       <StyledLink to={"/contact/"}>Kontakta oss</StyledLink>
-      <Span> | </Span>
-      <StyledLink to={"/login/"}>
-        <FontAwesomeIcon icon={faUserAlt} /> Logga in
-      </StyledLink>
     </Menu>
   );
 };
