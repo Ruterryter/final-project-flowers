@@ -3,31 +3,25 @@ import { useSelector, useDispatch } from "react-redux";
 import { CartItem } from "./CartItem";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
-const Paragraph = styled.p`
-  color: #ff7c98;
-  font-family: "Poppins", sans-serif;
+const CartDiv = styled.div`
   font-weight: 700;
-  font-size: 16px;
-  text-align: center;
-  text-transform: uppercase;
-  margin-bottom: 15px;
+  font-size: 24px;
+  margin: 25px 0 10px 0;
+  padding-top: 10px;
 `;
 
 const ShoppingList = styled.div`
-  margin: 20px;
-  color: #fff;
+  margin: 0;
+  color: #4d4d4d;
   text-transform: uppercase;
 `;
 
-const CartWrapper = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  justify-items: space-between;
-  align-items: center;
-`;
-
 const Ul = styled.ul`
+  margin: auto;
+  padding: 0;
   list-style: none;
 `;
 
@@ -42,11 +36,11 @@ export const Cart = ({ name, _id, price }) => {
   );
 
   return (
-    <CartWrapper>
-      <>
-        <Paragraph>Total: {totalPrice} kr</Paragraph>
-      </>
+    <>
       <ShoppingList>
+        <CartDiv>
+          <FontAwesomeIcon icon={faShoppingCart} /> Din kundkorg
+        </CartDiv>
         <Ul>
           {products.map((product) => (
             <CartItem key={product._id} product={product} />
@@ -57,6 +51,7 @@ export const Cart = ({ name, _id, price }) => {
         className="aboutlink"
         to={"/checkout/"}
         style={{
+          marginTop: "20px",
           backgroundColor: "#FF7C98",
           color: "#FFF",
           fontFamily: "Poppins",
@@ -70,6 +65,6 @@ export const Cart = ({ name, _id, price }) => {
       >
         Gå till betalning
       </Link>
-    </CartWrapper>
+    </>
   );
 };

@@ -6,7 +6,7 @@ import { Banner } from "components/Banner";
 const CardWrapper = styled.div`
   padding: 100px 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-flow: row wrap;
   align-items: center;

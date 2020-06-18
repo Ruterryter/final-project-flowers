@@ -4,12 +4,19 @@ import styled from "styled-components";
 import { Product } from "components/Product";
 
 const ShopWrapper = styled.div`
-  padding: 50px;
-  background-color: #fde7ea;
+  padding: 100px 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
+
+  @media (max-width: 768px) {
+    height: auto;
+    flex-flow: column wrap;
+  }
 `;
 
 export const Products = () => {

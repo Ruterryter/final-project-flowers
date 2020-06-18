@@ -13,7 +13,7 @@ import {
 const CardWrapper = styled.div`
   padding: 100px 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -43,9 +43,9 @@ const ImgCard = styled.div`
 
 const TextCard = styled.div`
   margin: 0;
-  padding: 20px;
-  width: 50%;
-  height: 100%;
+  padding-left: 20px;
+  width: 40vh;
+  height: 40vh;
   background-color: #fff;
   display: flex;
   flex-flow: column nowrap;
@@ -105,28 +105,6 @@ const InfoText = styled.h5`
 
   @media (max-width: 768px) {
     font-size: 14px;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  margin: auto;
-  font-family: "Poppins";
-  font-size: 18px;
-  font-weight: 700;
-  color: #4d4d4d;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  transition: all 0.3s;
-
-  &:hover {
-    text-decoration: none;
-    color: orange;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 24px;
-    margin-top: 20px;
   }
 `;
 

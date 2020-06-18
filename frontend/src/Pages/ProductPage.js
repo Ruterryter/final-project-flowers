@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { cart } from "reducers/cart";
 import { useParams } from "react-router-dom";
 import { Cart } from "components/Cart";
-import { NavBar } from "../components/Navbar";
-import { Footer } from "../components/Footer";
 
 const Button = styled.button`
   background-color: #ff7c98;
@@ -18,30 +16,49 @@ const Button = styled.button`
   margin: 20px;
   padding: 5px 15px;
 `;
-const PriceTag = styled.h4`
-  color: #ff7c98;
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
+
+const PriceTag = styled.h2`
+  margin: 0;
+  font-family: "Poppins";
   font-size: 24px;
-`;
-const ProductTitle = styled.h3`
-  color: #ff7c98;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  color: #4d4d4d;
 `;
 
-const ProductInfoText = styled.p`
-  color: #ff7c98;
-  font-family: "Poppins", sans-serif;
+const MidTitle = styled.h3`
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-family: "Sacramento", cursive;
+  font-size: 52px;
   font-weight: 500;
+  text-align: center;
+  color: #4d4d4d;
+  line-height: 80%;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+`;
+
+const InfoText = styled.h5`
+  margin: auto 20px;
+  font-family: "Poppins";
   font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  color: #4d4d4d;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const BouquetImageMedium = styled.img`
   margin: 0;
-  width: 50%;
-  height: 500px;
+  width: 40vh;
+  height: 40vh;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -51,28 +68,35 @@ const BouquetImageMedium = styled.img`
 
 const DescriptionContainer = styled.div`
   margin: 0;
-  padding: 50px 20px;
+  padding: 20px;
   width: 50%;
   height: 500px;
-  background-color: pink;
+  background-color: #fff;
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-items: center;
   align-items: center;
 
   @media (max-width: 768px) {
+    height: auto;
     width: 100%;
+    flex-flow: column nowrap;
     padding: 50px 20px;
   }
 `;
 
 const ProductWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  background-color: #fff;
 
   @media (max-width: 768px) {
+    height: auto;
     flex-flow: column wrap;
   }
 `;
@@ -99,10 +123,9 @@ export const ProductPage = () => {
         />
 
         <DescriptionContainer>
-          <ProductTitle>{product.name}</ProductTitle>
+          <MidTitle>{product.name}</MidTitle>
+          <InfoText>{product.description}</InfoText>
           <PriceTag>{product.price} kr</PriceTag>
-          <ProductInfoText>{product.description}</ProductInfoText>
-
           <Button
             type="button"
             disabled={product.inventory === 0}
