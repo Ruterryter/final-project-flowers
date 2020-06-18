@@ -75,11 +75,11 @@ export const user = createSlice({
       state.login.errorMessage = errorMessage;
     },
 
-    //la till detta men vet ej om rätt
-    // setOrderHistory: (state, action) => {
-    //   const { orderHistory } = action.payload;
-    //   state.login.orderHistory = orderHistory;
-    // },
+    // la till detta men vet ej om rätt
+    setOrderHistory: (state, action) => {
+      const { orderHistory } = action.payload;
+      state.login.orderHistory = orderHistory;
+    },
 
   },
 });
@@ -122,7 +122,7 @@ export const login = (
       .then((json) => {
         // Save the login info
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }));
-        dispatch(user.actions.setUserId({ userId: json.userId }));
+        dispatch(user.actions.setUserId({ userId: json.id }));
         dispatch(user.actions.setFirstName({ firstName: json.firstName }));
         dispatch(user.actions.setLastName({ lastName: json.lastName }));
         dispatch(user.actions.setEmail({ email: json.email }));
@@ -176,7 +176,7 @@ export const signUp = (
       .then((json) => {
         // Save the signUp info
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }));
-        dispatch(user.actions.setUserId({ userId: json.userId }));
+        dispatch(user.actions.setUserId({ userId: json.id }));
         dispatch(user.actions.setFirstName({ firstName: json.firstName }));
         dispatch(user.actions.setLastName({ lastName: json.lastName }));
         dispatch(user.actions.setEmail({ email: json.email }));
@@ -218,7 +218,7 @@ export const getSecretMessage = () => {
       .then((json) => {
         dispatch(
           user.actions.setSecretMessage({ secretMessage: JSON.stringify(json) }));
-        // user.actions.setOrderHistory({ orderHistory: json.orders })
+        user.actions.setOrderHistory({ orderHistory: json.orders })
 
       })
       .catch((err) => {
