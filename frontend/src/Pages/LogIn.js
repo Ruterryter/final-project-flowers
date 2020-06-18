@@ -6,7 +6,6 @@ import styled from "styled-components/macro";
 import { OrderSummary } from "components/OrderSummary";
 import headerPic from "../assets/Headerpic.jpeg";
 
-const LOGIN_URL = "https://bouquetdb.herokuapp.com/sessions";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -98,7 +97,7 @@ export const LogIn = () => {
           {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
           <LoginContainer>
             <Form>
-              <Header>Logga in</Header>
+              <Header aria-label="formulär för inloggning">Logga in</Header>
               <Label>Email</Label>
               <Input
                 type="text"
@@ -116,11 +115,12 @@ export const LogIn = () => {
                 onChange={(event) => setPassword(event.target.value)}
               />
 
-              <Button type="submit" onClick={handleLogin}>
+              <Button aria-label="logga in knapp" type="submit" onClick={handleLogin}>
                 Logga in
               </Button>
 
               <Link
+                aria-label="länk till registrering"
                 to={"/signup/"}
                 style={{
                   fontFamily: "Poppins",

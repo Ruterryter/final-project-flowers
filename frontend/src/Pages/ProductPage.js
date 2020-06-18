@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { cart } from "reducers/cart";
 import { useParams } from "react-router-dom";
 import { Cart } from "components/Cart";
-import { NavBar } from "../components/Navbar";
-import { Footer } from "../components/Footer";
 
 const Button = styled.button`
   background-color: #ff7c98;
@@ -104,6 +102,7 @@ export const ProductPage = () => {
           <ProductInfoText>{product.description}</ProductInfoText>
 
           <Button
+            aria-label="beställknapp"
             type="button"
             disabled={product.inventory === 0}
             onClick={() => dispatch(cart.actions.addItem(product))}

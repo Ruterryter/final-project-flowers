@@ -44,9 +44,9 @@ export const Cart = ({ name, _id, price }) => {
   return (
     <CartWrapper>
       <>
-        <Paragraph>Total: {totalPrice} kr</Paragraph>
+        <Paragraph aria-label="pris">Total: {totalPrice} kr</Paragraph>
       </>
-      <ShoppingList>
+      <ShoppingList aria-label="valda produkter">
         <Ul>
           {products.map((product) => (
             <CartItem key={product._id} product={product} />
@@ -54,7 +54,7 @@ export const Cart = ({ name, _id, price }) => {
         </Ul>
       </ShoppingList>
       <Link
-        className="aboutlink"
+        aria-label="länk till betalning"
         to={"/checkout/"}
         style={{
           backgroundColor: "#FF7C98",

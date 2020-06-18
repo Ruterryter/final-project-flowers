@@ -90,30 +90,33 @@ export const Footer = () => {
         <Title>Friday flowers</Title>
       </Link>
       <div>
-        <StyledLink to={"/"}>Hem</StyledLink>
-        <StyledLink to={"/about/"}>Om oss</StyledLink>
-        <StyledLink to={"/contact/"}>Kontakta oss</StyledLink>
-        <SocialMedia>
+        <StyledLink aria-label="länk till startsidan" to={"/"}>Hem</StyledLink>
+        <StyledLink aria-label="länk till om oss" to={"/about/"}>Om oss</StyledLink>
+        <StyledLink aria-label="länk till kontakt" to={"/contact/"}>Kontakta oss</StyledLink>
+        <SocialMedia aria-label="länk till sociala medier">
           <SocialMediaLink
+            aria-label="länk till instagram"
             href="https://www.instagram.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faInstagram} />
+            <FontAwesomeIcon icon={faInstagram} aria-label="instagramikon" />
           </SocialMediaLink>
           <SocialMediaLink
+            aria-label="länk till facebook"
             href="https://www.facebook.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faFacebook} />
+            <FontAwesomeIcon icon={faFacebook} aria-label="facebookikon" />
           </SocialMediaLink>
           <SocialMediaLink
+            aria-label="länk till twitter"
             href="https://www.twitter.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faTwitter} />
+            <FontAwesomeIcon icon={faTwitter} aria-label="twitterikon" />
           </SocialMediaLink>
         </SocialMedia>
       </div>

@@ -35,9 +35,9 @@ export const Banner = () => {
   return (
     <BannerDiv>
       <ScrollText>
-        <BannerText>Buketter för hemleverans i skåne </BannerText>
+        <BannerText aria-label="info banner">Buketter för hemleverans i skåne </BannerText>
         <BannerText>
-          <FontAwesomeIcon icon={faInstagram} />
+          <FontAwesomeIcon icon={faInstagram} aria-label="instagramikon" />
         </BannerText>
         <BannerHashtags>#MinBukett #Buketter</BannerHashtags>
         <BannerText>Buketter för hemleverans i skåne </BannerText>

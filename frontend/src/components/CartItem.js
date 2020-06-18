@@ -7,15 +7,15 @@ export const CartItem = ({ product }) => {
 
   return (
     <li>
-      <div> {product.name}</div>
+      <div aria-label="vald produkt"> {product.name}</div>
       <div>
-        <span> Antal  {product.quantity} st </span>
-        <div >Totalsumma {product.price * product.quantity} kr</div>
+        <span aria-label="antal produkter"> Antal  {product.quantity} st </span>
+        <div aria-label="totalsumma" >Totalsumma {product.price * product.quantity} kr</div>
       </div>
 
       <span>
-        <button type="button" onClick={() => dispatch(cart.actions.removeItem(product))}>-</button>
-        <button type="button" onClick={() => dispatch(cart.actions.addItem(product))}>+</button>
+        <button aria-label="ta bort en produkt" type="button" onClick={() => dispatch(cart.actions.removeItem(product))}>-</button>
+        <button aria-label="lägg till en produkt" type="button" onClick={() => dispatch(cart.actions.addItem(product))}>+</button>
       </span>
     </li>
   )
