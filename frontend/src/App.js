@@ -8,6 +8,7 @@ import {
   applyMiddleware,
   compose,
 } from "@reduxjs/toolkit";
+import styled from "styled-components";
 import { user } from "./reducers/user";
 import { cart } from "./reducers/cart";
 import { products } from "./reducers/products";
@@ -19,6 +20,10 @@ import { Checkout } from "Pages/Checkout";
 import { ConfirmationPage } from "Pages/ConfirmationPage";
 import { StartPage } from "Pages/StartPage";
 import { ProductPage } from "Pages/ProductPage.js";
+import { NavBar } from "components/Navbar";
+import { Footer } from "components/Footer";
+
+const AppWrapper = styled.div``;
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -48,32 +53,36 @@ export const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Switch>
-          <Route path="/" exact>
-            <StartPage />
-          </Route>
-          <Route path="/about/" exact>
-            <About />
-          </Route>
-          <Route path="/login/" exact>
-            <LogIn />
-          </Route>
-          <Route path="/signup/" exact>
-            <SignUp />
-          </Route>
-          <Route path="/contact/" exact>
-            <Contact />
-          </Route>
-          <Route path="/bouquets/:id" exact>
-            <ProductPage />
-          </Route>
-          <Route path="/checkout/" exact>
-            <Checkout />
-          </Route>
-          <Route path="/confirmation/" exact>
-            <ConfirmationPage />
-          </Route>
-        </Switch>
+        <AppWrapper>
+          <NavBar />
+          <Switch>
+            <Route path="/" exact>
+              <StartPage />
+            </Route>
+            <Route path="/about/" exact>
+              <About />
+            </Route>
+            <Route path="/login/" exact>
+              <LogIn />
+            </Route>
+            <Route path="/signup/" exact>
+              <SignUp />
+            </Route>
+            <Route path="/contact/" exact>
+              <Contact />
+            </Route>
+            <Route path="/bouquets/:id" exact>
+              <ProductPage />
+            </Route>
+            <Route path="/checkout/" exact>
+              <Checkout />
+            </Route>
+            <Route path="/confirmation/" exact>
+              <ConfirmationPage />
+            </Route>
+          </Switch>
+          <Footer />
+        </AppWrapper>
       </BrowserRouter>
     </Provider>
   );

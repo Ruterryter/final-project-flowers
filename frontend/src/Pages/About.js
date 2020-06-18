@@ -1,31 +1,33 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
-import { NavBar } from "components/Navbar";
-import { Footer } from "components/Footer";
+import { Banner } from "components/Banner";
 
 const CardWrapper = styled.div`
+  padding: 100px 0;
   width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
 
   @media (max-width: 768px) {
+    height: auto;
     flex-flow: column wrap;
   }
 `;
 
 const ImgCard = styled.div`
   margin: 0;
-  width: 50%;
-  height: 500px;
+  width: 40vh;
+  height: 40vh;
   background-color: grey;
   background-image: url("https://dl.dropboxusercontent.com/s/70x6q4wfmhe9qp2/burkinsta.jpg?dl=0");
   background-repeat: no-repeat;
-  background-size: cover;
-  background-color: pink;
+  background-position: center;
+  background-size: contain;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -38,7 +40,7 @@ const TextCard = styled.div`
   padding: 20px;
   width: 50%;
   height: 500px;
-  background-color: pink;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -54,13 +56,13 @@ const TextCard = styled.div`
 `;
 
 const Title = styled.h2`
-  margin: auto;
+  margin: 20px auto 0 auto;
   font-family: "Poppins";
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
-  color: #fff;
+  color: #4d4d4d;
 `;
 
 const InfoText = styled.h5`
@@ -77,7 +79,7 @@ const InfoText = styled.h5`
 `;
 
 const MidTitle = styled.h3`
-  margin: auto;
+  margin: 0 auto;
   margin-bottom: 20px;
   font-family: "Sacramento", cursive;
   font-size: 32px;
@@ -88,7 +90,6 @@ const MidTitle = styled.h3`
 
   @media (max-width: 768px) {
     font-size: 24px;
-    margin-bottom: 20px;
   }
 `;
 
@@ -97,7 +98,7 @@ const StyledLink = styled(Link)`
   font-family: "Poppins";
   font-size: 18px;
   font-weight: 700;
-  color: #ff7c98;
+  color: #4d4d4d;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -116,7 +117,6 @@ const StyledLink = styled(Link)`
 export const About = () => {
   return (
     <>
-      <NavBar />
       <CardWrapper>
         <ImgCard></ImgCard>
         <TextCard>
@@ -134,8 +134,6 @@ export const About = () => {
           <StyledLink to={"/contact"}>Kontakta oss!</StyledLink>
         </TextCard>
       </CardWrapper>
-
-      <Footer />
     </>
   );
 };

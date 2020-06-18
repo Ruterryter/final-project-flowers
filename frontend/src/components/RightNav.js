@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Menu = styled.ul`
   font-family: "Poppins";
@@ -56,12 +58,24 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const Span = styled.span`
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
 export const RightNav = ({ open }) => {
   return (
     <Menu open={open}>
       <StyledLink to={"/"}>Hem</StyledLink>
       <StyledLink to={"/about/"}>Om oss</StyledLink>
       <StyledLink to={"/contact/"}>Kontakta oss</StyledLink>
+      <Span> | </Span>
+      <StyledLink to={"/login/"}>
+        <FontAwesomeIcon icon={faUserAlt} /> Logga in
+      </StyledLink>
     </Menu>
   );
 };

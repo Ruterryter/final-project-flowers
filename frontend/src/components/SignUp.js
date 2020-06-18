@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { user, signUp } from "../reducers/user";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
-import { NavBar } from "components/Navbar";
-import { Footer } from "components/Footer";
 import headerPic from "../assets/Headerpic.jpeg";
 import { Checkout } from "Pages/Checkout";
 
 const Wrapper = styled.div`
+  height: 100vh;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: center;
   background-image: url(${headerPic});
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: pink;
@@ -51,26 +52,48 @@ const Input = styled.input`
     color: #ff7c90;
   }
 `;
-const StyledButton = styled.button`
-  background-color: transparent;
-  color: #ff7c98;
+
+const Button = styled.button`
+  background-color: #ff7c98;
+  color: #ffff;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   outline: none;
-  border: 2px solid #ff7c98;
+  border: none;
   margin: 20px;
 `;
 
 const SignUpContainer = styled.div`
   background-color: #fde7ea;
-  padding: 20px;
+  padding: 100px 50px;
   margin: 20px;
   width: 45%;
   opacity: 95%;
 
   @media (max-width: 768px) {
     width: 100%;
+    padding: 20px;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  margin-right: 10px;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #ff7c98;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s;
+
+  &:hover {
+    text-decoration: none;
+    color: orange;
+  }
+
+  @media (max-width: 768px) {
+    color: #fff;
   }
 `;
 
@@ -90,16 +113,18 @@ export const SignUp = () => {
   // To sign up a user.
   const handleSignup = (event) => {
     event.preventDefault();
-    dispatch(signUp(
-      firstName,
-      lastName,
-      email,
-      password,
-      address,
-      zipCode,
-      city,
-      phoneNumber
-    ));
+    dispatch(
+      signUp(
+        firstName,
+        lastName,
+        email,
+        password,
+        address,
+        zipCode,
+        city,
+        phoneNumber
+      )
+    );
   };
 
   if (accessToken) {
@@ -107,7 +132,6 @@ export const SignUp = () => {
   } else {
     return (
       <>
-        <NavBar />
         <Wrapper>
           <SignUpContainer>
             <Form>
@@ -184,13 +208,13 @@ export const SignUp = () => {
                 onChange={(event) => setPassword(event.target.value)}
               />
 
-              <StyledButton type="submit" onClick={handleSignup}>
+              <Button type="submit" onClick={handleSignup}>
                 Registrera dig
-              </StyledButton>
+              </Button>
+              <StyledLink to={"/login/"}> Logga in</StyledLink>
             </Form>
           </SignUpContainer>
         </Wrapper>
-        <Footer />
       </>
     );
   }

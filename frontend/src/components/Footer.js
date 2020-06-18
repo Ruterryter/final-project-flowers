@@ -90,6 +90,7 @@ export const Footer = () => {
         <Title>Friday flowers</Title>
       </Link>
       <div>
+        <StyledLink to={"/"}>Hem</StyledLink>
         <StyledLink to={"/about/"}>Om oss</StyledLink>
         <StyledLink to={"/contact/"}>Kontakta oss</StyledLink>
         <SocialMedia>

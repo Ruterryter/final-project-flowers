@@ -4,18 +4,18 @@ import { login } from "../reducers/user";
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import { OrderSummary } from "components/OrderSummary";
-import { NavBar } from "components/Navbar";
-import { Footer } from "components/Footer";
 import headerPic from "../assets/Headerpic.jpeg";
 
 const LOGIN_URL = "https://bouquetdb.herokuapp.com/sessions";
 
 const Wrapper = styled.div`
+  height: 100vh;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
   background-image: url(${headerPic});
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: pink;
@@ -57,13 +57,14 @@ const Header = styled.header`
 
 const LoginContainer = styled.div`
   background-color: #fde7ea;
-  padding: 20px;
+  padding: 100px 50px;
   margin: 20px;
   width: 45%;
   opacity: 95%;
 
   @media (max-width: 768px) {
     width: 100%;
+    padding: 20px;
   }
 `;
 
@@ -93,7 +94,6 @@ export const LogIn = () => {
   if (!accessToken) {
     return (
       <>
-        <NavBar />
         <Wrapper>
           {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
           <LoginContainer>
@@ -134,7 +134,6 @@ export const LogIn = () => {
             </Form>
           </LoginContainer>
         </Wrapper>
-        <Footer />
       </>
     );
   } else {

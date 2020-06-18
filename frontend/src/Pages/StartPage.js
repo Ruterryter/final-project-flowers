@@ -14,7 +14,7 @@ import vitaRosor from "assets/vita_rosor.jpg";
 import begravning2 from "assets/begravning2.jpg";
 import mellanStol from "assets/mellanStol.jpg";
 
-const AppWrapper = styled.div`
+const StartWrapper = styled.div`
   width: 100%;
   background-color: #fff;
 `;
@@ -34,8 +34,7 @@ export const StartPage = () => {
   }, [dispatch]);
 
   return (
-    <AppWrapper>
-      <NavBar />
+    <StartWrapper>
       <EyecatcherContainer />
       <Products />
       <CategoryImgsWrapper>
@@ -45,7 +44,6 @@ export const StartPage = () => {
         <HighlightCard roundImg={mellanStol} title="Konferens" />
       </CategoryImgsWrapper>
       <Banner />
-      <Footer />
-    </AppWrapper>
+    </StartWrapper>
   );
 };

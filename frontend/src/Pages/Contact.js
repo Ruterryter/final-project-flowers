@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
-import { NavBar } from "components/Navbar";
-import { Footer } from "components/Footer";
 import { Banner } from "components/Banner";
 import mellanBank from "assets/mellanBank.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faMobile } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faMobile,
+  faArrowCircleLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 const CardWrapper = styled.div`
   padding: 100px 0;
@@ -59,6 +61,7 @@ const TextCard = styled.div`
 `;
 
 const ContactInfo = styled.div`
+  margin-top: 50px;
   width: 100px;
   display: flex;
   flex-flow: row nowrap;
@@ -67,7 +70,7 @@ const ContactInfo = styled.div`
 `;
 
 const Title = styled.h2`
-  margin: auto;
+  margin: 20px auto 0 auto;
   font-family: "Poppins";
   font-size: 32px;
   font-weight: 700;
@@ -77,7 +80,7 @@ const Title = styled.h2`
 `;
 
 const MidTitle = styled.h3`
-  margin: auto;
+  margin: 0 auto;
   margin-bottom: 20px;
   font-family: "Sacramento", cursive;
   font-size: 32px;
@@ -88,6 +91,7 @@ const MidTitle = styled.h3`
 
   @media (max-width: 768px) {
     font-size: 24px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -151,7 +155,6 @@ const ContactLink = styled.a`
 export const Contact = () => {
   return (
     <>
-      <NavBar />
       <CardWrapper>
         <ImgCard></ImgCard>
         <TextCard>
@@ -177,13 +180,9 @@ export const Contact = () => {
               <FontAwesomeIcon icon={faMobile} />
             </ContactLink>
           </ContactInfo>
-          <StyledLink className="back-link" to={"/"}>
-            Tillbaks
-          </StyledLink>
         </TextCard>
       </CardWrapper>
       <Banner />
-      <Footer />
     </>
   );
 };

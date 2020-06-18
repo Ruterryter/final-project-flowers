@@ -88,7 +88,6 @@ export const ProductPage = () => {
 
   return (
     <>
-      <NavBar />
       <ProductWrapper>
         <BouquetImageMedium
           src={`${product.imageUrl}`}
@@ -114,7 +113,6 @@ export const ProductPage = () => {
           <Cart />
         </DescriptionContainer>
       </ProductWrapper>
-      <Footer />
     </>
   );
 };
