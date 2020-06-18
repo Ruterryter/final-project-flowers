@@ -36,11 +36,19 @@ export const Cart = ({ name, _id, price }) => {
   );
 
   return (
+<<<<<<< HEAD
     <>
       <ShoppingList>
         <CartDiv>
           <FontAwesomeIcon icon={faShoppingCart} /> Din kundkorg
         </CartDiv>
+=======
+    <CartWrapper>
+      <>
+        <Paragraph aria-label="pris">Total: {totalPrice} kr</Paragraph>
+      </>
+      <ShoppingList aria-label="valda produkter">
+>>>>>>> hanna_dev
         <Ul>
           {products.map((product) => (
             <CartItem key={product._id} product={product} />
@@ -48,7 +56,7 @@ export const Cart = ({ name, _id, price }) => {
         </Ul>
       </ShoppingList>
       <Link
-        className="aboutlink"
+        aria-label="länk till betalning"
         to={"/checkout/"}
         style={{
           marginTop: "20px",

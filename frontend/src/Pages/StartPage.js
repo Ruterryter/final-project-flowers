@@ -2,11 +2,9 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components/macro";
-import { NavBar } from "../components/Navbar";
 import { EyecatcherContainer } from "../components/EyecatcherContainer";
 import { HighlightCard } from "../components/HighlightCard";
 import { Banner } from "../components/Banner";
-import { Footer } from "../components/Footer";
 import { Products } from "../components/Products";
 import { allProducts } from "reducers/products";
 import mediumBukett2 from "assets/mediumBukett2.jpg";
@@ -38,10 +36,10 @@ export const StartPage = () => {
       <EyecatcherContainer />
       <Products />
       <CategoryImgsWrapper>
-        <HighlightCard roundImg={mediumBukett2} title="Bröllop" />
-        <HighlightCard roundImg={begravning2} title="Begravning" />
-        <HighlightCard roundImg={vitaRosor} title="Fest" />
-        <HighlightCard roundImg={mellanStol} title="Konferens" />
+        <HighlightCard roundImg={mediumBukett2} title="Bröllop" alt="bröllopsbukett" />
+        <HighlightCard roundImg={begravning2} title="Begravning" alt="begravningsarrangemang" />
+        <HighlightCard roundImg={vitaRosor} title="Fest" alt="festblommor" />
+        <HighlightCard roundImg={mellanStol} title="Konferens" alt="konferensbukett" />
       </CategoryImgsWrapper>
       <Banner />
     </StartWrapper>
