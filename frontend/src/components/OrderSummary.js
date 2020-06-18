@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { submitOrder } from "reducers/cart";
+
 
 const Button = styled.button`
   background-color: #ff7c98;
@@ -51,8 +52,8 @@ export const OrderSummary = () => {
 
   return (
     <>
-      <h2 key={orders._id}>
-        {`Din beställning: ${cartItems[0].name} ${cartItems[0].price} kr.`}{" "}
+      <h2 key={orders._id} >
+        {`Din beställning: ${cartItems[0].name} ${cartItems[0].price} kr.`}
       </h2>
       <h2> Dina leveransuppgifter:</h2>
       <p>
@@ -64,6 +65,7 @@ export const OrderSummary = () => {
 
       <p>{phoneNumber}</p>
       <p>{email}</p>
+
       <Button onClick={() => handleSubmit()}> Skicka beställning </Button>
     </>
   );
