@@ -25,10 +25,11 @@ const app = express();
 const listEndpoints = require("express-list-endpoints");
 
 // Add middlewares to enable cors and json body parsing
-// var cors = require('cors')
+var cors = require('cors')
 app.use(cors());
 app.use(bodyParser.json());
 
+app.options('*', cors())
 
 const authenticateUser = async (req, res, next) => {
   try {
@@ -78,7 +79,7 @@ app.get("/bouquets", async (req, res) => {
 // Show single bouquets in database
 app.get("/bouquets/:id", async (req, res) => {
   const bouquets = await Bouquet.findOne().exec();
-  res.json(bouquets, 'Access-Control-Allow-Origin', '*');
+  res.json(bouquets);
 });
 
 //Sign up
