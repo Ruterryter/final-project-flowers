@@ -6,18 +6,17 @@ import styled from "styled-components/macro";
 import { OrderSummary } from "components/OrderSummary";
 import headerPic from "../assets/Headerpic.jpeg";
 
-
 const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  background-image: url(${headerPic});
+ /*  background-image: url(${headerPic});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-color: pink;
+  background-size: cover; */
+  background-color: #fffa;
 `;
 
 const Form = styled.form`
@@ -37,6 +36,7 @@ const Input = styled.input`
   margin: 10px 0;
   padding: 5px 15px;
   border: none;
+  background-color: #fde7ea;
   font-family: "Poppins";
   font-size: 8px;
   ::placeholder {
@@ -55,15 +55,13 @@ const Header = styled.header`
 `;
 
 const LoginContainer = styled.div`
-  background-color: #fde7ea;
-  padding: 100px 50px;
+  height: 100%;
+  padding: 20px;
   margin: 20px;
-  width: 45%;
   opacity: 95%;
 
   @media (max-width: 768px) {
     width: 100%;
-    padding: 20px;
   }
 `;
 
@@ -115,7 +113,11 @@ export const LogIn = () => {
                 onChange={(event) => setPassword(event.target.value)}
               />
 
-              <Button aria-label="logga in knapp" type="submit" onClick={handleLogin}>
+              <Button
+                aria-label="logga in knapp"
+                type="submit"
+                onClick={handleLogin}
+              >
                 Logga in
               </Button>
 

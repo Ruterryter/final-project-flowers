@@ -6,7 +6,7 @@ import { submitOrder } from "reducers/cart";
 import headerPic from "../assets/Headerpic.jpeg";
 
 const SummaryWrapper = styled.div`
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -54,6 +54,10 @@ const Title = styled.h2`
   font-weight: 700;
   text-transform: uppercase;
   color: pink;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const MidTitle = styled.h3`
@@ -64,10 +68,6 @@ const MidTitle = styled.h3`
   font-weight: 500;
   color: #4d4d4d;
   line-height: 80%;
-
-  @media (max-width: 768px) {
-    font-size: 32px;
-  }
 `;
 
 const InfoText = styled.h5`
@@ -120,9 +120,12 @@ export const OrderSummary = () => {
     <>
       <SummaryWrapper>
         <SummaryContainer aria-label="ordersammanfattning">
-          <Title key={orders._id}>
-            {`Din beställning: ${cartItems[0].name} ${cartItems[0].price} kr.`}{" "}
-          </Title>
+          <Title key={orders._id}>Din beställning:</Title>
+          <MidTitle>{`${cartItems[0].name}`}</MidTitle>{" "}
+          <MidTitle>
+            {` ${cartItems[0].price}`}
+            kr
+          </MidTitle>
           <Title> Dina leveransuppgifter</Title>
           <MidTitle aria-label="namn">
             {firstName} {lastName}
@@ -130,10 +133,15 @@ export const OrderSummary = () => {
           <InfoText aria-label="adress">{address}</InfoText>
           <InfoText aria-label="postnummer">{zipCode}</InfoText>
           <InfoText aria-label="stad">{city}</InfoText>
-
           <InfoText aria-label="telefonnummer">{phoneNumber}</InfoText>
           <InfoText aria-label="emailadress">{email}</InfoText>
-          <Button aria-label="skicka beställning knapp" onClick={() => handleSubmit()}> Skicka beställning </Button>
+          <Button
+            aria-label="skicka beställning knapp"
+            onClick={() => handleSubmit()}
+          >
+            {" "}
+            Skicka beställning{" "}
+          </Button>
         </SummaryContainer>
       </SummaryWrapper>
     </>
