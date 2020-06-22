@@ -29,13 +29,6 @@ const listEndpoints = require("express-list-endpoints");
 app.use(cors());
 app.use(bodyParser.json());
 
-//Testar 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
-
-
 
 const authenticateUser = async (req, res, next) => {
   try {
@@ -85,7 +78,7 @@ app.get("/bouquets", async (req, res) => {
 // Show single bouquets in database
 app.get("/bouquets/:id", async (req, res) => {
   const bouquets = await Bouquet.findOne().exec();
-  res.json(bouquets);
+  res.json(bouquets, 'Access-Control-Allow-Origin', '*');
 });
 
 //Sign up
