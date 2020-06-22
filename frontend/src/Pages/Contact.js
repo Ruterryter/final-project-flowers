@@ -11,9 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const CardWrapper = styled.div`
-  padding: 100px 0;
+  padding: 50px 0;
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -28,8 +27,8 @@ const CardWrapper = styled.div`
 
 const ImgCard = styled.div`
   margin: 0;
-  width: 40vh;
-  height: 40vh;
+  width: 350px;
+  height: 350px;
   background-image: url(${mellanBank});
   background-repeat: no-repeat;
   background-position: center;
@@ -44,8 +43,8 @@ const ImgCard = styled.div`
 const TextCard = styled.div`
   margin: 0;
   padding-left: 20px;
-  width: 40vh;
-  height: 40vh;
+  width: 50%;
+  height: 350px;
   background-color: #fff;
   display: flex;
   flex-flow: column nowrap;
@@ -61,12 +60,19 @@ const TextCard = styled.div`
 `;
 
 const ContactInfo = styled.div`
-  margin-top: 50px;
-  width: 100px;
+  margin-top: 20px;
+  width: 100%;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: space-around;
+
+  @media (max-width: 768px) {
+    height: auto;
+    width: 100%;
+
+    padding: 50px 20px;
+  }
 `;
 
 const Title = styled.h2`
@@ -111,11 +117,10 @@ const InfoText = styled.h5`
 const ContactLink = styled.a`
   margin: auto;
   font-family: "Poppins";
-  font-size: 32px;
+  font-size: 18px;
   font-weight: 400;
   color: #4d4d4d;
   text-decoration: none;
-  text-transform: uppercase;
   text-align: center;
   transition: all 0.3s;
 
@@ -125,7 +130,7 @@ const ContactLink = styled.a`
   }
 
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 18px;
     margin-top: 20px;
   }
 `;
@@ -141,22 +146,29 @@ export const Contact = () => {
           <InfoText aria-label="Informationstext">
             Skriv ett mail eller slå en singnal så hjälper vi dig med det
             perfekta blommorna. Våra florister älskar att skapa vackra och
-            kreativa buketter med det där lilla extra Vi binder alla typer av
-            buketter och arrangemang såväl till hemmet, som till den stora
-            konferensen och självklart till både bröllop och begravningar. Hör
-            av er till oss så hjälper vi dig med dina blommande önskemål!.
+            kreativa buketter med det där lilla extra.
           </InfoText>
           <ContactInfo>
             <ContactLink
-              aria-label="länk till mailadress"
+              aria-label="elins mail"
               href="mailto:elinaarenstrup@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faEnvelope} />
+              <FontAwesomeIcon icon={faEnvelope} /> Elin Aarenstrup
             </ContactLink>
+
+            <ContactLink
+              aria-label="hannas email"
+              href="mailto:hanna.ruter@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faEnvelope} /> Hanna Rüter
+            </ContactLink>
+
             <ContactLink aria-label="telefonnummer" href="tel:5551234567">
-              <FontAwesomeIcon icon={faMobile} />
+              <FontAwesomeIcon icon={faMobile} /> Ring oss
             </ContactLink>
           </ContactInfo>
         </TextCard>
