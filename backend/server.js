@@ -18,15 +18,16 @@ mongoose.Promise = Promise;
 
 // Defines the port the app will run on. Defaults to 8080, but can be
 // overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
+
 const port = process.env.PORT || 8082;
 const app = express();
 const listEndpoints = require("express-list-endpoints");
 
 // Add middlewares to enable cors and json body parsing
+
 app.use(cors());
 app.use(bodyParser.json());
+
 
 const authenticateUser = async (req, res, next) => {
   try {
