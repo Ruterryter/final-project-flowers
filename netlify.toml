@@ -3,5 +3,5 @@
 [build]
   base = "frontend/"
   publish = "build/"
-  CI="false && npm run build"
+  command = "npm run build"
 
