@@ -43,7 +43,7 @@ export const allProducts = () => {
   return (dispatch) => {
     fetch(FLOWER_URL, {
       method: "GET",
-      headers: { 'Content-Type': 'application/json' }
+
     })
       .then((res) => {
         if (res.ok /* if 200, 201, 204 */) {
