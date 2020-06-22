@@ -11,7 +11,7 @@ const ShopWrapper = styled.div`
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: #fde7ea;
 
   @media (max-width: 768px) {
     height: auto;

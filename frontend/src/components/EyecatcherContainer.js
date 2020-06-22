@@ -22,7 +22,7 @@ const ImgCard = styled.div`
   background-color: grey;
   background-image: url(${eyecatcherPic});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-color: pink;
   @media (max-width: 768px) {
     width: 100%;

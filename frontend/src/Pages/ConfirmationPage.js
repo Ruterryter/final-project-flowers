@@ -7,19 +7,21 @@ import { StartPage } from "Pages/StartPage.js";
 
 const CardWrapper = styled.div`
   width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   border-top: solid 20px #ff7c98;
+  background-color: #fde7ea;
 `;
 
 const TextCard = styled.div`
   margin: 0;
   width: 50%;
   height: 500px;
-  background-color: #fde7ea;
+  background-color: #fff;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
