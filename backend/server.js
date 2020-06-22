@@ -25,9 +25,15 @@ const app = express();
 const listEndpoints = require("express-list-endpoints");
 
 // Add middlewares to enable cors and json body parsing
-var cors = require('cors')
+// var cors = require('cors')
 app.use(cors());
 app.use(bodyParser.json());
+
+//Testar 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 
 
