@@ -35,12 +35,18 @@ export const Banner = () => {
   return (
     <BannerDiv>
       <ScrollText>
-        <BannerText aria-label="info banner">Buketter för hemleverans i skåne </BannerText>
+        <BannerText aria-label="info banner">
+          Buketter för hemleverans i skåne{" "}
+        </BannerText>
         <BannerText>
           <FontAwesomeIcon icon={faInstagram} aria-label="instagramikon" />
         </BannerText>
         <BannerHashtags>#MinBukett #Buketter</BannerHashtags>
-        <BannerText>Buketter för hemleverans i skåne </BannerText>
+        <BannerHashtags>Buketter för hemleverans i skåne </BannerHashtags>
+        <BannerText>
+          OBS! Det går inte beställa riktiga buketter, men vi gör gärna en
+          hemsida åt dig.
+        </BannerText>
       </ScrollText>
     </BannerDiv>
   );

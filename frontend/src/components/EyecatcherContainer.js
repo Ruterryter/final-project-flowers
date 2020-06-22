@@ -5,8 +5,7 @@ import eyecatcherPic from "../assets/mellanBank2.jpg";
 const CardWrapper = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: row wrap;
   align-items: center;
   justify-content: center;
 
@@ -22,8 +21,10 @@ const ImgCard = styled.div`
   background-color: grey;
   background-image: url(${eyecatcherPic});
   background-repeat: no-repeat;
-  background-size: contain;
+  background-position: center;
+  background-size: cover;
   background-color: pink;
+
   @media (max-width: 768px) {
     width: 100%;
     height: 350px;

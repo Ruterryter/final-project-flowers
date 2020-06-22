@@ -7,11 +7,11 @@ const HighlightImg = styled.img`
   height: 200px;
   border-radius: 50%;
 `;
+
 const HighlightCardDiv = styled.div`
   width: 200px;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   align-items: center;
   justify-content: center;
   transition: all 1s;

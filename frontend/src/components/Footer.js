@@ -28,6 +28,7 @@ const FooterDiv = styled.div`
 `;
 
 const InfoDiv = styled.div`
+  margin-bottom: 10px;
   width: 50%;
   display: flex;
   flex-flow: column nowrap;
@@ -69,13 +70,13 @@ const StyledLink = styled(Link)`
 const InfoText = styled.h5`
   margin: auto 20px;
   font-family: "Poppins";
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
   text-align: center;
   color: #fff;
 
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: 10px;
   }
 `;
 
@@ -105,28 +106,6 @@ const SocialMedia = styled.div`
   align-items: center;
 `;
 
-const ContactLink = styled.a`
-  margin: auto;
-  font-family: "Poppins";
-  font-size: 18px;
-  font-weight: 400;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  transition: all 0.3s;
-
-  &:hover {
-    text-decoration: none;
-    color: orange;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 24px;
-    margin-top: 20px;
-  }
-`;
-
 export const Footer = () => {
   return (
     <FooterDiv>
@@ -134,38 +113,21 @@ export const Footer = () => {
         <Link to={"/"} style={{ textDecoration: "none" }}>
           <Title>Friday flowers</Title>
         </Link>
-
         <InfoText>
           Slutprojekt Technigo bootcamp av Elin Aarenstrup & Hanna Rüter, Juni
           2020
-          <div>
-            OBS! Det går inte beställa riktiga buketter, men vi gör gärna en
-            hemsida åt dig.
-          </div>
-          <div>
-            <ContactLink
-              href="mailto:elinaarenstrup@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faEnvelope} /> Elin Aarenstrup
-            </ContactLink>
-          </div>
-          <div>
-            <ContactLink
-              href="mailto:hanna.ruter@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faEnvelope} /> Hanna Rüter
-            </ContactLink>
-          </div>
         </InfoText>
       </InfoDiv>
       <div>
-        <StyledLink aria-label="länk till startsidan" to={"/"}>Hem</StyledLink>
-        <StyledLink aria-label="länk till om oss" to={"/about/"}>Om oss</StyledLink>
-        <StyledLink aria-label="länk till kontakt" to={"/contact/"}>Kontakta oss</StyledLink>
+        <StyledLink aria-label="länk till startsidan" to={"/"}>
+          Hem
+        </StyledLink>
+        <StyledLink aria-label="länk till om oss" to={"/about/"}>
+          Om oss
+        </StyledLink>
+        <StyledLink aria-label="länk till kontakt" to={"/contact/"}>
+          Kontakta oss
+        </StyledLink>
         <SocialMedia aria-label="länk till sociala medier">
           <SocialMediaLink
             aria-label="länk till instagram"
