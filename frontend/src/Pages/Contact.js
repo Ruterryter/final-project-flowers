@@ -134,11 +134,11 @@ export const Contact = () => {
   return (
     <>
       <CardWrapper>
-        <ImgCard></ImgCard>
+        <ImgCard aria-label="bild på blommor"></ImgCard>
         <TextCard>
           <Title>Ta kontakt</Title>
           <MidTitle>Så gör vi något fint ihop...</MidTitle>
-          <InfoText>
+          <InfoText aria-label="Informationstext">
             Skriv ett mail eller slå en singnal så hjälper vi dig med det
             perfekta blommorna. Våra florister älskar att skapa vackra och
             kreativa buketter med det där lilla extra Vi binder alla typer av
@@ -148,13 +148,14 @@ export const Contact = () => {
           </InfoText>
           <ContactInfo>
             <ContactLink
+              aria-label="länk till mailadress"
               href="mailto:elinaarenstrup@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FontAwesomeIcon icon={faEnvelope} />
             </ContactLink>
-            <ContactLink href="tel:5551234567">
+            <ContactLink aria-label="telefonnummer" href="tel:5551234567">
               <FontAwesomeIcon icon={faMobile} />
             </ContactLink>
           </ContactInfo>

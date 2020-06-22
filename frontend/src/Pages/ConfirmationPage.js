@@ -84,17 +84,18 @@ export const ConfirmationPage = () => {
     return (
       <>
         <CardWrapper>
-          <TextCard>
+          <TextCard aria-label="beställningsbekräftelse">
             <Title>Tack för din beställning!</Title>
             <InfoText>
               Swisha summan för för buketten till swishnummer (123-xxx xxxx)
               senast onsdag kl 17:00 för att bekräfta din beställning. Vi
               leverar sedan blommorna hem till dig mellan klockan 15-17 på
-              fredagar. Skulle ni inte vara hemma ställer vi blommorna utanför i
+              fredagar. Skulle du inte vara hemma ställer vi blommorna utanför i
               en liten hink med vatten så att de håller sig fräscha. Info om hur
-              du bäst tar hand om din bukett medföljer.{" "}
+              du bäst tar hand om din bukett medföljer.
             </InfoText>
             <Link
+              aria-label="Gå tillbaka knapp"
               className="back-link"
               to={"/"}
               style={{
@@ -111,6 +112,7 @@ export const ConfirmationPage = () => {
               Tillbaks
             </Link>
             <Button
+              aria-label="Logga ut knapp"
               type="submit"
               onClick={(e) => dispatch(logout())}
               value="Logga ut"

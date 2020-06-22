@@ -48,7 +48,7 @@ export const CartItem = ({ product }) => {
 
   return (
     <li>
-      <CartWrapper>
+      <CartWrapper aria-label="kundvagn">
         <InfoText>
           {product.quantity} st {product.name}
         </InfoText>
@@ -59,12 +59,14 @@ export const CartItem = ({ product }) => {
 
         <span>
           <Button
+            aria-label="lägg till produkt"
             type="button"
             onClick={() => dispatch(cart.actions.addItem(product))}
           >
             +
           </Button>
           <Button
+            aria-label="ta bort produkt"
             type="button"
             onClick={() => dispatch(cart.actions.removeItem(product))}
           >

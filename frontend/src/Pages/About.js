@@ -118,7 +118,7 @@ export const About = () => {
   return (
     <>
       <CardWrapper>
-        <ImgCard></ImgCard>
+        <ImgCard aria-label="flower image" alt="flowers"></ImgCard>
         <TextCard>
           <Title>Vi gillar </Title>
           <MidTitle>Blommor, smultron och hallonsaft!</MidTitle>
@@ -131,7 +131,7 @@ export const About = () => {
             av er till oss så hjälper vi dig med dina blommande önskemål!.
           </InfoText>
 
-          <StyledLink to={"/contact"}>Kontakta oss!</StyledLink>
+          <StyledLink aria-label="contact link" to={"/contact"}>Kontakta oss!</StyledLink>
         </TextCard>
       </CardWrapper>
     </>

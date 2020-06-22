@@ -127,6 +127,7 @@ export const ProductPage = () => {
           <InfoText>{product.description}</InfoText>
           <PriceTag>{product.price} kr</PriceTag>
           <Button
+            aria-label="beställknapp"
             type="button"
             disabled={product.inventory === 0}
             onClick={() => dispatch(cart.actions.addItem(product))}

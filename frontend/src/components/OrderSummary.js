@@ -119,22 +119,21 @@ export const OrderSummary = () => {
   return (
     <>
       <SummaryWrapper>
-        <SummaryContainer>
-          {/* conditional rendering if order is empty? */}
+        <SummaryContainer aria-label="ordersammanfattning">
           <Title key={orders._id}>
             {`Din beställning: ${cartItems[0].name} ${cartItems[0].price} kr.`}{" "}
           </Title>
           <Title> Dina leveransuppgifter</Title>
-          <MidTitle>
+          <MidTitle aria-label="namn">
             {firstName} {lastName}
           </MidTitle>
-          <InfoText>{address}</InfoText>
-          <InfoText>{zipCode}</InfoText>
-          <InfoText>{city}</InfoText>
+          <InfoText aria-label="adress">{address}</InfoText>
+          <InfoText aria-label="postnummer">{zipCode}</InfoText>
+          <InfoText aria-label="stad">{city}</InfoText>
 
-          <InfoText>{phoneNumber}</InfoText>
-          <InfoText>{email}</InfoText>
-          <Button onClick={() => handleSubmit()}> Skicka beställning </Button>
+          <InfoText aria-label="telefonnummer">{phoneNumber}</InfoText>
+          <InfoText aria-label="emailadress">{email}</InfoText>
+          <Button aria-label="skicka beställning knapp" onClick={() => handleSubmit()}> Skicka beställning </Button>
         </SummaryContainer>
       </SummaryWrapper>
     </>

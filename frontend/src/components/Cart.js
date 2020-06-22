@@ -37,7 +37,7 @@ export const Cart = ({ name, _id, price }) => {
 
   return (
     <>
-      <ShoppingList>
+      <ShoppingList aria-label="kundkorg">
         <CartDiv>
           <FontAwesomeIcon icon={faShoppingCart} /> Din kundkorg
         </CartDiv>
@@ -48,7 +48,7 @@ export const Cart = ({ name, _id, price }) => {
         </Ul>
       </ShoppingList>
       <Link
-        className="aboutlink"
+        aria-label="länk till betalning"
         to={"/checkout/"}
         style={{
           marginTop: "20px",

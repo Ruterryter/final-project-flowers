@@ -133,7 +133,7 @@ export const SignUp = () => {
     return (
       <>
         <Wrapper>
-          <SignUpContainer>
+          <SignUpContainer aria-label="registeringsformulär">
             <Form>
               {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
               <Header>Skapa användare</Header>
