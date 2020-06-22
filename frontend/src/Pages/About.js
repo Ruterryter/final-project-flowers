@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
-import { Banner } from "components/Banner";
 
 const CardWrapper = styled.div`
-  padding: 100px 0;
+  padding: 50px 0;
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -21,13 +19,13 @@ const CardWrapper = styled.div`
 
 const ImgCard = styled.div`
   margin: 0;
-  width: 40vh;
-  height: 40vh;
+  width: 350px;
+  height: 350px;
   background-color: grey;
   background-image: url("https://dl.dropboxusercontent.com/s/70x6q4wfmhe9qp2/burkinsta.jpg?dl=0");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -131,7 +129,9 @@ export const About = () => {
             av er till oss så hjälper vi dig med dina blommande önskemål!.
           </InfoText>
 
-          <StyledLink aria-label="contact link" to={"/contact"}>Kontakta oss!</StyledLink>
+          <StyledLink aria-label="contact link" to={"/contact"}>
+            Kontakta oss!
+          </StyledLink>
         </TextCard>
       </CardWrapper>
     </>

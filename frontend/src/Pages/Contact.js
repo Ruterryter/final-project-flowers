@@ -4,11 +4,7 @@ import { Link } from "react-router-dom";
 import { Banner } from "components/Banner";
 import mellanBank from "assets/mellanBank.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faMobile,
-  faArrowCircleLeft,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faMobile } from "@fortawesome/free-solid-svg-icons";
 
 const CardWrapper = styled.div`
   padding: 50px 0;
@@ -32,7 +28,7 @@ const ImgCard = styled.div`
   background-image: url(${mellanBank});
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -42,12 +38,13 @@ const ImgCard = styled.div`
 
 const TextCard = styled.div`
   margin: 0;
-  padding-left: 20px;
+  padding: 20px;
   width: 50%;
-  height: 350px;
+  height: 500px;
   background-color: #fff;
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-items: center;
   align-items: center;
 
