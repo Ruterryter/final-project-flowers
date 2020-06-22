@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components/macro";
 import { EyecatcherContainer } from "../components/EyecatcherContainer";
 import { HighlightCard } from "../components/HighlightCard";
-import { Banner } from "../components/Banner";
 import { Products } from "../components/Products";
 import { allProducts } from "reducers/products";
 import mediumBukett2 from "assets/mediumBukett2.jpg";
@@ -36,12 +35,23 @@ export const StartPage = () => {
       <EyecatcherContainer />
       <Products />
       <CategoryImgsWrapper>
-        <HighlightCard roundImg={mediumBukett2} title="Bröllop" alt="bröllopsbukett" />
-        <HighlightCard roundImg={begravning2} title="Begravning" alt="begravningsarrangemang" />
+        <HighlightCard
+          roundImg={mediumBukett2}
+          title="Bröllop"
+          alt="bröllopsbukett"
+        />
+        <HighlightCard
+          roundImg={begravning2}
+          title="Begravning"
+          alt="begravningsarrangemang"
+        />
         <HighlightCard roundImg={vitaRosor} title="Fest" alt="festblommor" />
-        <HighlightCard roundImg={mellanStol} title="Konferens" alt="konferensbukett" />
+        <HighlightCard
+          roundImg={mellanStol}
+          title="Konferens"
+          alt="konferensbukett"
+        />
       </CategoryImgsWrapper>
-      <Banner />
     </StartWrapper>
   );
 };

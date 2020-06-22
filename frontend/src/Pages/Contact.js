@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Link } from "react-router-dom";
-import { Banner } from "components/Banner";
 import mellanBank from "assets/mellanBank.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faMobile } from "@fortawesome/free-solid-svg-icons";
@@ -170,7 +168,6 @@ export const Contact = () => {
           </ContactInfo>
         </TextCard>
       </CardWrapper>
-      <Banner />
     </>
   );
 };

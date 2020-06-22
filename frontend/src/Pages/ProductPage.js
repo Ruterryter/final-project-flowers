@@ -57,8 +57,8 @@ const InfoText = styled.h5`
 
 const BouquetImageMedium = styled.img`
   margin: 0;
-  width: 40vh;
-  height: 40vh;
+  width: 350px;
+  height: 350px;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -87,8 +87,8 @@ const DescriptionContainer = styled.div`
 `;
 
 const ProductWrapper = styled.div`
+  padding: 50px 0;
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-flow: row wrap;
   align-items: center;

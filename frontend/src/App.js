@@ -21,6 +21,7 @@ import { ConfirmationPage } from "Pages/ConfirmationPage";
 import { StartPage } from "Pages/StartPage";
 import { ProductPage } from "Pages/ProductPage.js";
 import { NavBar } from "components/Navbar";
+import { Banner } from "components/Banner";
 import { Footer } from "components/Footer";
 
 const AppWrapper = styled.div``;
@@ -81,6 +82,7 @@ export const App = () => {
               <ConfirmationPage />
             </Route>
           </Switch>
+          <Banner />
           <Footer />
         </AppWrapper>
       </BrowserRouter>
