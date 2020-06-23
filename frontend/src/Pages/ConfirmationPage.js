@@ -4,34 +4,37 @@ import { logout } from "../reducers/user";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components/macro";
 import { StartPage } from "Pages/StartPage.js";
+import headerPic from "../assets/Headerpic.jpeg";
 
 const CardWrapper = styled.div`
-  width: 100%;
-  height: 80vh;
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
-  padding: 20px;
+  background-image: url(${headerPic});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: pink;
 `;
 
 const TextCard = styled.div`
-  margin: 0;
-  width: 50%;
-  height: 500px;
-  background-color: #fff;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-items: center;
-  align-items: center;
+display: flex;
+flex-flow: column nowrap;
+align-items: center;
+justify-content: center;
+background-color: #fde7ea;
+padding: 100px 50px;
+margin: 20px;
+width: 45%;
+opacity: 95%;
+border: 2px solid #ff7c98;
 
-  @media (max-width: 768px) {
-    width: 100%;
-    height: 100%;
-  }
+@media (max-width: 768px) {
+  width: 100%;
+  padding: 20px;
+}
 `;
 
 const Title = styled.h2`

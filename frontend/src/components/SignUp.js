@@ -8,7 +8,7 @@ import headerPic from "../assets/Headerpic.jpeg";
 import { Checkout } from "Pages/Checkout";
 
 const Wrapper = styled.div`
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
