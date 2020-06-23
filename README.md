@@ -1,5 +1,5 @@
 # Final Project Technigo Bootcamp - Florist Homepage/Webshop
-In this project we made a homepage with a webshop for a florist where the customers can order bouquets for home delivery every friday.  
+In this project @https://github.com/elinaarenstrup and me made a homepage with a webshop for a florist where the customers can order bouquets for home delivery every friday.  
 The backend was built with Node.js and Express and for the frontend we used React with Redux. 
 
 ## The problem
