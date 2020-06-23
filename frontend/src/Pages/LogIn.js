@@ -7,7 +7,7 @@ import { OrderSummary } from "components/OrderSummary";
 import headerPic from "../assets/Headerpic.jpeg";
 
 const Wrapper = styled.div`
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;

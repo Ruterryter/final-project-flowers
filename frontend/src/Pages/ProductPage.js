@@ -59,17 +59,22 @@ const ImgWrapper = styled.div`
   padding: 20px;
   width: 50%;
   height: auto;
-
   border: none;
 
   @media (max-width: 768px) {
     width: 100%;
     height: 500px;
   }
+
+  @media (min-width: 1024px) {
+    width: 500px;
+    height: 500px;
+  }
 `;
 
 const BouquetImageMedium = styled.img`
   width: 100%;
+  object-fit: contain;
 `;
 
 const DescriptionContainer = styled.div`
