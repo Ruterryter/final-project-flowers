@@ -38,7 +38,7 @@ const MidTitle = styled.h3`
   line-height: 80%;
 
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 42px;
   }
 `;
 
@@ -57,24 +57,21 @@ const InfoText = styled.h5`
 
 const BouquetImageMedium = styled.img`
   margin: 0;
-  width: 350px;
-  height: 350px;
+  width: 500px;
+  height: 500px;
 
   @media (max-width: 768px) {
     width: 100%;
-    height: 350px;
+    height: 500px;
   }
 `;
 
 const DescriptionContainer = styled.div`
   margin: 0;
-  padding: 20px;
   width: 50%;
-  height: 500px;
   background-color: #fff;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   justify-items: center;
   align-items: center;
 
@@ -87,8 +84,8 @@ const DescriptionContainer = styled.div`
 `;
 
 const ProductWrapper = styled.div`
-  padding: 50px 0;
   width: 100%;
+  height: 80vh;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
