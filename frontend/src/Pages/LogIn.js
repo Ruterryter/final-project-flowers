@@ -12,11 +12,11 @@ const Wrapper = styled.div`
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
- /*  background-image: url(${headerPic});
+  background-image: url(${headerPic});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; */
-  background-color: #fffa;
+  background-size: cover; 
+  background-color:pink;
 `;
 
 const Form = styled.form`
@@ -36,7 +36,7 @@ const Input = styled.input`
   margin: 10px 0;
   padding: 5px 15px;
   border: none;
-  background-color: #fde7ea;
+  background-color: #ffff;
   font-family: "Poppins";
   font-size: 8px;
   ::placeholder {
@@ -55,13 +55,20 @@ const Header = styled.header`
 `;
 
 const LoginContainer = styled.div`
-  height: 100%;
-  padding: 20px;
+display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #fde7ea;
+  padding: 100px 50px;
   margin: 20px;
+  width: 45%;
   opacity: 95%;
+  border: 2px solid #ff7c98;
 
   @media (max-width: 768px) {
     width: 100%;
+    padding: 20px;
   }
 `;
 
