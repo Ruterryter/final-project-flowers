@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faMobile } from "@fortawesome/free-solid-svg-icons";
 
 const CardWrapper = styled.div`
-  padding: 50px 0;
   width: 100%;
+  height: 80vh;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -21,8 +21,8 @@ const CardWrapper = styled.div`
 
 const ImgCard = styled.div`
   margin: 0;
-  width: 350px;
-  height: 350px;
+  width: 500px;
+  height: 500px;
   background-image: url(${mellanBank});
   background-repeat: no-repeat;
   background-position: center;
@@ -30,7 +30,7 @@ const ImgCard = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    height: 350px;
+    height: 500px;
   }
 `;
 
@@ -111,6 +111,7 @@ const InfoText = styled.h5`
 
 const ContactLink = styled.a`
   margin: auto;
+  padding-left: 20px;
   font-family: "Poppins";
   font-size: 18px;
   font-weight: 400;
@@ -150,20 +151,17 @@ export const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faEnvelope} /> Elin Aarenstrup
+              <FontAwesomeIcon icon={faEnvelope} />
+              Elin Aarenstrup
             </ContactLink>
-
             <ContactLink
               aria-label="hannas email"
               href="mailto:hanna.ruter@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faEnvelope} /> Hanna Rüter
-            </ContactLink>
-
-            <ContactLink aria-label="telefonnummer" href="tel:5551234567">
-              <FontAwesomeIcon icon={faMobile} /> Ring oss
+              <FontAwesomeIcon icon={faEnvelope} />
+              Hanna Rüter
             </ContactLink>
           </ContactInfo>
         </TextCard>

@@ -3,8 +3,8 @@ import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 
 const CardWrapper = styled.div`
-  padding: 50px 0;
   width: 100%;
+  height: 80vh;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -19,8 +19,8 @@ const CardWrapper = styled.div`
 
 const ImgCard = styled.div`
   margin: 0;
-  width: 350px;
-  height: 350px;
+  width: 500px;
+  height: 500px;
   background-color: grey;
   background-image: url("https://dl.dropboxusercontent.com/s/70x6q4wfmhe9qp2/burkinsta.jpg?dl=0");
   background-repeat: no-repeat;
@@ -29,7 +29,7 @@ const ImgCard = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    height: 350px;
+    height: 500px;
   }
 `;
 

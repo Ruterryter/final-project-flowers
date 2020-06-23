@@ -106,6 +106,28 @@ const SocialMedia = styled.div`
   align-items: center;
 `;
 
+const ContactLink = styled.a`
+  padding-left: 20px;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.3s;
+
+  &:hover {
+    text-decoration: none;
+    color: orange;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+`;
+
 export const Footer = () => {
   return (
     <FooterDiv>
@@ -117,6 +139,24 @@ export const Footer = () => {
           Slutprojekt Technigo bootcamp av Elin Aarenstrup & Hanna Rüter, Juni
           2020
         </InfoText>
+        <span>
+          <ContactLink
+            aria-label="elins mail"
+            href="mailto:elinaarenstrup@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faEnvelope} /> Elin Aarenstrup
+          </ContactLink>
+          <ContactLink
+            aria-label="hannas email"
+            href="mailto:hanna.ruter@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faEnvelope} /> Hanna Rüter
+          </ContactLink>
+        </span>
       </InfoDiv>
       <div>
         <StyledLink aria-label="länk till startsidan" to={"/"}>
