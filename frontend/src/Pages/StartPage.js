@@ -17,7 +17,7 @@ const StartWrapper = styled.div`
 `;
 
 const CategoryImgsWrapper = styled.div`
-  padding: 100px 20px;
+  padding: 50px 20px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -26,7 +26,7 @@ const CategoryImgsWrapper = styled.div`
 
 const HlDiv = styled.div`
   width: 100%;
-  padding: 100px 0;
+  padding: 50px 0;
   display: flex;
   flex-flow: row wrap;
   align-items: center;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const CardWrapper = styled.div`
   width: 100%;
-  height: 80vh;
+  height: auto;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -12,14 +12,13 @@ const CardWrapper = styled.div`
   background-color: #fff;
 
   @media (max-width: 768px) {
-    height: auto;
     flex-flow: column wrap;
   }
 `;
 
 const ImgCard = styled.div`
   margin: 0;
-  width: 500px;
+  width: 50%;
   height: 500px;
   background-color: grey;
   background-image: url("https://dl.dropboxusercontent.com/s/70x6q4wfmhe9qp2/burkinsta.jpg?dl=0");

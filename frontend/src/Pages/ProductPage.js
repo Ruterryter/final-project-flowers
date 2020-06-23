@@ -55,15 +55,21 @@ const InfoText = styled.h5`
   }
 `;
 
-const BouquetImageMedium = styled.img`
-  margin: 0;
-  width: 500px;
-  height: 500px;
+const ImgWrapper = styled.div`
+  padding: 20px;
+  width: 50%;
+  height: auto;
+
+  border: none;
 
   @media (max-width: 768px) {
     width: 100%;
     height: 500px;
   }
+`;
+
+const BouquetImageMedium = styled.img`
+  width: 100%;
 `;
 
 const DescriptionContainer = styled.div`
@@ -110,14 +116,16 @@ export const ProductPage = () => {
   return (
     <>
       <ProductWrapper>
-        <BouquetImageMedium
-          src={`${product.imageUrl}`}
-          alt={product.name}
-          style={{
-            marginBottom: "0",
-            objectFit: "cover",
-          }}
-        />
+        <ImgWrapper>
+          <BouquetImageMedium
+            src={`${product.imageUrl}`}
+            alt={product.name}
+            style={{
+              marginBottom: "0",
+              objectFit: "cover",
+            }}
+          />
+        </ImgWrapper>
 
         <DescriptionContainer>
           <MidTitle>{product.name}</MidTitle>

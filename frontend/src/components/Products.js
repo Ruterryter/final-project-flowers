@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Product } from "components/Product";
 
 const ShopWrapper = styled.div`
-  padding: 100px 0;
+  padding: 50px 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -20,7 +20,7 @@ const ShopWrapper = styled.div`
 `;
 
 const ProductDiv = styled.div`
-  padding: 100px 0;
+  padding: 50px 0;
   width: 100%;
   height: 100%;
   display: flex;
