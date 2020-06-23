@@ -6,7 +6,7 @@ import { faEnvelope, faMobile } from "@fortawesome/free-solid-svg-icons";
 
 const CardWrapper = styled.div`
   width: 100%;
-  height: 80vh;
+  height: auto;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -21,7 +21,7 @@ const CardWrapper = styled.div`
 
 const ImgCard = styled.div`
   margin: 0;
-  width: 500px;
+  width: 50%;
   height: 500px;
   background-image: url(${mellanBank});
   background-repeat: no-repeat;
