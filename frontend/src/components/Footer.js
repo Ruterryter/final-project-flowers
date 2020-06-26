@@ -109,7 +109,7 @@ const SocialMedia = styled.div`
 const ContactLink = styled.a`
   padding-left: 20px;
   font-family: "Poppins";
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 400;
   color: #fff;
   text-decoration: none;
