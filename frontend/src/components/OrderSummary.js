@@ -110,7 +110,7 @@ export const OrderSummary = () => {
         zipCode,
         city,
         phoneNumber,
-        accessToken
+        accessToken,
       )
     );
     history.push("/confirmation");
