@@ -47,7 +47,7 @@ export const Cart = ({ name, _id, price }) => {
           ))}
         </Ul>
       </ShoppingList>
-      <Link
+      {products[0] && <Link
         aria-label="länk till betalning"
         to={"/checkout/"}
         style={{
@@ -64,7 +64,7 @@ export const Cart = ({ name, _id, price }) => {
         }}
       >
         Gå till betalning
-      </Link>
+      </Link>}
     </>
   );
 };
