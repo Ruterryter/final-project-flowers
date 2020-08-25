@@ -139,7 +139,7 @@ export const Contact = () => {
           <Title>Ta kontakt</Title>
           <MidTitle>Så gör vi något fint ihop...</MidTitle>
           <InfoText aria-label="Informationstext">
-            Skriv ett mail eller slå en signal så hjälper vi dig med det
+            Skriv ett mail eller slå en signal så hjälper vi dig med de
             perfekta blommorna. Våra florister älskar att skapa vackra och
             kreativa buketter med det där lilla extra.
           </InfoText>
