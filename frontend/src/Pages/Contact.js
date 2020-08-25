@@ -110,7 +110,6 @@ const InfoText = styled.h5`
 `;
 
 const ContactLink = styled.a`
-  margin: auto;
   padding-left: 20px;
   font-family: "Poppins";
   font-size: 18px;
@@ -140,7 +139,7 @@ export const Contact = () => {
           <Title>Ta kontakt</Title>
           <MidTitle>Så gör vi något fint ihop...</MidTitle>
           <InfoText aria-label="Informationstext">
-            Skriv ett mail eller slå en singnal så hjälper vi dig med det
+            Skriv ett mail eller slå en signal så hjälper vi dig med det
             perfekta blommorna. Våra florister älskar att skapa vackra och
             kreativa buketter med det där lilla extra.
           </InfoText>
@@ -151,7 +150,7 @@ export const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faEnvelope} />
+              <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: 10 }} />
               Elin Aarenstrup
             </ContactLink>
             <ContactLink
@@ -160,7 +159,7 @@ export const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faEnvelope} />
+              <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: 10 }} />
               Hanna Rüter
             </ContactLink>
           </ContactInfo>

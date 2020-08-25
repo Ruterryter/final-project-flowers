@@ -146,7 +146,7 @@ export const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faEnvelope} /> Elin
+            <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: 5 }} /> Elin
           </ContactLink>
           <ContactLink
             aria-label="hannas email"
@@ -154,7 +154,7 @@ export const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faEnvelope} /> Hanna
+            <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: 5 }} /> Hanna
           </ContactLink>
         </span>
       </InfoDiv>
