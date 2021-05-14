@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { submitOrder } from "reducers/cart";
-import headerPic from "../assets/Headerpic.jpeg";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { submitOrder } from 'reducers/cart';
+import headerPic from '../assets/Headerpic.jpeg';
 
 const SummaryWrapper = styled.div`
   height: 100%;
@@ -39,7 +39,7 @@ const SummaryContainer = styled.div`
 const Button = styled.button`
   background-color: #ff7c98;
   color: #ffff;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   outline: none;
@@ -49,7 +49,7 @@ const Button = styled.button`
 
 const Title = styled.h2`
   margin: 20px auto 0 auto;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
@@ -63,7 +63,7 @@ const Title = styled.h2`
 const MidTitle = styled.h3`
   margin: 0 auto;
   margin-bottom: 20px;
-  font-family: "Sacramento", cursive;
+  font-family: 'Sacramento', cursive;
   font-size: 32px;
   font-weight: 500;
   color: #4d4d4d;
@@ -72,7 +72,7 @@ const MidTitle = styled.h3`
 
 const InfoText = styled.h5`
   margin: auto 20px;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 16px;
   font-weight: 500;
   color: #4d4d4d;
@@ -110,37 +110,37 @@ export const OrderSummary = () => {
         zipCode,
         city,
         phoneNumber,
-        accessToken,
+        accessToken
       )
     );
-    history.push("/confirmation");
+    history.push('/confirmation');
   };
 
   return (
     <>
       <SummaryWrapper>
-        <SummaryContainer aria-label="ordersammanfattning">
+        <SummaryContainer aria-label='ordersammanfattning'>
           <Title key={orders._id}>Din beställning:</Title>
-          <MidTitle>{`${cartItems[0].name}`}</MidTitle>{" "}
+          <MidTitle>{`${cartItems[0].name}`}</MidTitle>{' '}
           <MidTitle>
             {` ${cartItems[0].price}`}
             kr
           </MidTitle>
           <Title> Dina leveransuppgifter</Title>
-          <MidTitle aria-label="namn">
+          <MidTitle aria-label='namn'>
             {firstName} {lastName}
           </MidTitle>
-          <InfoText aria-label="adress">{address}</InfoText>
-          <InfoText aria-label="postnummer">{zipCode}</InfoText>
-          <InfoText aria-label="stad">{city}</InfoText>
-          <InfoText aria-label="telefonnummer">{phoneNumber}</InfoText>
-          <InfoText aria-label="emailadress">{email}</InfoText>
+          <InfoText aria-label='adress'>{address}</InfoText>
+          <InfoText aria-label='postnummer'>{zipCode}</InfoText>
+          <InfoText aria-label='stad'>{city}</InfoText>
+          <InfoText aria-label='telefonnummer'>{phoneNumber}</InfoText>
+          <InfoText aria-label='emailadress'>{email}</InfoText>
           <Button
-            aria-label="skicka beställning knapp"
+            aria-label='skicka beställning knapp'
             onClick={() => handleSubmit()}
           >
-            {" "}
-            Skicka beställning{" "}
+            {' '}
+            Skicka beställning{' '}
           </Button>
         </SummaryContainer>
       </SummaryWrapper>

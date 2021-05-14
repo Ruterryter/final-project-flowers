@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   login: {
@@ -17,7 +17,7 @@ const initialState = {
 };
 
 export const user = createSlice({
-  name: "user",
+  name: 'user',
   initialState: initialState,
   reducers: {
     setAccessToken: (state, action) => {
@@ -79,7 +79,6 @@ export const user = createSlice({
       const { orderHistory } = action.payload;
       state.login.orderHistory = orderHistory;
     },
-
   },
 });
 
@@ -94,10 +93,10 @@ export const login = (
   city,
   zipCode
 ) => {
-  const LOGIN_URL = "https://bouquetdb.herokuapp.com/sessions";
+  const LOGIN_URL = 'https://bouquetdb.herokuapp.com/sessions';
   return (dispatch) => {
     fetch(LOGIN_URL, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify({
         email,
         password,
@@ -108,7 +107,7 @@ export const login = (
         city,
         zipCode,
       }),
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => {
         if (res.ok /* if 200, 201, 204 */) {
@@ -116,11 +115,13 @@ export const login = (
         }
 
         // Not OK
-        throw "Unable to sign in. Please check that your email and password are correct";
+        throw 'Unable to sign in. Please check that your email and password are correct';
       })
       .then((json) => {
         // Save the login info
-        dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }));
+        dispatch(
+          user.actions.setAccessToken({ accessToken: json.accessToken })
+        );
         dispatch(user.actions.setUserId({ userId: json.id }));
         dispatch(user.actions.setFirstName({ firstName: json.firstName }));
         dispatch(user.actions.setLastName({ lastName: json.lastName }));
@@ -128,7 +129,9 @@ export const login = (
         dispatch(user.actions.setAddress({ address: json.address }));
         dispatch(user.actions.setZipCode({ zipCode: json.zipCode }));
         dispatch(user.actions.setCity({ city: json.city }));
-        dispatch(user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber }));
+        dispatch(
+          user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber })
+        );
       })
 
       .catch((err) => {
@@ -148,10 +151,10 @@ export const signUp = (
   city,
   phoneNumber
 ) => {
-  const SIGNUP_URL = "https://bouquetdb.herokuapp.com/users";
+  const SIGNUP_URL = 'https://bouquetdb.herokuapp.com/users';
   return (dispatch) => {
     fetch(SIGNUP_URL, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify({
         email,
         password,
@@ -160,9 +163,9 @@ export const signUp = (
         phoneNumber,
         address,
         city,
-        zipCode
+        zipCode,
       }),
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => {
         if (res.ok /* if 200, 201, 204 */) {
@@ -170,11 +173,13 @@ export const signUp = (
         }
 
         // Not OK
-        throw "Could not create account.  Try a different email address";
+        throw 'Could not create account.  Try a different email address';
       })
       .then((json) => {
         // Save the signUp info
-        dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }));
+        dispatch(
+          user.actions.setAccessToken({ accessToken: json.accessToken })
+        );
         dispatch(user.actions.setUserId({ userId: json.id }));
         dispatch(user.actions.setFirstName({ firstName: json.firstName }));
         dispatch(user.actions.setLastName({ lastName: json.lastName }));
@@ -182,7 +187,9 @@ export const signUp = (
         dispatch(user.actions.setAddress({ address: json.address }));
         dispatch(user.actions.setZipCode({ zipCode: json.zipCode }));
         dispatch(user.actions.setCity({ city: json.city }));
-        dispatch(user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber }));
+        dispatch(
+          user.actions.setPhoneNumber({ phoneNumber: json.phoneNumber })
+        );
       })
 
       .catch((err) => {
@@ -193,17 +200,14 @@ export const signUp = (
 };
 
 export const getSecretMessage = () => {
-  const USERS_URL = "https://bouquetdb.herokuapp.com/users";
+  const USERS_URL = 'https://bouquetdb.herokuapp.com/users';
   return (dispatch, getState) => {
     const accessToken = getState().user.login.accessToken;
     const userId = getState().user.login.userId;
-    const firstName = getState().user.login.firstName;
-    const lastName = getState().user.login.lastName;
-    const address = getState().user.login.address;
 
     // Include userId in the path
     fetch(`${USERS_URL}/${userId}`, {
-      method: "GET",
+      method: 'GET',
       // Include the accessToken to get the protected endpoint
       headers: { Authorization: accessToken },
     })
@@ -211,21 +215,20 @@ export const getSecretMessage = () => {
         if (res.ok) {
           return res.json();
         }
-        throw "Could not get information. Make sure you are logged in and try again.";
+        throw 'Could not get information. Make sure you are logged in and try again.';
       })
       // SUCCESS: Do something with the information we got back
       .then((json) => {
         dispatch(
-          user.actions.setSecretMessage({ secretMessage: JSON.stringify(json) }));
-        user.actions.setOrderHistory({ orderHistory: json.orders })
-
+          user.actions.setSecretMessage({ secretMessage: JSON.stringify(json) })
+        );
+        user.actions.setOrderHistory({ orderHistory: json.orders });
       })
       .catch((err) => {
         dispatch(user.actions.setErrorMessage({ errorMessage: err }));
       }); //401
   };
 };
-
 
 export const logout = () => {
   return (dispatch) => {

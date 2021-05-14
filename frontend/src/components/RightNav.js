@@ -1,11 +1,9 @@
-import React from "react";
-import styled from "styled-components/macro";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import styled from 'styled-components/macro';
+import { Link } from 'react-router-dom';
 
 const Menu = styled.ul`
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 18px;
   font-weight: 700;
   color: #ff7c98;
@@ -22,7 +20,7 @@ const Menu = styled.ul`
     flex-flow: column nowrap;
     background-color: orange;
     position: fixed;
-    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
     top: 0;
     right: 0;
     height: 100%;
@@ -39,7 +37,7 @@ const Menu = styled.ul`
 
 const StyledLink = styled(Link)`
   margin-right: 10px;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 18px;
   font-weight: 700;
   color: #ff7c98;
@@ -58,20 +56,12 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Span = styled.span`
-  padding: 0 20px;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
 export const RightNav = ({ open }) => {
   return (
     <Menu open={open}>
-      <StyledLink to={"/"}>Hem</StyledLink>
-      <StyledLink to={"/about/"}>Om oss</StyledLink>
-      <StyledLink to={"/contact/"}>Kontakta oss</StyledLink>
+      <StyledLink to={'/'}>Hem</StyledLink>
+      <StyledLink to={'/about/'}>Om oss</StyledLink>
+      <StyledLink to={'/contact/'}>Kontakta oss</StyledLink>
     </Menu>
   );
 };

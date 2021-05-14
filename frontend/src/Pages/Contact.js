@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components/macro";
-import mellanBank from "assets/mellanBank.jpg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faMobile } from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import styled from 'styled-components/macro';
+import mellanBank from 'assets/mellanBank.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const CardWrapper = styled.div`
   width: 100%;
@@ -72,7 +72,7 @@ const ContactInfo = styled.div`
 
 const Title = styled.h2`
   margin: 20px auto 0 auto;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
@@ -83,7 +83,7 @@ const Title = styled.h2`
 const MidTitle = styled.h3`
   margin: 0 auto;
   margin-bottom: 20px;
-  font-family: "Sacramento", cursive;
+  font-family: 'Sacramento', cursive;
   font-size: 32px;
   font-weight: 500;
   text-align: center;
@@ -98,7 +98,7 @@ const MidTitle = styled.h3`
 
 const InfoText = styled.h5`
   margin: auto 20px;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 16px;
   font-weight: 500;
   text-align: center;
@@ -111,7 +111,7 @@ const InfoText = styled.h5`
 
 const ContactLink = styled.a`
   padding-left: 20px;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 18px;
   font-weight: 400;
   color: #4d4d4d;
@@ -134,30 +134,30 @@ export const Contact = () => {
   return (
     <>
       <CardWrapper>
-        <ImgCard aria-label="bild på blommor"></ImgCard>
+        <ImgCard aria-label='bild på blommor'></ImgCard>
         <TextCard>
           <Title>Ta kontakt</Title>
           <MidTitle>Så gör vi något fint ihop...</MidTitle>
-          <InfoText aria-label="Informationstext">
-            Skriv ett mail eller slå en signal så hjälper vi dig med de
-            perfekta blommorna. Våra florister älskar att skapa vackra och
-            kreativa buketter med det där lilla extra.
+          <InfoText aria-label='Informationstext'>
+            Skriv ett mail eller slå en signal så hjälper vi dig med de perfekta
+            blommorna. Våra florister älskar att skapa vackra och kreativa
+            buketter med det där lilla extra.
           </InfoText>
           <ContactInfo>
             <ContactLink
-              aria-label="elins mail"
-              href="mailto:elinaarenstrup@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              aria-label='elins mail'
+              href='mailto:elinaarenstrup@gmail.com'
+              target='_blank'
+              rel='noopener noreferrer'
             >
               <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: 10 }} />
               Elin Aarenstrup
             </ContactLink>
             <ContactLink
-              aria-label="hannas email"
-              href="mailto:hanna.ruter@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              aria-label='hannas email'
+              href='mailto:hanna.ruter@gmail.com'
+              target='_blank'
+              rel='noopener noreferrer'
             >
               <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: 10 }} />
               Hanna Rüter

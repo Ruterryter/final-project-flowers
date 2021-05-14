@@ -1,24 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { StartPage } from "Pages/StartPage";
-
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   currentProduct: {
-    _id: "",
-    name: "",
-    price: "",
-    description: "",
-    image_URL: ""
+    _id: '',
+    name: '',
+    price: '',
+    description: '',
+    image_URL: '',
   },
   allProducts: [],
   errorHandling: {
-    errorMessage: ""
-  }
-}
-
+    errorMessage: '',
+  },
+};
 
 export const products = createSlice({
-  name: "products",
+  name: 'products',
   initialState: initialState,
   reducers: {
     setProduct: (state, action) => {
@@ -28,22 +25,20 @@ export const products = createSlice({
     setAllProducts: (state, action) => {
       const { allProducts } = action.payload;
       state.allProducts = allProducts;
-
     },
     setErrorMessage: (state, action) => {
       const { errorMessage } = action.payload;
       state.errorHandling.errorMessage = errorMessage;
-    }
+    },
   },
-})
+});
 
 // HÄMTAR ALLA PRODUKTER FRÅN DB
 export const allProducts = () => {
-  const FLOWER_URL = "https://bouquetdb.herokuapp.com/bouquets"
+  const FLOWER_URL = 'https://bouquetdb.herokuapp.com/bouquets';
   return (dispatch) => {
     fetch(FLOWER_URL, {
-      method: "GET",
-
+      method: 'GET',
     })
       .then((res) => {
         if (res.ok /* if 200, 201, 204 */) {
@@ -52,11 +47,9 @@ export const allProducts = () => {
         throw 'Could not show any products, please refresh page.';
       })
       .then((json) => {
-        dispatch(
-          products.actions.setAllProducts({ allProducts: json }));
+        dispatch(products.actions.setAllProducts({ allProducts: json }));
       })
       .catch((err) => {
-
         dispatch(products.actions.setErrorMessage({ errorMessage: err }));
       }); //401
   };
@@ -64,10 +57,10 @@ export const allProducts = () => {
 
 // HÄMTAR EN PRODUKT BASERAD PÅ ID FRÅN DB
 export const singleProduct = (id) => {
-  const FLOWER_URL = `https://bouquetdb.herokuapp.com/bouquets/${id}`
+  const FLOWER_URL = `https://bouquetdb.herokuapp.com/bouquets/${id}`;
   return (dispatch, getState) => {
     fetch(FLOWER_URL, {
-      method: "GET",
+      method: 'GET',
     })
       .then((res) => {
         if (res.ok /* if 200, 201, 204 */) {
@@ -76,13 +69,10 @@ export const singleProduct = (id) => {
         throw 'Could not show any product, please refresh page.';
       })
       .then((json) => {
-        dispatch(
-          products.actions.setProduct({ currentProduct: json }));
+        dispatch(products.actions.setProduct({ currentProduct: json }));
       })
       .catch((err) => {
-
         dispatch(products.actions.setErrorMessage({ errorMessage: err }));
       }); //401
   };
 };
-
