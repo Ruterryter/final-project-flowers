@@ -115,7 +115,9 @@ export const login = (
         }
 
         // Not OK
-        throw 'Unable to sign in. Please check that your email and password are correct';
+        throw new Error(
+          'Unable to sign in. Please check that your email and password are correct'
+        );
       })
       .then((json) => {
         // Save the login info
@@ -173,7 +175,9 @@ export const signUp = (
         }
 
         // Not OK
-        throw 'Could not create account.  Try a different email address';
+        throw new Error(
+          'Could not create account.  Try a different email address'
+        );
       })
       .then((json) => {
         // Save the signUp info
@@ -215,7 +219,9 @@ export const getSecretMessage = () => {
         if (res.ok) {
           return res.json();
         }
-        throw 'Could not get information. Make sure you are logged in and try again.';
+        throw new Error(
+          'Could not get information. Make sure you are logged in and try again.'
+        );
       })
       // SUCCESS: Do something with the information we got back
       .then((json) => {

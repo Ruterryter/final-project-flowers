@@ -44,7 +44,7 @@ export const allProducts = () => {
         if (res.ok /* if 200, 201, 204 */) {
           return res.json();
         }
-        throw 'Could not show any products, please refresh page.';
+        throw new Error('Could not show any products, please refresh page.');
       })
       .then((json) => {
         dispatch(products.actions.setAllProducts({ allProducts: json }));
@@ -66,7 +66,7 @@ export const singleProduct = (id) => {
         if (res.ok /* if 200, 201, 204 */) {
           return res.json();
         }
-        throw 'Could not show any product, please refresh page.';
+        throw new Error('Could not show any product, please refresh page.');
       })
       .then((json) => {
         dispatch(products.actions.setProduct({ currentProduct: json }));
