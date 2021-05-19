@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components/macro";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { singleProduct } from "reducers/products";
+import React from 'react';
+import styled from 'styled-components/macro';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { singleProduct } from 'reducers/products';
 
 const ProductCard = styled.div`
   width: 250px;
@@ -51,7 +51,7 @@ const InfoSqaure = styled.h5`
   width: 100%;
   background-color: #ff7c98;
   color: #ffff;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
@@ -69,7 +69,7 @@ const BouquetImage = styled.img`
 const PriceTag = styled.h4`
   padding: 5px 10px 10px 10px;
   color: #ff7c98;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 24px;
 `;
@@ -77,7 +77,7 @@ const PriceTag = styled.h4`
 const ProductTitle = styled.h3`
   padding: 5px 10px;
   color: #ff7c98;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 24px;
 `;
@@ -88,7 +88,7 @@ export const Product = ({ product }) => {
 
   return (
     <>
-      <Link to={`/bouquets/${product._id}`} style={{ textDecoration: "none" }}>
+      <Link to={`/bouquets/${product._id}`} style={{ textDecoration: 'none' }}>
         <ProductCard>
           <BouquetImage src={`${product.imageUrl} `} alt={product.name} />
           <ProductTitle>{product.name}</ProductTitle>

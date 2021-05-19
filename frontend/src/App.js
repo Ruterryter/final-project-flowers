@@ -32,7 +32,7 @@ const reducer = combineReducers({
   products: products.reducer,
 });
 
-// // Retrieve the existing state from localstorage if it exists
+// Retrieve the existing state from localstorage if it exists
 const persistedState = localStorage.getItem('reduxState')
   ? JSON.parse(localStorage.getItem('reduxState'))
   : {};
