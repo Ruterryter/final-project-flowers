@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      // Measure product views / impressions
+      dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object.
+      dataLayer.push({
+        event: 'view_item_list',
+        ecommerce: {
+          items: [
+            {
+              item_name: { name }, // Name or ID is required.
+              item_id: { id },
+              price: { price },
+              index: { index },
+              quantity: '1',
+            },
+          ],
+        },
+      });
+    </script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
