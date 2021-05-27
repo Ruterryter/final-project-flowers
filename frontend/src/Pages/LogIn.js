@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../reducers/user";
-import { Link } from "react-router-dom";
-import styled from "styled-components/macro";
-import { OrderSummary } from "components/OrderSummary";
-import headerPic from "../assets/Headerpic.jpeg";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../reducers/user';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components/macro';
+import { OrderSummary } from 'components/OrderSummary';
+import headerPic from '../assets/Headerpic.jpeg';
 
 const Wrapper = styled.div`
   height: 100%;
@@ -15,8 +15,8 @@ const Wrapper = styled.div`
   background-image: url(${headerPic});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; 
-  background-color:pink;
+  background-size: cover;
+  background-color: pink;
 `;
 
 const Form = styled.form`
@@ -37,7 +37,7 @@ const Input = styled.input`
   padding: 5px 15px;
   border: none;
   background-color: #ffff;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 8px;
   ::placeholder {
     color: #ff7c90;
@@ -45,7 +45,7 @@ const Input = styled.input`
 `;
 
 const Header = styled.header`
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
@@ -55,7 +55,7 @@ const Header = styled.header`
 `;
 
 const LoginContainer = styled.div`
-display: flex;
+  display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
@@ -75,7 +75,7 @@ display: flex;
 const Button = styled.button`
   background-color: #ff7c98;
   color: #ffff;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   outline: none;
@@ -84,10 +84,17 @@ const Button = styled.button`
 `;
 
 export const LogIn = () => {
+  window.dataLayer.push({
+    dataLayer: {
+      event: 'pageview',
+      pagePath: '/login',
+      pageTitle: 'login',
+    },
+  });
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.login.accessToken);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const errorMessage = useSelector((store) => store.user.login.errorMessage);
 
   const handleLogin = (event) => {
@@ -102,40 +109,40 @@ export const LogIn = () => {
           {errorMessage && <h4>Error Message : {`${errorMessage}`}</h4>}
           <LoginContainer>
             <Form>
-              <Header aria-label="formulär för inloggning">Logga in</Header>
+              <Header aria-label='formulär för inloggning'>Logga in</Header>
               <Label>Email</Label>
               <Input
-                type="text"
+                type='text'
                 required
-                placeholder="dittnamn@gmail.com"
+                placeholder='dittnamn@gmail.com'
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
               />
               <Label>Password</Label>
               <Input
-                type="password"
+                type='password'
                 required
-                placeholder="********"
+                placeholder='********'
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
 
               <Button
-                aria-label="logga in knapp"
-                type="submit"
+                aria-label='logga in knapp'
+                type='submit'
                 onClick={handleLogin}
               >
                 Logga in
               </Button>
 
               <Link
-                aria-label="länk till registrering"
-                to={"/signup/"}
+                aria-label='länk till registrering'
+                to={'/signup/'}
                 style={{
-                  fontFamily: "Poppins",
-                  fontSize: "12px",
-                  color: "#ff7c98",
-                  textDecoration: "none",
+                  fontFamily: 'Poppins',
+                  fontSize: '12px',
+                  color: '#ff7c98',
+                  textDecoration: 'none',
                 }}
               >
                 Registrera dig

@@ -131,6 +131,13 @@ const ContactLink = styled.a`
 `;
 
 export const Contact = () => {
+  window.dataLayer.push({
+    dataLayer: {
+      event: 'pageview',
+      pagePath: '/contact',
+      pageTitle: 'kontakt',
+    },
+  });
   return (
     <>
       <CardWrapper>

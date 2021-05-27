@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components/macro";
-import { useDispatch, useSelector } from "react-redux";
-import { cart } from "reducers/cart";
-import { useParams } from "react-router-dom";
-import { Cart } from "components/Cart";
+import React from 'react';
+import styled from 'styled-components/macro';
+import { useDispatch, useSelector } from 'react-redux';
+import { cart } from 'reducers/cart';
+import { useParams } from 'react-router-dom';
+import { Cart } from 'components/Cart';
 
 const Button = styled.button`
   background-color: #ff7c98;
   color: #ffff;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   outline: none;
@@ -19,7 +19,7 @@ const Button = styled.button`
 
 const PriceTag = styled.h2`
   margin: 0;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
@@ -30,7 +30,7 @@ const PriceTag = styled.h2`
 const MidTitle = styled.h3`
   margin: 0 auto;
   margin-bottom: 20px;
-  font-family: "Sacramento", cursive;
+  font-family: 'Sacramento', cursive;
   font-size: 52px;
   font-weight: 500;
   text-align: center;
@@ -44,7 +44,7 @@ const MidTitle = styled.h3`
 
 const InfoText = styled.h5`
   margin: auto 20px;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 16px;
   font-weight: 500;
   text-align: center;
@@ -109,6 +109,13 @@ const ProductWrapper = styled.div`
 `;
 
 export const ProductPage = () => {
+  window.dataLayer.push({
+    dataLayer: {
+      event: 'pageview',
+      pagePath: '/bouquets',
+      pageTitle: 'productpage',
+    },
+  });
   const dispatch = useDispatch();
   const { id } = useParams();
   const product = useSelector((store) =>
@@ -125,8 +132,8 @@ export const ProductPage = () => {
             src={`${product.imageUrl}`}
             alt={product.name}
             style={{
-              marginBottom: "0",
-              objectFit: "cover",
+              marginBottom: '0',
+              objectFit: 'cover',
             }}
           />
         </ImgWrapper>
@@ -136,8 +143,8 @@ export const ProductPage = () => {
           <InfoText>{product.description}</InfoText>
           <PriceTag>{product.price} kr</PriceTag>
           <Button
-            aria-label="beställknapp"
-            type="button"
+            aria-label='beställknapp'
+            type='button'
             disabled={product.inventory === 0}
             onClick={() => dispatch(cart.actions.addItem(product))}
           >

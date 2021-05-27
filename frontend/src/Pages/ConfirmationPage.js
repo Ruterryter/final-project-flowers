@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { logout } from "../reducers/user";
-import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components/macro";
-import { StartPage } from "Pages/StartPage.js";
-import headerPic from "../assets/Headerpic.jpeg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { logout } from '../reducers/user';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components/macro';
+import { StartPage } from 'Pages/StartPage.js';
+import headerPic from '../assets/Headerpic.jpeg';
 
 const CardWrapper = styled.div`
   height: 100%;
@@ -20,26 +20,26 @@ const CardWrapper = styled.div`
 `;
 
 const TextCard = styled.div`
-display: flex;
-flex-flow: column nowrap;
-align-items: center;
-justify-content: center;
-background-color: #fde7ea;
-padding: 100px 50px;
-margin: 20px;
-width: 45%;
-opacity: 95%;
-border: 2px solid #ff7c98;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #fde7ea;
+  padding: 100px 50px;
+  margin: 20px;
+  width: 45%;
+  opacity: 95%;
+  border: 2px solid #ff7c98;
 
-@media (max-width: 768px) {
-  width: 100%;
-  padding: 20px;
-}
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 20px;
+  }
 `;
 
 const Title = styled.h2`
   margin: auto;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 22px;
   font-weight: 700;
   text-transform: uppercase;
@@ -53,7 +53,7 @@ const Title = styled.h2`
 
 const InfoText = styled.h5`
   margin: auto 20px;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 14px;
   font-weight: 500;
   text-align: center;
@@ -67,7 +67,7 @@ const InfoText = styled.h5`
 const Button = styled.button`
   background-color: #ff7c98;
   color: #ffff;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   outline: none;
@@ -76,6 +76,13 @@ const Button = styled.button`
 `;
 
 export const ConfirmationPage = () => {
+  window.dataLayer.push({
+    dataLayer: {
+      event: 'pageview',
+      pagePath: '/confirmation',
+      pageTitle: 'confirmation',
+    },
+  });
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.login.accessToken);
 
@@ -89,7 +96,7 @@ export const ConfirmationPage = () => {
     return (
       <>
         <CardWrapper>
-          <TextCard aria-label="beställningsbekräftelse">
+          <TextCard aria-label='beställningsbekräftelse'>
             <Title>Tack för din beställning!</Title>
             <InfoText>
               Swisha summan för för buketten till swishnummer (123-xxx xxxx)
@@ -100,27 +107,27 @@ export const ConfirmationPage = () => {
               du bäst tar hand om din bukett medföljer.
             </InfoText>
             <Link
-              aria-label="Gå tillbaka knapp"
-              className="back-link"
-              to={"/"}
+              aria-label='Gå tillbaka knapp'
+              className='back-link'
+              to={'/'}
               style={{
-                margin: "auto",
-                fontFamily: "Poppins",
-                fontSize: "18px",
-                fontWeight: "700",
-                textTransform: "uppercase",
-                textAlign: "center",
-                color: "#ff7c98",
-                textDecoration: "none",
+                margin: 'auto',
+                fontFamily: 'Poppins',
+                fontSize: '18px',
+                fontWeight: '700',
+                textTransform: 'uppercase',
+                textAlign: 'center',
+                color: '#ff7c98',
+                textDecoration: 'none',
               }}
             >
               Tillbaks
             </Link>
             <Button
-              aria-label="Logga ut knapp"
-              type="submit"
+              aria-label='Logga ut knapp'
+              type='submit'
               onClick={(e) => dispatch(logout())}
-              value="Logga ut"
+              value='Logga ut'
             >
               Logga ut
             </Button>
