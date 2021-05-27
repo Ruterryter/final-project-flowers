@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components/macro";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components/macro';
+import { Link } from 'react-router-dom';
 
 const CardWrapper = styled.div`
   width: 100%;
@@ -21,7 +21,7 @@ const ImgCard = styled.div`
   width: 50%;
   height: 500px;
   background-color: grey;
-  background-image: url("https://dl.dropboxusercontent.com/s/70x6q4wfmhe9qp2/burkinsta.jpg?dl=0");
+  background-image: url('https://dl.dropboxusercontent.com/s/70x6q4wfmhe9qp2/burkinsta.jpg?dl=0');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -54,7 +54,7 @@ const TextCard = styled.div`
 
 const Title = styled.h2`
   margin: 20px auto 0 auto;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
@@ -64,7 +64,7 @@ const Title = styled.h2`
 
 const InfoText = styled.h5`
   margin: auto 20px;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 16px;
   font-weight: 500;
   text-align: center;
@@ -78,7 +78,7 @@ const InfoText = styled.h5`
 const MidTitle = styled.h3`
   margin: 0 auto;
   margin-bottom: 20px;
-  font-family: "Sacramento", cursive;
+  font-family: 'Sacramento', cursive;
   font-size: 32px;
   font-weight: 500;
   text-align: center;
@@ -92,7 +92,7 @@ const MidTitle = styled.h3`
 
 const StyledLink = styled(Link)`
   margin: auto;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-size: 18px;
   font-weight: 700;
   color: #4d4d4d;
@@ -112,10 +112,17 @@ const StyledLink = styled(Link)`
 `;
 
 export const About = () => {
+  window.dataLayer.push({
+    dataLayer: {
+      event: 'pageview',
+      pagePath: '/about',
+      pageTitle: 'om oss',
+    },
+  });
   return (
     <>
       <CardWrapper>
-        <ImgCard aria-label="flower image" alt="flowers"></ImgCard>
+        <ImgCard aria-label='flower image' alt='flowers'></ImgCard>
         <TextCard>
           <Title>Vi gillar </Title>
           <MidTitle>Blommor, smultron och hallonsaft!</MidTitle>
@@ -128,7 +135,7 @@ export const About = () => {
             av er till oss så hjälper vi dig med dina blommande önskemål!.
           </InfoText>
 
-          <StyledLink aria-label="contact link" to={"/contact"}>
+          <StyledLink aria-label='contact link' to={'/contact'}>
             Kontakta oss!
           </StyledLink>
         </TextCard>

@@ -23,6 +23,12 @@ import { ProductPage } from 'Pages/ProductPage.js';
 import { NavBar } from 'components/Navbar';
 import { Banner } from 'components/Banner';
 import { Footer } from 'components/Footer';
+import TagManager from 'react-gtm-module';
+
+const tagManagerArgs = {
+  gtmId: 'GTM-TWJW6R2',
+};
+TagManager.initialize(tagManagerArgs);
 
 const AppWrapper = styled.div``;
 
@@ -50,6 +56,9 @@ store.subscribe(() => {
 });
 
 export const App = () => {
+  window.dataLayer.push({
+    event: 'pageview',
+  });
   return (
     <Provider store={store}>
       <BrowserRouter>
