@@ -113,11 +113,8 @@ const StyledLink = styled(Link)`
 
 export const About = () => {
   window.dataLayer.push({
-    dataLayer: {
-      event: 'pageview',
-      pagePath: '/about',
-      page_title: 'om oss',
-    },
+    /* prettier-ignore */
+    dataLayer: {'pageTitle': 'About'},
   });
   return (
     <>
