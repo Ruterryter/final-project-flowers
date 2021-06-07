@@ -135,7 +135,7 @@ export const Contact = () => {
     dataLayer: {
       event: 'pageview',
       pagePath: '/contact',
-      pageTitle: 'kontakt',
+      page_title: 'kontakt',
     },
   });
   return (

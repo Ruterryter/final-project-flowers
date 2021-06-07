@@ -9,7 +9,7 @@ export const Checkout = () => {
     dataLayer: {
       event: 'pageview',
       pagePath: '/checkout',
-      pageTitle: 'checkout',
+      page_title: 'checkout',
     },
   });
   return (

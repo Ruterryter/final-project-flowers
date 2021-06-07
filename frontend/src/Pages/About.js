@@ -116,7 +116,7 @@ export const About = () => {
     dataLayer: {
       event: 'pageview',
       pagePath: '/about',
-      pageTitle: 'om oss',
+      page_title: 'om oss',
     },
   });
   return (

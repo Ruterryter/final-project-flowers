@@ -80,7 +80,7 @@ export const ConfirmationPage = () => {
     dataLayer: {
       event: 'pageview',
       pagePath: '/confirmation',
-      pageTitle: 'confirmation',
+      page_title: 'confirmation',
     },
   });
   const dispatch = useDispatch();

@@ -88,7 +88,7 @@ export const LogIn = () => {
     dataLayer: {
       event: 'pageview',
       pagePath: '/login',
-      pageTitle: 'login',
+      page_title: 'login',
     },
   });
   const dispatch = useDispatch();
