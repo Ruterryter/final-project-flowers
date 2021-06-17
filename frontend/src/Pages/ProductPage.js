@@ -149,7 +149,7 @@ export const ProductPage = () => {
             onClick={
               () => dispatch(cart.actions.addItem(product)), 
               // Added Plausible custom event on button click
-              plausible('AddItemToCart', {callback: addItem})
+              window.plausible('AddItemToCart')
             }
           >
             Beställ
