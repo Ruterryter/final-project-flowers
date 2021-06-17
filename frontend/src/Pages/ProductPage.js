@@ -147,9 +147,9 @@ export const ProductPage = () => {
             type='button'
             disabled={product.inventory === 0}
             onClick={
-              () => dispatch(cart.actions.addItem(product)), 
+              () => dispatch(cart.actions.addItem(product), 
               // Added Plausible custom event on button click
-              window.plausible('AddItemToCart')
+              window.plausible('AddItemToCart'))
             }
           >
             Beställ
