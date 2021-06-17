@@ -23,12 +23,45 @@ import { ProductPage } from 'Pages/ProductPage.js';
 import { NavBar } from 'components/Navbar';
 import { Banner } from 'components/Banner';
 import { Footer } from 'components/Footer';
-import TagManager from 'react-gtm-module';
 
-const tagManagerArgs = {
-  gtmId: 'GTM-TWJW6R2',
+import GoogleTagManager, {
+  trackPageView,
+} from '@redux-beacon/google-tag-manager';
+import logger from '@redux-beacon/logger';
+import { LOCATION_CHANGE } from 'react-router-redux';
+import { createMiddleware, createMetaReducer } from 'redux-beacon';
+
+// redux-beacon google tag manger code
+
+const eventsMap = {
+  [LOCATION_CHANGE]: trackPageView((action) => ({
+    page: action.payload.pathname,
+  })),
 };
-TagManager.initialize(tagManagerArgs);
+
+const event = (action, prevState, nextState) => {
+  return {
+    event: pageview,
+    /* add any additional key/value pairs below */
+  };
+};
+
+const pageview = (action) => ({
+  hitType: 'pageview',
+  page: action.payload.pathname,
+});
+
+const variable = (action, prevState, nextState) => {
+  return {
+    variableName: 'hej' /* your variable value */,
+  };
+};
+
+const gtm = GoogleTagManager();
+
+const gtmMiddleware = createMiddleware(eventsMap, gtm, { logger });
+
+// redux-beacon code ends
 
 const AppWrapper = styled.div``;
 
@@ -47,6 +80,7 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducer,
   persistedState,
+  applyMiddleware(gtmMiddleware),
   composeEnhancer(applyMiddleware(thunk))
 );
 
@@ -56,9 +90,6 @@ store.subscribe(() => {
 });
 
 export const App = () => {
-  window.dataLayer.push({
-    event: 'pageview',
-  });
   return (
     <Provider store={store}>
       <BrowserRouter>
