@@ -33,33 +33,33 @@ import { createMiddleware, createMetaReducer } from 'redux-beacon';
 
 // redux-beacon google tag manger code
 
-const eventsMap = {
-  [LOCATION_CHANGE]: trackPageView((action) => ({
-    page: action.payload.pathname,
-  })),
-};
+// const eventsMap = {
+//   [LOCATION_CHANGE]: trackPageView((action) => ({
+//     page: action.payload.pathname,
+//   })),
+// };
 
-const event = (action, prevState, nextState) => {
-  return {
-    event: pageview,
-    /* add any additional key/value pairs below */
-  };
-};
+// const event = (action, prevState, nextState) => {
+//   return {
+//     event: pageview,
+//     /* add any additional key/value pairs below */
+//   };
+// };
 
-const pageview = (action) => ({
-  hitType: 'pageview',
-  page: action.payload.pathname,
-});
+// const pageview = (action) => ({
+//   hitType: 'pageview',
+//   page: action.payload.pathname,
+// });
 
-const variable = (action, prevState, nextState) => {
-  return {
-    variableName: 'hej' /* your variable value */,
-  };
-};
+// const variable = (action, prevState, nextState) => {
+//   return {
+//     variableName: 'hej' /* your variable value */,
+//   };
+// };
 
-const gtm = GoogleTagManager();
+// const gtm = GoogleTagManager();
 
-const gtmMiddleware = createMiddleware(eventsMap, gtm, { logger });
+// const gtmMiddleware = createMiddleware(eventsMap, gtm, { logger });
 
 // redux-beacon code ends
 
@@ -80,7 +80,7 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducer,
   persistedState,
-  applyMiddleware(gtmMiddleware),
+  // applyMiddleware(gtmMiddleware),
   composeEnhancer(applyMiddleware(thunk))
 );
 
