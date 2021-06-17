@@ -146,7 +146,11 @@ export const ProductPage = () => {
             aria-label='beställknapp'
             type='button'
             disabled={product.inventory === 0}
-            onClick={() => dispatch(cart.actions.addItem(product))}
+            onClick={
+              () => dispatch(cart.actions.addItem(product)), 
+              // Added Plausible custom event on button click
+              plausible('AddItemToCart', {callback: addItem})
+            }
           >
             Beställ
           </Button>

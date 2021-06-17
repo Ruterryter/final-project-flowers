@@ -15,12 +15,18 @@
 
       gtag('config', 'G-ENE2FRVWZZ');
     </script>
-
+    <!-- Plausible Analytics base script -->
     <script
       defer 
       data-domain="festive-mahavira-5417c2.netlify.app" 
       src="https://plausible.io/js/plausible.js"
     ></script>
+    <!-- Plausible Analytics custom events script -->
+    <script>
+      window.plausible = window.plausible || function() { 
+        (window.plausible.q = window.plausible.q || []).push(arguments) 
+      }
+    </script>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
