@@ -24,12 +24,12 @@ import { NavBar } from 'components/Navbar';
 import { Banner } from 'components/Banner';
 import { Footer } from 'components/Footer';
 
-import GoogleTagManager, {
-  trackPageView,
-} from '@redux-beacon/google-tag-manager';
-import logger from '@redux-beacon/logger';
-import { LOCATION_CHANGE } from 'react-router-redux';
-import { createMiddleware, createMetaReducer } from 'redux-beacon';
+//import GoogleTagManager, {
+//  trackPageView,
+//} from '@redux-beacon/google-tag-manager';
+//import logger from '@redux-beacon/logger';
+//import { LOCATION_CHANGE } from 'react-router-redux';
+//import { createMiddleware, createMetaReducer } from 'redux-beacon';
 
 // redux-beacon google tag manger code
 
