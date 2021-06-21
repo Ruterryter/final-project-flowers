@@ -112,10 +112,6 @@ const StyledLink = styled(Link)`
 `;
 
 export const About = () => {
-  window.dataLayer.push({
-    /* prettier-ignore */
-    dataLayer: {'pageTitle': 'About'},
-  });
   return (
     <>
       <CardWrapper>

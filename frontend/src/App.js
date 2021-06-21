@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { LOCATION_CHANGE } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import {
@@ -23,45 +24,42 @@ import { ProductPage } from 'Pages/ProductPage.js';
 import { NavBar } from 'components/Navbar';
 import { Banner } from 'components/Banner';
 import { Footer } from 'components/Footer';
+import GoogleAnalyticsGtag, {
+  trackPageView,
+} from '@redux-beacon/google-analytics-gtag';
+import { createMiddleware } from 'redux-beacon';
 
-//import GoogleTagManager, {
-//  trackPageView,
-//} from '@redux-beacon/google-tag-manager';
-//import logger from '@redux-beacon/logger';
-//import { LOCATION_CHANGE } from 'react-router-redux';
-//import { createMiddleware, createMetaReducer } from 'redux-beacon';
+// import logger from '@redux-beacon/logger'; // optional
 
-// redux-beacon google tag manger code
+// Beacon code
+// Create or import an events map.
+const eventsMap = {
+  [LOCATION_CHANGE]: trackPageView((action) => ({
+    page: action.payload.pathname,
+  })),
+};
 
-// const eventsMap = {
-//   [LOCATION_CHANGE]: trackPageView((action) => ({
-//     page: action.payload.pathname,
-//   })),
-// };
+// See "getting started" pages for instructions.
 
-// const event = (action, prevState, nextState) => {
-//   return {
-//     event: pageview,
-//     /* add any additional key/value pairs below */
-//   };
-// };
+const pageView = trackPageView((action, prevState, nextState) => {
+  return {
+    title: 'pageView',
+    // location: /* (optional) */,
+    // path: /* (optional) */,
+    // fieldsObject: { /* (optional) */
+    //   [ /* dimension | metric */]: /* value */,
+    // },
+  };
+});
 
-// const pageview = (action) => ({
-//   hitType: 'pageview',
-//   page: action.payload.pathname,
-// });
+const trackingId = 'G-ENE2FRVWZZ';
+const ga = GoogleAnalyticsGtag(trackingId);
 
-// const variable = (action, prevState, nextState) => {
-//   return {
-//     variableName: 'hej' /* your variable value */,
-//   };
-// };
+const gaMiddleware = createMiddleware(eventsMap, ga);
 
-// const gtm = GoogleTagManager();
+// apply the middleware?
 
-// const gtmMiddleware = createMiddleware(eventsMap, gtm, { logger });
-
-// redux-beacon code ends
+// Beacon ends
 
 const AppWrapper = styled.div``;
 
@@ -80,8 +78,7 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducer,
   persistedState,
-  // applyMiddleware(gtmMiddleware),
-  composeEnhancer(applyMiddleware(thunk))
+  composeEnhancer(applyMiddleware(thunk, gaMiddleware))
 );
 
 // Tell the store to persist the state in localstorage after every action
