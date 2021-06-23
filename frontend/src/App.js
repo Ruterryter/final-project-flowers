@@ -26,38 +26,27 @@ import { Banner } from 'components/Banner';
 import { Footer } from 'components/Footer';
 import GoogleAnalyticsGtag, {
   trackPageView,
+  trackEvent,
 } from '@redux-beacon/google-analytics-gtag';
 import { createMiddleware } from 'redux-beacon';
+import logger from '@redux-beacon/logger'; // optional
 
-// import logger from '@redux-beacon/logger'; // optional
+// Beacon code tracks all redux events
 
-// Beacon code
-// Create or import an events map.
 const eventsMap = {
   [LOCATION_CHANGE]: trackPageView((action) => ({
     page: action.payload.pathname,
   })),
+  '*': trackEvent((action) => ({
+    category: 'redux',
+    action: action.type,
+  })),
 };
-
-// See "getting started" pages for instructions.
-
-const pageView = trackPageView((action, prevState, nextState) => {
-  return {
-    title: 'pageView',
-    // location: /* (optional) */,
-    // path: /* (optional) */,
-    // fieldsObject: { /* (optional) */
-    //   [ /* dimension | metric */]: /* value */,
-    // },
-  };
-});
 
 const trackingId = 'G-ENE2FRVWZZ';
 const ga = GoogleAnalyticsGtag(trackingId);
 
-const gaMiddleware = createMiddleware(eventsMap, ga);
-
-// apply the middleware?
+const gaMiddleware = createMiddleware(eventsMap, ga, { logger });
 
 // Beacon ends
 
