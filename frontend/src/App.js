@@ -30,6 +30,8 @@ import GoogleAnalyticsGtag, {
 } from '@redux-beacon/google-analytics-gtag';
 import { createMiddleware } from 'redux-beacon';
 import logger from '@redux-beacon/logger'; // optional
+import MatomoTagManager from 'redux-beacon-matomo-tag-manager';
+
 
 // Beacon code tracks all redux events
 
@@ -50,6 +52,25 @@ const gaMiddleware = createMiddleware(eventsMap, ga, { logger });
 
 // Beacon ends
 
+// MATOMO TAG MANAGER CODE
+const ACTION_TYPE = 'ACTION_TYPE'
+
+// Set up which actions should trigger which events or variables (but this is already set up in the GTM code)
+/*const eventsMap = {
+  '*': trackEvent(action => ({
+    category: 'redux',
+    action: action.type,
+  })),
+}*/
+
+// Create the middleware
+const matomoTagManager = MatomoTagManager()
+const matomoTagManagerMiddleware = createMiddleware(eventsMap, matomoTagManager)
+
+//const store = createStore((state = {}) => state, applyMiddleware(matomoTagManagerMiddleware))
+
+// END OF MATOMO TAG MANAGER CODE
+
 const AppWrapper = styled.div``;
 
 const reducer = combineReducers({
@@ -67,13 +88,18 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducer,
   persistedState,
-  composeEnhancer(applyMiddleware(thunk, gaMiddleware))
+  composeEnhancer(applyMiddleware(thunk, gaMiddleware, matomoTagManagerMiddleware))
 );
 
 // Tell the store to persist the state in localstorage after every action
 store.subscribe(() => {
   localStorage.setItem('reduxState', JSON.stringify(store.getState()));
 });
+
+// When you dispatch an action, the middleware will trigger the event
+store.dispatch({
+  type: ACTION_TYPE
+})
 
 export const App = () => {
   return (
