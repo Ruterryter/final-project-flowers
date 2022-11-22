@@ -12,7 +12,7 @@
     "@redux-beacon/google-analytics-gtag": "^1.1.0",
     "@redux-beacon/google-tag-manager": "^1.0.1",
     "@redux-beacon/logger": "^1.0.0",
-    "@reduxjs/toolkit": "^1.4.0",
+    "@reduxjs/toolkit": "^1.9.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.1",
     "eslint-config-airbnb": "^18.2.0",
